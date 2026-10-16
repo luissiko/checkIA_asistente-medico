@@ -1,0 +1,98 @@
+CHECKIA - PUBLICACION BETA: FIREBASE HOSTING + CLOUD RUN
+Firestore almacena consultas. Firebase Hosting publica la interfaz. Cloud Run ejecuta el backend y consulta Firestore y OpenAI. Despues del despliegue no necesitas mantener encendida tu computadora.
+Esta guia prepara una beta accesible con inicio de sesion; no convierte el sistema en un servicio clinicamente validado. El sitio y su URL aun no estan publicados por este actualizador.
+FASE 1. VERIFICACION LOCAL
+Aplica CHECKIA_PASO_21.ps1 con los servicios detenidos. Desde backend ejecuta npm test (121 pruebas) y node scripts/check-cloud.mjs. Si falta el indice o no coincide con el corpus, ejecuta node scripts/build-rag-index.mjs --rebuild --confirm-cost; genera cargo por embeddings. Repite check-cloud.mjs.
+Desde frontend ejecuta npm run build. Comprueba localmente inicio de sesion, entrevista, orientacion, alerta roja y permisos de administrador. El frontend usa /api en la misma direccion; no debes poner 127.0.0.1 en una variable de produccion.
+FASE 2. HERRAMIENTAS Y PROYECTO
+Usa una terminal PowerShell independiente y entra a la raiz:
+Set-Location "C:\Users\cancu\Documents\GitHub\checkIA"
+node --version
+gcloud --version
+firebase --version
+Si falta Firebase CLI: npm install -g firebase-tools
+Inicia sesion con la cuenta propietaria o una cuenta con permisos de despliegue:
+gcloud auth login
+gcloud config set project checkia-project
+firebase login
+La sesion gcloud auth login se usa para desplegar; application-default login se utiliza en desarrollo local. Cloud Run usara su propia cuenta de servicio. No subas el archivo de credenciales local.
+El plan Blaze ya esta activo. Cloud Run, builds, almacenamiento, Secret Manager, Firestore y OpenAI pueden generar cargos. Maximo de instancias limita escalado, no es un tope de gasto. Configura alertas de presupuesto en Facturacion.
+FASE 3. ELEGIR EL NOMBRE DE LA URL
+Lista los sitios existentes:
+firebase hosting:sites:list --project checkia-project
+Si checkia-project aparece, puedes usar https://checkia-project.web.app. No se cambia el projectId de Firebase ni la base de datos para elegir otro nombre de sitio.
+Para otro nombre, elige un SITE_ID unico, en minusculas, con numeros o guiones; por ejemplo checkia-beta-luis. Ese nombre es solo un ejemplo, no se comprobo disponibilidad.
+Si el sitio elegido no existe, crealo:
+firebase hosting:sites:create checkia-beta-luis --project checkia-project
+Si recibes que ya esta ocupado globalmente, elige otro nombre. Si ya existe en tu proyecto, usa el sitio listado y no lo crees de nuevo.
+Prepara la configuracion local para el sitio elegido:
+powershell -ExecutionPolicy Bypass -File .\CONFIGURAR_HOSTING.ps1 -SiteId "checkia-project"
+O reemplaza checkia-project por el sitio que acabas de crear. Esto escribe firebase.checkia.json, con respaldo si ya existia. El script no publica nada. Conserva cualquier firebase.json anterior.
+FASE 4. SERVICIOS Y CUENTAS DE GOOGLE CLOUD
+Desde la raiz ejecuta cada comando. Comprueba que termino bien antes de continuar:
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com firestore.googleapis.com identitytoolkit.googleapis.com --project checkia-project
+Crea una cuenta para el backend y otra para construir la imagen (solo la primera vez):
+gcloud iam service-accounts create checkia-runtime --display-name "CHECKIA runtime" --project checkia-project
+gcloud iam service-accounts create checkia-build --display-name "CHECKIA build" --project checkia-project
+Si una cuenta ya existe, reutilizala; no la borres. Asigna sus permisos:
+gcloud projects add-iam-policy-binding checkia-project --member "serviceAccount:checkia-runtime@checkia-project.iam.gserviceaccount.com" --role "roles/datastore.user" --condition=None
+gcloud projects add-iam-policy-binding checkia-project --member "serviceAccount:checkia-runtime@checkia-project.iam.gserviceaccount.com" --role "roles/firebaseauth.viewer" --condition=None
+gcloud projects add-iam-policy-binding checkia-project --member "serviceAccount:checkia-build@checkia-project.iam.gserviceaccount.com" --role "roles/run.builder" --condition=None
+La cuenta runtime necesita leer usuarios de Authentication para comprobar tokens revocados y acceso a Firestore para las sesiones. No recibe permiso para asignar administradores. La cuenta build solo se usa para la compilacion.
+Tu cuenta de despliegue necesita permisos para publicar Cloud Run y actuar como las cuentas seleccionadas. Si no eres propietario y aparece PERMISSION_DENIED, el administrador del proyecto debe revisar los roles indicados por Google Cloud; no concedas Owner a las cuentas de servicio.
+FASE 5. GUARDAR LA CLAVE EN SECRET MANAGER
+Abre https://console.cloud.google.com/security/secret-manager?project=checkia-project
+Crea un secreto llamado checkia-openai-api-key. En su valor pega unicamente la clave de OpenAI de tu backend, sin OPENAI_API_KEY= ni comillas. No pegues el contenido completo del archivo .env. Usa la replicacion automatica y guarda. La primera version normalmente es 1; comprueba el numero en la consola.
+Asigna acceso solo a ese secreto:
+gcloud secrets add-iam-policy-binding checkia-openai-api-key --member "serviceAccount:checkia-runtime@checkia-project.iam.gserviceaccount.com" --role "roles/secretmanager.secretAccessor" --project checkia-project
+Revisa deploy/cloud-run.env.yaml: contiene CHECKIA_LLM_ENABLED y OPENAI_MODEL, sin claves. Si usas otro modelo en tu .env, coloca el mismo nombre de modelo aqui. El valor preparado conserva gpt-6-sol.
+Nunca incluyas la clave en frontend, VITE_*, firebase.checkia.json o archivos publicos. .gcloudignore y Dockerfile solo incorporan codigo, dependencias y corpus/indice.
+FASE 6. DESPLEGAR EL BACKEND
+Desde la raiz del proyecto ejecuta este comando en una sola linea. Si la version del secreto no es 1, cambia :1 por la version que verificaste:
+gcloud run deploy checkia-api --source .\backend --region us-central1 --project checkia-project --service-account checkia-runtime@checkia-project.iam.gserviceaccount.com --build-service-account projects/checkia-project/serviceAccounts/checkia-build@checkia-project.iam.gserviceaccount.com --env-vars-file .\deploy\cloud-run.env.yaml --set-secrets "OPENAI_API_KEY=checkia-openai-api-key:1" --allow-unauthenticated --memory 512Mi --cpu 1 --concurrency 8 --max-instances 3 --min-instances 0 --timeout 60
+La opcion allow-unauthenticated permite que el trafico web llegue a Express. Las rutas de consultas siguen exigiendo el token de Firebase y verificando propietario; las administrativas exigen ademas admin=true. El endpoint health es publico. No supone abrir la base de datos.
+La region us-central1 es una opcion compatible con la conexion de Hosting. No se cambia la ubicacion de tu Firestore. Si eliges otra region admitida, usa la misma en CONFIGURAR_HOSTING.ps1 y en gcloud run deploy.
+El backend de nube escucha en 0.0.0.0 y el PORT proporcionado por Cloud Run. Obtiene credenciales mediante su cuenta de servicio. Si falta el indice RAG o su preparacion no es valida, falla al iniciar en lugar de publicar una orientacion mal configurada.
+Al finalizar copia Service URL y abre su ruta /api/health. Debe responder stage=21, step=21.1, rag.ready=true y llm.configured=true.
+Si falla el arranque, consulta Cloud Run -> checkia-api -> Registros. Para revisar desde terminal:
+gcloud run services logs read checkia-api --region us-central1 --project checkia-project --limit 30
+No compartas claves ni respuestas personales de registros. Los errores comunes son permiso a Firestore/Authentication, secreto sin acceso, dependencias o indice ausente.
+FASE 7. REGLAS DE FIRESTORE Y ACCESO WEB
+La arquitectura actual usa Firestore unicamente desde el backend con IAM. Revisa Firestore -> Reglas: las consultas y auditorias no deben estar abiertas al navegador. Se incluye deploy/firestore.rules como propuesta que bloquea todo acceso directo de clientes. Si este mismo proyecto tiene otras aplicaciones que consultan Firestore desde el navegador, revisa sus necesidades antes de sustituir reglas globales. El SDK Admin del backend no depende de esas reglas.
+En Firebase -> Authentication -> Configuracion -> Dominios autorizados agrega el host del sitio elegido si no aparece: por ejemplo checkia-project.web.app y checkia-project.firebaseapp.com. Para otro SiteId agrega sus dominios. Escribe solamente el dominio, sin https:// ni rutas. Conserva Google y Correo/Contrasena como proveedores activos.
+Se mantiene el firebaseConfig que ya tienes. No hace falta crear otro proyecto o base de datos para publicar la web.
+FASE 8. DESPLEGAR EL FRONTEND
+Desde la raiz compila:
+Set-Location .\frontend
+npm run build
+Si la compilacion termino bien:
+Set-Location ..
+firebase deploy --only hosting --config firebase.checkia.json --project checkia-project
+Usa siempre --config firebase.checkia.json: es el archivo preparado que envia /api/** a Cloud Run antes de resolver las paginas de React.
+Firebase mostrara la URL real del sitio. Abrela desde computadora y celular usando internet. No uses la direccion 127.0.0.1 en el celular. Puedes apagar los servidores locales despues del despliegue.
+La URL prevista para SiteId checkia-project es https://checkia-project.web.app. Solo estara disponible cuando el sitio exista y la publicacion termine correctamente. Un dominio propio se configura despues en Hosting -> Agregar dominio personalizado y requiere que controles ese dominio.
+FASE 9. PRUEBA DESDE OTRO DISPOSITIVO
+1. Abrir la URL HTTPS e iniciar sesion con la misma cuenta para recuperar sus consultas.
+2. Crear una entrevista ficticia y comprobar Guardar respuesta con el boton y Enter cuando el teclado lo permita.
+3. Volver a abrir la consulta desde otro dispositivo con esa misma cuenta y confirmar su historial.
+4. Entrar con otra cuenta y comprobar que no vea consultas ajenas ni el panel de administrador.
+5. Comprobar el panel con la cuenta administradora, descargar una prueba y revisar fuentes clicables.
+6. Probar la alerta con un caso ficticio. El bloque rojo y el enlace tel:911 deben mantenerse; no realices llamadas de prueba.
+7. Verificar /api/health desde la direccion del Hosting. Si devuelve HTML en vez de JSON, revisar que la regla /api/** este antes de la regla ** y que use el servicio/region correctos.
+La autenticacion conserva la persistencia en memoria de la version actual. Recargar una pagina puede pedir iniciar sesion de nuevo; los datos de la consulta siguen en Firestore.
+TIEMPO DE RESPUESTA
+Hosting limita a 60 segundos la solicitud al backend. En nube se usan limites de 7 segundos para embeddings y 35 para LLM, dejando margen para almacenamiento y red. No garantizan terminar siempre antes del limite: tambien influyen arranque en frio, red y Firestore. Si ocurre un timeout, recarga la consulta antes de intentar generar otra vez; puede existir un resultado guardado.
+Si las generaciones reales requieren mas tiempo, el siguiente ajuste sera generar en segundo plano con una cola y consultar el progreso desde la interfaz. Aumentar solamente --timeout de Cloud Run no elimina el limite de Hosting. Minimo de instancias 0 puede producir arranques en frio; cambiar a 1 puede reducirlos con costo recurrente.
+ACTUALIZACIONES POSTERIORES
+Solo cambios de interfaz: npm run build en frontend y firebase deploy con el archivo de configuracion indicado.
+Cambios del backend o corpus/indice: reconstruye y verifica el indice cuando corresponda, repite gcloud run deploy y despues firebase deploy para actualizar el destino fijado con pinTag. La imagen contiene una copia del corpus y el indice; editarlos en tu PC no modifica lo que ya esta desplegado.
+Cambios de clave: crea una nueva version del secreto y despliega indicando su numero. No se escribe en la interfaz.
+REFERENCIAS
+https://firebase.google.com/docs/hosting/cloud-run
+https://firebase.google.com/docs/hosting/multisites
+https://firebase.google.com/docs/hosting/custom-domain
+https://docs.cloud.google.com/run/docs/configuring/services/secrets
+https://docs.cloud.google.com/run/docs/configuring/services/build-service-account
+https://docs.cloud.google.com/run/docs/container-contract
+https://docs.cloud.google.com/iam/docs/roles-permissions/firebaseauth
+https://docs.cloud.google.com/iam/docs/roles-permissions/firestore

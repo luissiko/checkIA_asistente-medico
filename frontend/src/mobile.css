@@ -1,0 +1,134 @@
+/* CHECKIA paso 22: prioridad a lectura y escritura en móvil. */
+.workspace,.login-page{max-width:1140px;padding-top:14px}
+.topbar{padding-bottom:10px;margin-bottom:12px;gap:10px}
+.topbar h1{font-size:1.3rem;line-height:1.1;letter-spacing:-.04em;margin:0}
+.topbar .eyebrow{font-size:.6rem;letter-spacing:.12em;margin:0 0 3px}
+.account{gap:6px;align-items:flex-end}.account span{font-size:.68rem;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.account button{font-size:.72rem;padding:6px 9px;min-height:40px;border-radius:9px}
+button.secondary{background:rgba(217,235,250,.38);border:1px solid rgba(76,124,166,.23);color:#1a4e76;box-shadow:none}
+button:not(.secondary):not(.danger){background:rgba(19,100,158,.88)}
+button.danger{background:rgba(255,245,246,.55)}
+button:hover:not(:disabled){filter:brightness(.96)}
+button:focus-visible,summary:focus-visible{outline:3px solid #377eaf;outline-offset:2px}
+.layout{gap:14px}.panel{border-radius:14px}.consultation{padding:16px 18px}.controls{padding:16px}
+.controls h2{font-size:1rem}.controls p{font-size:.8rem}.controls>button{font-size:.84rem;min-height:40px;padding:8px 12px}
+.admin-nav{margin-bottom:10px}.admin-nav button{font-size:.76rem;min-height:40px;padding:7px 10px}
+.account-settings{margin:18px 0 4px;padding:8px 12px;font-size:.75rem}.account-settings button{font-size:.72rem;min-height:40px}
+.compact-heading{align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.consultation-title{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.consultation-title h2{font-size:1rem;line-height:1.25;margin:0}
+.consultation-title .session-id{font-size:.67rem;margin:0;color:#526b80}
+.compact-heading .reload-messages{font-size:.68rem;min-height:40px;padding:6px 9px;margin-left:auto;border-radius:9px;width:auto}
+.consultation .welcome.welcome-compact{font-size:.85rem;line-height:1.35;padding:9px 10px;gap:8px;margin:8px 0}
+.welcome-compact .health-mark{font-size:1rem}.welcome-compact svg{width:24px;height:24px}.welcome-compact .health-plus{font-size:1.2rem}
+.question-card,.question-card.alarm-question-compact{padding:13px 14px;margin:12px 0;border-radius:12px;position:relative}
+.question-card>.eyebrow{font-size:.64rem;letter-spacing:.07em;margin:0 0 7px}
+.question-card>h3,.question-card.alarm-question-compact>h3{font-size:1rem;font-weight:600;line-height:1.35;margin:0 0 12px;max-width:none}
+.question-card.alarm-question-compact>h3{color:#a6192e;font-size:.9rem;line-height:1.3}
+.question-card label{font-size:.8rem;margin:0 0 5px}
+.question-card textarea{font-size:16px;line-height:1.4;min-height:72px;max-height:30svh;padding:9px 11px;resize:vertical;border-radius:10px}
+.answer-footer{justify-content:flex-end;margin-top:8px;gap:6px}
+.answer-footer button{font-size:.8rem;min-height:40px;padding:7px 14px;width:auto!important;border-radius:10px}
+.completion-state{font-size:.8rem;margin:12px 0;color:#365e7c}
+.progress{margin:10px 0 14px;gap:7px}.progress span{font-size:.7rem}
+.consultation-summary.compact-summary{padding:11px 12px;margin:12px 0;border-radius:11px}
+.consultation-summary.compact-summary>summary{font-size:.86rem;line-height:1.35}
+.compact-summary section{margin-top:10px}.compact-summary h3{font-size:.8rem;line-height:1.3;margin:8px 0 4px}
+.compact-summary .summary-field{display:flex;flex-direction:row;align-items:flex-start;gap:8px;padding:7px 0;font-size:.8rem;line-height:1.4}
+.compact-summary .summary-field>div{min-width:0;flex:1}.compact-summary .summary-field>button{width:auto;flex:0 0 auto;font-size:.68rem;min-height:40px;max-width:75px;padding:5px 8px;border-radius:8px}
+.compact-summary .summary-field p{margin:3px 0}.compact-summary .summary-detail{font-size:.76rem;padding-left:7px;line-height:1.4}
+.compact-summary .small{font-size:.7rem}.compact-summary .notice{font-size:.8rem;padding:9px}
+.technical{padding:10px 12px;margin:12px 0;font-size:.8rem;border-radius:11px}
+.technical>summary{font-size:.84rem;line-height:1.4}.technical p{margin:5px 0;line-height:1.4}.technical .small{font-size:.72rem}.technical>div{padding-top:5px;margin-top:7px}
+.technical label,.technical select,.technical button{font-size:.8rem}.technical textarea{font-size:16px}
+.conversation-history{margin:14px 0;border:1px solid #d2e2ee;border-radius:11px;padding:10px 12px}
+.conversation-history>summary{font-weight:650;font-size:.82rem;color:#285777;cursor:pointer;min-height:32px;display:list-item;align-content:center}
+.conversation-history .transcript{gap:8px;margin:8px 0 0}.conversation-history .bubble{padding:8px 10px;max-width:96%;border-radius:10px}.conversation-history .bubble p{font-size:.84rem;line-height:1.45;margin-top:3px}.conversation-history .speaker{font-size:.65rem}
+.consultation-actions{gap:8px;margin-top:14px;padding-top:12px;flex-direction:row;justify-content:space-between}
+.consultation-actions button{width:auto;font-size:.73rem;padding:7px 10px;min-height:40px;border-radius:9px}
+.orientation-panel{padding:14px;margin:14px 0}.orientation-panel h3{font-size:1rem}.orientation-panel h4{font-size:.9rem;margin:12px 0 5px}.orientation-panel p,.orientation-panel li{font-size:.88rem;line-height:1.5}.orientation-panel button{font-size:.8rem;min-height:40px;padding:8px 12px}
+.login-card{max-width:400px;padding:22px 24px;margin:14px auto}.login-card h2{font-size:1.2rem;margin-bottom:8px}.login-card p,.login-card label{font-size:.82rem}.login-card label{margin-top:10px}.login-card input{font-size:16px;min-height:42px;padding:8px 10px}.login-card button,.login-card .auth-options button{min-height:40px;font-size:.78rem;padding:8px 10px}.login-card form>button{margin-top:14px}.login-card .auth-options{gap:6px;margin-top:10px}.login-card .divider{margin:14px 0;font-size:.75rem}
+.finish-writing,.inline-answer-error{display:none}
+@media(max-width:900px){
+ .workspace,.login-page{padding:10px 10px 18px}.layout{gap:10px}.account{max-width:50%;flex-direction:column;gap:0}.account span{max-width:100%;font-size:.65rem}.account button{min-height:40px}
+ .controls.has-session{padding:10px;gap:8px}.consultation{padding:12px}.empty-state{padding:26px 8px}.empty-state h2{font-size:1.1rem}.empty-state p{font-size:.85rem}
+ .answer-footer{flex-direction:row}.answer-footer button{width:auto}.question-card>h3{font-size:.96rem}
+ .compact-summary .summary-field{flex-direction:row}.compact-summary .summary-field>button{width:auto}
+ /* The visual viewport follows the visible area above the software keyboard. */
+ body.answer-focus .question-card{position:fixed;top:var(--visible-top,0px);left:0;right:0;height:var(--visible-height,100dvh);max-height:var(--visible-height,100dvh);margin:0;padding:12px 12px max(10px,env(safe-area-inset-bottom));z-index:50;display:flex;flex-direction:column;background:#f5f9ff;border-radius:0;overflow:hidden;border:0;box-shadow:0 0 0 100vmax #f5f9ff}
+ body.answer-focus .question-card>.eyebrow{padding-right:65px;min-height:30px;margin-bottom:4px;display:flex;align-items:center;flex-shrink:0}
+ body.answer-focus .question-card>h3{flex:0 1 auto;min-height:28px;max-height:42%;overflow:auto;overscroll-behavior:contain;margin:0 0 8px;font-size:.96rem;line-height:1.3}
+ body.answer-focus .question-card.alarm-question-compact>h3{font-size:.86rem}
+ body.answer-focus .question-card>form{min-height:0;flex:1;display:flex;flex-direction:column}
+ body.answer-focus .question-card textarea{height:auto!important;min-height:48px;max-height:none;flex:1;resize:none;font-size:16px}
+ body.answer-focus .answer-footer{flex:0 0 auto;position:sticky;bottom:0;background:#f5f9ff;padding-top:4px;margin-top:6px;justify-content:flex-end}
+ body.answer-focus .answer-footer button{min-height:40px}
+ body.answer-focus .finish-writing{display:block;position:absolute;top:8px;right:10px;font-size:.75rem;padding:5px 10px;min-height:36px}
+ body.answer-focus .inline-answer-error{display:block;flex:0 0 auto;color:#a6192e;font-size:.8rem;margin:4px 0;max-height:50px;overflow:auto}
+ body.answer-focus .question-card>.notice{max-height:18%;overflow:auto;font-size:.8rem;padding:7px;margin:4px 0 8px}
+ body.answer-focus .busy-status{z-index:60;bottom:auto;top:calc(var(--visible-top,0px) + 4px);font-size:.7rem;padding:5px 10px}
+}
+
+.compact-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}.compact-heading .reload-messages{max-width:100px;font-size:.65rem;line-height:1.2}.compact-heading .consultation-title{min-width:0}.compact-heading .consultation-title h2{font-size:.95rem}
+
+/* Paso 22.2: controles y desplegables mas compactos. */
+.account button{font-size:.67rem;padding:4px 7px;min-height:36px}
+.admin-nav button{font-size:.7rem;padding:5px 8px;min-height:36px}
+.controls>button,.controls.has-session>button{font-size:.75rem;padding:5px 9px;min-height:36px}
+.consultation-library>summary{font-size:.74rem;line-height:1.25;padding:4px 0;min-height:36px;align-content:center}
+.consultation-library button,.consultation-library label,.consultation-library select{font-size:.75rem}
+.orientation-panel .check-current-signals{font-size:.72rem;min-height:36px;padding:6px 9px;width:auto}
+.consultation-summary.compact-summary,.technical,.conversation-history{padding:7px 10px;margin:9px 0}
+.consultation-summary.compact-summary>summary,.technical>summary,.conversation-history>summary{font-size:.75rem;line-height:1.3;min-height:36px;align-content:center}
+
+/* Paso 22.3: espacios compactos sin alterar los accesos de emergencia. */
+.consultation.no-selected-consultation{display:none}
+.workspace .admin-nav button,.workspace .controls>button,.workspace .consultation-library>summary{font-size:.70rem!important;padding:4px 6px!important;min-height:32px!important;line-height:1.25}
+.question-card.alarm-question-compact>h3{font-size:.8rem!important;line-height:1.35!important}
+.question-card.alarm-question-compact textarea#answer{height:56px!important;min-height:48px!important;max-height:70px!important;flex:0 0 auto!important}
+.question-card.alarm-question-compact form{justify-content:flex-start}
+body.answer-focus .question-card.alarm-question-compact>h3{max-height:none;flex:1 1 auto;min-height:0;overflow:auto}
+body.answer-focus .question-card.alarm-question-compact form{flex:0 0 auto}
+.emergency-help{font-size:.875rem;line-height:1.4}
+.emergency-help h3{font-size:1rem!important;line-height:1.35!important;margin:8px 0!important}
+.emergency-help p,.emergency-help label{font-size:.875rem!important}
+.consultation-footer{display:flex;justify-content:flex-end;margin:12px 0 0}
+.consultation-footer .reload-messages{font-size:.72rem;min-height:36px;padding:6px 10px}
+.orientation-attribution{font-size:.75rem;line-height:1.35;margin-top:16px;padding-top:8px;border-top:1px solid #ccdbea;color:#465a6b}
+.orientation-attribution p{font-size:inherit!important;margin:4px 0!important}
+/* Paso 22.4: controles primero, navegación debajo y espera por operación. */
+.controls-column{min-width:0;align-self:start}
+.controls-column>.admin-nav{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:6px;margin:10px 0 14px}
+.closed-consultation-heading{padding:8px 0;margin:0 0 10px}
+.closed-consultation-heading h2{font-size:.95rem;margin:0}
+.consultation .compact-summary>summary,.consultation #answers-corrections>summary{font-size:.70rem!important;padding:5px 7px!important;min-height:32px!important;line-height:1.3!important}
+.consultation .consultation-actions button{font-size:.70rem!important;padding:5px 7px!important;min-height:32px!important;line-height:1.3!important}
+.orientation-panel .orientation-consent{margin:0 0 12px;align-items:flex-start}
+.operation-error{font-size:.8rem;line-height:1.4;color:#a6192e;margin:8px 0}
+/* Paso 22.5: escritorio delimitado y centrado; sin animaciones de espera. */
+.request-status{font-size:.8rem;line-height:1.4;margin:8px 0;color:#205e91;text-align:center}
+.workspace{width:100%;max-width:1180px;margin-inline:auto}
+.workspace .layout{display:grid;grid-template-columns:minmax(0,1fr);width:100%;min-width:0;align-items:start}
+.workspace .layout>*{min-width:0;max-width:100%}
+.workspace .controls-column{width:100%;min-width:0;max-width:100%}
+.workspace .controls-column>.controls{position:static;max-width:100%;width:100%;margin:0}
+.workspace .consultation{width:100%;max-width:100%;min-width:0;margin:0}
+.workspace .question-card,.workspace .orientation-panel,.workspace .consultation-summary,.workspace .technical{width:100%;max-width:100%;min-width:0}
+.workspace .closed-consultation-heading{width:100%;max-width:100%}
+.workspace .layout.waiting-consultation{grid-template-columns:minmax(0,1fr)}
+.workspace .layout.waiting-consultation>.controls-column{width:min(100%,560px);justify-self:center}
+@media(min-width:901px){
+ .workspace .layout.has-content{grid-template-columns:minmax(220px,260px) minmax(0,1fr);gap:20px}
+ .workspace .layout.has-content>.controls-column{position:sticky;top:14px;align-self:start}
+ .workspace .controls-column>.controls{display:block;padding:16px}
+ .workspace .controls-column>.controls>button{width:100%}
+ .workspace .controls-column>.admin-nav{display:flex;flex-direction:column;gap:7px;width:100%}
+ .workspace .controls-column>.admin-nav>button{width:100%;flex:none}
+ .workspace .consultation{padding:18px 20px}
+ .workspace .question-card{margin:14px 0;padding:16px 18px}
+ .workspace .question-card>h3{max-width:none;font-size:1rem;line-height:1.45}
+ .workspace .question-card textarea{width:100%;min-height:96px;max-height:260px}
+ .workspace .question-card.alarm-question-compact textarea#answer{min-height:48px}
+ .workspace .consultation-actions{display:flex;flex-wrap:wrap;gap:8px}
+}
+@media(max-width:900px){.workspace .layout.has-content{grid-template-columns:minmax(0,1fr)}.workspace .controls-column{position:static}.workspace .controls-column>.admin-nav{flex-direction:row}}

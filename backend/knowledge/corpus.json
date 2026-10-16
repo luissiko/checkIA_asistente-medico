@@ -1,0 +1,648 @@
+{
+  "schemaVersion": 2,
+  "version": "checkia-beta-20-20261014",
+  "scope": "Resúmenes editoriales informativos. Sin validación diagnóstica ni de triaje. La comprobación de acceso no equivale a revisión clínica.",
+  "sources": [
+    {
+      "id": "cenetec",
+      "name": "CENETEC",
+      "url": "https://www.cenetec-difusion.com/CMGPC/",
+      "note": "Documento identificado; acceso automatizado bloqueado; vigencia pendiente"
+    },
+    {
+      "id": "imss",
+      "name": "IMSS",
+      "url": "https://www.imss.gob.mx/guias_practicaclinica",
+      "note": "Guía de 2016 identificada; actualización pendiente de verificar"
+    },
+    {
+      "id": "medline",
+      "name": "MedlinePlus / NLM",
+      "url": "https://medlineplus.gov/spanish/",
+      "note": "Resúmenes beta incorporados"
+    },
+    {
+      "id": "niddk",
+      "name": "NIDDK / NIH",
+      "url": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud",
+      "note": "Resúmenes beta incorporados"
+    },
+    {
+      "id": "who",
+      "name": "Organización Mundial de la Salud",
+      "url": "https://www.who.int/publications/who-guidelines",
+      "note": "Ficha informativa incorporada; no se importó una guía completa"
+    },
+    {
+      "id": "nhs",
+      "name": "NHS",
+      "url": "https://www.nhs.uk/symptoms/headaches/",
+      "note": "Resumen beta traducido"
+    },
+    {
+      "id": "nice",
+      "name": "NICE",
+      "url": "https://www.nice.org.uk/guidance/cg150/chapter/recommendations",
+      "note": "Resumen beta traducido; recomendaciones 1.1.1 a 1.1.4"
+    },
+    {
+      "id": "cdc",
+      "name": "CDC",
+      "url": "https://www.cdc.gov/diabetes/es/signs-symptoms/sintomas-de-la-diabetes.html",
+      "note": "Resumen beta incorporado"
+    },
+    {
+      "id": "paho",
+      "name": "Organización Panamericana de la Salud",
+      "url": "https://www.paho.org/es/temas/diabetes",
+      "note": "Resumen beta incorporado; no es evidencia independiente de OMS"
+    },
+    {
+      "id": "healthdirect",
+      "name": "Healthdirect Australia",
+      "url": "https://www.healthdirect.gov.au/symptoms/aches-and-pains/headaches",
+      "note": "Resumen beta traducido; contenido recuperado del JSON de la página"
+    }
+  ],
+  "topics": [
+    {
+      "id": "headache",
+      "title": "Dolor de cabeza",
+      "aliases": [
+        "cabeza",
+        "cefalea",
+        "migraña"
+      ]
+    },
+    {
+      "id": "abdominal",
+      "title": "Molestias abdominales",
+      "aliases": [
+        "abdomen",
+        "abdominal",
+        "estómago",
+        "vientre",
+        "panza",
+        "barriga"
+      ]
+    },
+    {
+      "id": "dizziness",
+      "title": "Mareo y vértigo",
+      "aliases": [
+        "mareo",
+        "mareos",
+        "mareado",
+        "mareada",
+        "vértigo",
+        "inestabilidad"
+      ]
+    },
+    {
+      "id": "food_allergy",
+      "title": "Alergia alimentaria",
+      "aliases": [
+        "cacahuate",
+        "cacahuates",
+        "maní",
+        "mariscos",
+        "camarón",
+        "camarones",
+        "alergia alimentaria",
+        "alergia a los alimentos"
+      ]
+    },
+    {
+      "id": "diabetes",
+      "title": "Información sobre diabetes",
+      "aliases": [
+        "diabetes",
+        "mucha sed",
+        "mucha hambre",
+        "orino mucho",
+        "orinar mucho",
+        "visión borrosa",
+        "pérdida de peso",
+        "glucosa"
+      ]
+    },
+    {
+      "id": "dehydration",
+      "title": "Información sobre deshidratación",
+      "aliases": [
+        "deshidratación",
+        "boca seca",
+        "orina oscura",
+        "orino poco"
+      ]
+    },
+    {
+      "id": "diarrhea",
+      "title": "Diarrea",
+      "aliases": [
+        "diarrea",
+        "evacuaciones líquidas",
+        "heces líquidas"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "id": "mp-headache",
+      "topic": "headache",
+      "title": "Dolor de cabeza",
+      "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/headache.html",
+      "sourceUpdatedAt": "2022-03-14",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "chunks": [
+        {
+          "id": "mp-headache-context",
+          "section": "Introducción: contexto",
+          "text": "El dolor de cabeza puede presentarse de distintas maneras. La página describe varios tipos de cefalea; por eso, decir únicamente que duele la cabeza no identifica una causa. Esta información general no permite asignar un tipo de dolor de cabeza a una persona.",
+          "kind": "context",
+          "locator": "Introducción: contexto"
+        },
+        {
+          "id": "mp-headache-warning",
+          "section": "Introducción: señales que requieren ayuda",
+          "text": "La fuente señala que un dolor de cabeza repentino y muy intenso necesita atención médica. También indica buscar ayuda inmediata cuando aparece después de un golpe o junto con fiebre, rigidez de cuello, confusión o pérdida de conocimiento. La ausencia de estas señales no garantiza que el problema sea leve.",
+          "kind": "warning",
+          "locator": "Introducción: señales que requieren ayuda"
+        }
+      ],
+      "sourceId": "medline",
+      "version": "beta-20261014",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción y apartados indicados",
+      "reuseNote": "Paráfrasis breve propia; no incluye imágenes ni artículos completos de terceros."
+    },
+    {
+      "id": "mp-abdominal",
+      "topic": "abdominal",
+      "title": "Dolor abdominal",
+      "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/abdominalpain.html",
+      "sourceUpdatedAt": "2025-04-14",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "chunks": [
+        {
+          "id": "mp-abdominal-context",
+          "section": "Introducción: ubicación e intensidad",
+          "text": "El abdomen incluye la región entre el pecho y la ingle y contiene distintos órganos. Estómago es un nombre que a veces se usa para toda esa zona. La intensidad del dolor, por sí sola, no determina la gravedad: un dolor leve también puede acompañar un problema importante.",
+          "kind": "context",
+          "locator": "Introducción: ubicación e intensidad"
+        },
+        {
+          "id": "mp-abdominal-warning",
+          "section": "Introducción: señales que requieren ayuda",
+          "text": "La fuente indica buscar ayuda médica inmediata ante dolor abdominal repentino e intenso, vómito con sangre, sangre en las evacuaciones o un abdomen duro y sensible al tacto. También menciona dolor acompañado de molestias en el pecho, cuello u hombro. Esta lista no permite descartar otras emergencias.",
+          "kind": "warning",
+          "locator": "Introducción: señales que requieren ayuda"
+        }
+      ],
+      "sourceId": "medline",
+      "version": "beta-20261014",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción y apartados indicados",
+      "reuseNote": "Paráfrasis breve propia; no incluye imágenes ni artículos completos de terceros."
+    },
+    {
+      "id": "mp-dizziness",
+      "topic": "dizziness",
+      "title": "Mareo y vértigo",
+      "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/dizzinessandvertigo.html",
+      "sourceUpdatedAt": "2026-09-01",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "chunks": [
+        {
+          "id": "mp-dizziness-description",
+          "section": "Introducción: descripción de las sensaciones",
+          "text": "Mareo y vértigo no significan exactamente lo mismo. Mareo puede describir aturdimiento o inestabilidad; vértigo describe la sensación de que uno mismo o el entorno gira. Explicar qué sensación ocurre ayuda a describir el síntoma, pero no confirma su causa.",
+          "kind": "context",
+          "locator": "Introducción: descripción de las sensaciones"
+        },
+        {
+          "id": "mp-dizziness-evaluation",
+          "section": "Evaluación y señales que requieren ayuda",
+          "text": "La evaluación profesional del mareo incluye preguntas sobre síntomas y medicamentos, y puede incluir revisión del equilibrio y la marcha. La fuente indica atención de emergencia ante mareo o vértigo repentino o intenso acompañado de dificultad para hablar, problemas de visión o debilidad.",
+          "kind": "context",
+          "locator": "Evaluación y señales que requieren ayuda"
+        }
+      ],
+      "sourceId": "medline",
+      "version": "beta-20261014",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción y apartados indicados",
+      "reuseNote": "Paráfrasis breve propia; no incluye imágenes ni artículos completos de terceros."
+    },
+    {
+      "id": "mp-food-allergy",
+      "topic": "food_allergy",
+      "title": "Alergia a los alimentos",
+      "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/foodallergy.html",
+      "sourceUpdatedAt": "2024-03-12",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "chunks": [
+        {
+          "id": "mp-food-allergy-context",
+          "section": "Introducción: alergia e intolerancia",
+          "text": "Una alergia alimentaria implica una respuesta del sistema inmunitario a un alimento. La intolerancia alimentaria es diferente. Los cacahuates están entre los alimentos que pueden causar alergia. Referir molestias después de comer no basta para confirmar una alergia; su evaluación corresponde a un profesional de salud.",
+          "kind": "context",
+          "locator": "Introducción: alergia e intolerancia"
+        },
+        {
+          "id": "mp-food-allergy-warning",
+          "section": "Síntomas y reacción grave",
+          "text": "Las reacciones alimentarias pueden incluir sarpullido, enrojecimiento, hinchazón, vómito o dificultad respiratoria. Una reacción con problemas graves para respirar, hinchazón de garganta o desmayo puede poner en riesgo la vida; la fuente indica llamar al 911 ante síntomas de anafilaxia. Este resumen no confirma una alergia ni sustituye la atención de emergencia.",
+          "kind": "warning",
+          "locator": "Síntomas y reacción grave"
+        }
+      ],
+      "sourceId": "medline",
+      "version": "beta-20261014",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción y apartados indicados",
+      "reuseNote": "Paráfrasis breve propia; no incluye imágenes ni artículos completos de terceros."
+    },
+    {
+      "id": "niddk-diabetes",
+      "sourceId": "niddk",
+      "topic": "diabetes",
+      "title": "Síntomas y causas de la diabetes",
+      "publisher": "NIDDK / NIH",
+      "url": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/diabetes/informacion-general/sintomas-causas",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "¿Cuáles son los síntomas de la diabetes?",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "niddk-diabetes-1",
+          "section": "Síntomas descritos",
+          "kind": "symptoms",
+          "locator": "¿Cuáles son los síntomas de la diabetes?",
+          "text": "La diabetes puede acompañarse de más sed y ganas de orinar, cansancio, mayor apetito, visión borrosa, pérdida de peso involuntaria o heridas que tardan en sanar. Estos datos describen síntomas posibles; no confirman por sí solos la enfermedad."
+        },
+        {
+          "id": "niddk-diabetes-2",
+          "section": "Inicio y ausencia de síntomas",
+          "kind": "context",
+          "locator": "¿Cuáles son los síntomas de la diabetes?",
+          "text": "Los síntomas de diabetes tipo 1 pueden aparecer rápidamente. En la tipo 2 pueden desarrollarse lentamente o pasar inadvertidos. La ausencia de síntomas no permite descartar diabetes."
+        }
+      ]
+    },
+    {
+      "id": "who-diabetes",
+      "sourceId": "who",
+      "topic": "diabetes",
+      "title": "Diabetes: ficha informativa de la OMS",
+      "publisher": "Organización Mundial de la Salud",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/diabetes",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2024-11-14",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Síntomas; Diagnóstico y tratamiento",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "who-diabetes-1",
+          "section": "Síntomas",
+          "kind": "symptoms",
+          "locator": "Síntomas",
+          "text": "La OMS describe sed intensa, aumento de la frecuencia de orinar, visión borrosa, cansancio y pérdida de peso involuntaria entre los posibles síntomas. En diabetes tipo 2 pueden ser leves durante años."
+        },
+        {
+          "id": "who-diabetes-2",
+          "section": "Límite de la entrevista",
+          "kind": "limits",
+          "locator": "Diagnóstico y tratamiento",
+          "text": "La detección temprana de diabetes utiliza pruebas de glucosa en sangre. Una conversación sobre síntomas no sustituye esas pruebas ni establece el tipo de diabetes."
+        }
+      ]
+    },
+    {
+      "id": "nhs-headache",
+      "sourceId": "nhs",
+      "topic": "headache",
+      "title": "Dolor de cabeza: información del NHS",
+      "publisher": "NHS",
+      "url": "https://www.nhs.uk/symptoms/headaches/",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2024-04-17",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "When and where to get medical help",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "nhs-headache-1",
+          "section": "Cambios y antecedentes para comentar",
+          "kind": "questions",
+          "locator": "When and where to get medical help",
+          "text": "Conviene describir si el dolor de cabeza se repite, empeora, aparece con esfuerzo o tos, y si hay vómito o cambios visuales. Esta información ayuda a explicar lo que ocurre al profesional."
+        },
+        {
+          "id": "nhs-headache-2",
+          "section": "Señales actuales",
+          "kind": "warning",
+          "locator": "Immediate action required",
+          "text": "El NHS señala atención de emergencia ante dolor de cabeza súbito y extremadamente intenso, debilidad, problemas para hablar, confusión o pérdida de visión. Estas señales requieren ayuda inmediata; el resumen no permite descartar otras emergencias."
+        }
+      ]
+    },
+    {
+      "id": "nice-headache",
+      "sourceId": "nice",
+      "topic": "headache",
+      "title": "Cefalea en mayores de 12 años: evaluación NICE CG150",
+      "publisher": "NICE",
+      "url": "https://www.nice.org.uk/guidance/cg150/chapter/recommendations",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2025-06-03",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "1.1 Assessment; recomendaciones 1.1.1–1.1.4",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "nice-headache-1",
+          "section": "Información que puede registrarse",
+          "kind": "questions",
+          "locator": "Recomendaciones 1.1.3 y 1.1.4",
+          "text": "Para describir el dolor de cabeza pueden registrarse frecuencia, duración, intensidad, síntomas acompañantes, medicamentos utilizados y posibles desencadenantes. El registro ayuda a la evaluación; no clasifica automáticamente una cefalea."
+        },
+        {
+          "id": "nice-headache-2",
+          "section": "Antecedentes y cambios",
+          "kind": "history",
+          "locator": "Recomendaciones 1.1.1 y 1.1.2",
+          "text": "La evaluación profesional considera cambios importantes en el dolor, traumatismos recientes y antecedentes relevantes como inmunosupresión o ciertos cánceres. Esta guía se dirige a mayores de 12 años y no valida una entrevista automatizada."
+        }
+      ],
+      "minAge": 12
+    },
+    {
+      "id": "cdc-diabetes",
+      "sourceId": "cdc",
+      "topic": "diabetes",
+      "title": "Síntomas de la diabetes: CDC",
+      "publisher": "CDC",
+      "url": "https://www.cdc.gov/diabetes/es/signs-symptoms/sintomas-de-la-diabetes.html",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2024-04-25",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Síntomas",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "cdc-diabetes-1",
+          "section": "Síntomas para describir",
+          "kind": "symptoms",
+          "locator": "Síntomas",
+          "text": "Los CDC mencionan mucha sed, orinar con frecuencia, pérdida de peso sin intentarlo, hambre, visión borrosa y cansancio. También describen heridas de cicatrización lenta e infecciones frecuentes."
+        },
+        {
+          "id": "cdc-diabetes-2",
+          "section": "Evaluación con pruebas",
+          "kind": "limits",
+          "locator": "Síntomas",
+          "text": "Ante síntomas de diabetes, la fuente recomienda evaluación médica de la glucosa. La lista de síntomas no permite confirmar ni excluir diabetes desde este asistente."
+        }
+      ]
+    },
+    {
+      "id": "paho-diabetes",
+      "sourceId": "paho",
+      "topic": "diabetes",
+      "title": "Diabetes: panorama de la OPS",
+      "publisher": "Organización Panamericana de la Salud",
+      "url": "https://www.paho.org/es/temas/diabetes",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Síntomas y diagnóstico temprano",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "paho-diabetes-1",
+          "section": "Datos que orientan la consulta",
+          "kind": "symptoms",
+          "locator": "Diabetes tipo 1 y tipo 2",
+          "text": "La OPS describe sed, aumento de la orina, hambre persistente, pérdida de peso, alteraciones visuales y fatiga. En diabetes tipo 2 los síntomas pueden ser menos evidentes."
+        },
+        {
+          "id": "paho-diabetes-2",
+          "section": "Diagnóstico y contexto regional",
+          "kind": "limits",
+          "locator": "Diagnóstico y tratamiento",
+          "text": "La OPS destaca el acceso a pruebas de glucosa para la detección y evaluación. Su información complementa la de la OMS, pero no debe contarse como una comprobación independiente de la misma afirmación."
+        }
+      ]
+    },
+    {
+      "id": "healthdirect-headache",
+      "sourceId": "healthdirect",
+      "topic": "headache",
+      "title": "Dolor de cabeza: Healthdirect Australia",
+      "publisher": "Healthdirect Australia",
+      "url": "https://www.healthdirect.gov.au/symptoms/aches-and-pains/headaches",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "How are headaches diagnosed?; headache diary",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "healthdirect-headache-1",
+          "section": "Descripción del dolor",
+          "kind": "questions",
+          "locator": "How are headaches diagnosed?",
+          "text": "Para preparar la consulta puede registrarse cuándo aparece el dolor de cabeza, con qué frecuencia, cuánto dura y qué síntomas lo acompañan. Describir la sensación y sus posibles desencadenantes ayuda a comunicar el problema."
+        },
+        {
+          "id": "healthdirect-headache-2",
+          "section": "Límite de la orientación",
+          "kind": "limits",
+          "locator": "How are headaches diagnosed?",
+          "text": "La evaluación del dolor de cabeza puede requerir preguntas y exploración física. Un registro o una comparación de síntomas no reemplaza esa valoración profesional."
+        }
+      ]
+    },
+    {
+      "id": "mp-dehydration",
+      "sourceId": "medline",
+      "topic": "dehydration",
+      "title": "Deshidratación",
+      "publisher": "MedlinePlus / NLM",
+      "url": "https://medlineplus.gov/spanish/dehydration.html",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2024-01-09",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción: síntomas y evaluación",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "mp-dehydration-1",
+          "section": "Síntomas y pérdidas de líquido",
+          "kind": "symptoms",
+          "locator": "¿Cuáles son los síntomas de la deshidratación?",
+          "text": "La pérdida excesiva de líquido puede acompañarse de mucha sed, boca seca, menor cantidad de orina, orina oscura, cansancio o mareo. Diarrea, vómitos, fiebre y sudoración pueden contribuir a perder líquidos."
+        },
+        {
+          "id": "mp-dehydration-2",
+          "section": "Atención inmediata y evaluación",
+          "kind": "warning",
+          "locator": "¿Cómo se diagnostica la deshidratación? y síntomas",
+          "text": "Confusión, desmayo, falta de orina o respiración rápida son señales para buscar ayuda médica inmediata. La valoración puede incluir exploración, signos vitales y pruebas; esta lista no confirma el grado de deshidratación."
+        }
+      ]
+    },
+    {
+      "id": "niddk-diarrhea",
+      "sourceId": "niddk",
+      "topic": "diarrhea",
+      "title": "Síntomas y causas de la diarrea",
+      "publisher": "NIDDK / NIH",
+      "url": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/enfermedades-digestivas/diarrea/sintomas-causas",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Síntomas y complicaciones",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "niddk-diarrhea-1",
+          "section": "Cómo describirla",
+          "kind": "symptoms",
+          "locator": "¿Cuáles son los síntomas de la diarrea?",
+          "text": "La diarrea se caracteriza por evacuaciones sueltas o acuosas y puede acompañarse de cólicos, urgencia para evacuar o náusea. Conviene explicar cómo son las evacuaciones y desde cuándo ocurren."
+        },
+        {
+          "id": "niddk-diarrhea-2",
+          "section": "Pérdida de líquidos",
+          "kind": "warning",
+          "locator": "Complicaciones; cuándo buscar atención",
+          "text": "La diarrea puede causar deshidratación. La sangre en las heces, el dolor intenso o los signos de deshidratación requieren valoración. La duración y las condiciones de cada persona también importan; este resumen no asigna urgencia."
+        }
+      ]
+    },
+    {
+      "id": "cenetec-cefalea",
+      "sourceId": "cenetec",
+      "topic": "headache",
+      "title": "Cefalea tensional y migraña: documento pendiente de actualización",
+      "publisher": "CENETEC",
+      "url": "https://www.cenetec-difusion.com/CMGPC/IMSS-047-08/ER.pdf",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "needs_update",
+      "language": "es",
+      "locator": "Guía IMSS-047-08; referencia de actualización 2016",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "cenetec-cefalea-1",
+          "section": "Registro documental; no usar como evidencia",
+          "kind": "limits",
+          "locator": "Guía IMSS-047-08; referencia de actualización 2016",
+          "text": "Documento identificado para revisión de acceso y vigencia. No se utiliza para generar orientación hasta completar esa revisión."
+        }
+      ]
+    },
+    {
+      "id": "imss-cefalea",
+      "sourceId": "imss",
+      "topic": "headache",
+      "title": "Cefalea tensional y migraña: documento pendiente de actualización",
+      "publisher": "IMSS",
+      "url": "https://www.imss.gob.mx/sites/all/statics/guiasclinicas/047GRR.pdf",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "needs_update",
+      "language": "es",
+      "locator": "Portada y página 2; edición 2016",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "imss-cefalea-1",
+          "section": "Registro documental; no usar como evidencia",
+          "kind": "limits",
+          "locator": "Portada y página 2; edición 2016",
+          "text": "Documento identificado para revisión de acceso y vigencia. No se utiliza para generar orientación hasta completar esa revisión."
+        }
+      ]
+    }
+  ]
+}

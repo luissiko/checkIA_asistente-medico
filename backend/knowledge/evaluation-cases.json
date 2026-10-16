@@ -1,0 +1,92 @@
+[
+  {
+    "id": "headache",
+    "query": "dolor de cabeza",
+    "expectedDocumentIds": [
+      "mp-headache",
+      "nhs-headache",
+      "nice-headache",
+      "healthdirect-headache"
+    ]
+  },
+  {
+    "id": "abdominal",
+    "query": "dolor de estómago",
+    "expectedDocumentIds": [
+      "mp-abdominal"
+    ]
+  },
+  {
+    "id": "dizziness",
+    "query": "mareos",
+    "expectedDocumentIds": [
+      "mp-dizziness"
+    ]
+  },
+  {
+    "id": "food",
+    "query": "alergia al cacahuate",
+    "expectedDocumentIds": [
+      "mp-food-allergy"
+    ]
+  },
+  {
+    "id": "diabetes",
+    "query": "mucha sed y orino mucho",
+    "expectedDocumentIds": [
+      "niddk-diabetes",
+      "who-diabetes",
+      "cdc-diabetes",
+      "paho-diabetes"
+    ]
+  },
+  {
+    "id": "diabetes2",
+    "query": "diabetes y visión borrosa",
+    "expectedDocumentIds": [
+      "niddk-diabetes",
+      "who-diabetes",
+      "cdc-diabetes",
+      "paho-diabetes"
+    ]
+  },
+  {
+    "id": "dehydration",
+    "query": "boca seca y orina oscura",
+    "expectedDocumentIds": [
+      "mp-dehydration"
+    ]
+  },
+  {
+    "id": "diarrhea",
+    "query": "diarrea con evacuaciones líquidas",
+    "expectedDocumentIds": [
+      "niddk-diarrhea"
+    ]
+  },
+  {
+    "id": "negation",
+    "query": "sin dolor de cabeza",
+    "expectedDocumentIds": []
+  },
+  {
+    "id": "unknown",
+    "query": "dolor de rodilla",
+    "expectedDocumentIds": []
+  },
+  {
+    "id": "negated-food",
+    "query": "no tengo alergia al cacahuate",
+    "expectedDocumentIds": []
+  },
+  {
+    "id": "mixed",
+    "query": "sin mareo pero tengo dolor de cabeza",
+    "expectedDocumentIds": [
+      "mp-headache",
+      "nhs-headache",
+      "nice-headache",
+      "healthdirect-headache"
+    ]
+  }
+]

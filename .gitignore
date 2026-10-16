@@ -1,0 +1,100 @@
+node_modules/
+.env
+.env.*
+!.env.example
+coverage/
+
+# CHECKIA: configuracion privada
+.env
+.env.*
+!.env.example
+
+# CHECKIA: configuracion privada
+.env
+.env.*
+!.env.example
+
+# CHECKIA: configuracion privada
+.env
+.env.*
+!.env.example
+
+# CHECKIA: configuracion privada e indice regenerable
+.env
+.env.*
+!.env.example
+backend/knowledge/index.json
+backend/knowledge/*.tmp
+
+# CHECKIA: configuracion privada e indice regenerable
+.env
+.env.*
+!.env.example
+backend/knowledge/index.json
+backend/knowledge/*.tmp
+
+# CHECKIA: configuracion privada e indice regenerable
+.env
+.env.*
+!.env.example
+backend/knowledge/index.json
+backend/knowledge/*.tmp
+
+# CHECKIA: configuracion privada e indice regenerable
+.env
+.env.*
+!.env.example
+backend/knowledge/index.json
+backend/knowledge/*.tmp
+
+# CHECKIA: preparacion local y archivos regenerables
+.env
+.env.*
+!.env.example
+respaldos/
+backend/knowledge/index.json
+backend/knowledge/*.tmp
+backend/knowledge/*.backup.json
+backend/knowledge/staging/
+backend/knowledge/evaluation-offline.json
+backend/knowledge/evaluation-embeddings.json
+
+# CHECKIA: archivos privados, compilados y respaldos
+.env
+.env.*
+!.env.example
+respaldos/
+frontend/dist/
+backend/knowledge/index.json
+backend/knowledge/staging/
+backend/knowledge/*.tmp
+*.bak
+
+
+# Dependencias y compilación
+node_modules/
+dist/
+build/
+coverage/
+
+# Firebase local
+.firebase/
+*debug.log*
+*.log
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Credenciales privadas
+*serviceAccount*.json
+*service-account*.json
+*firebase-adminsdk*.json
+*.pem
+*.key
+
+# Entornos Python
+.venv/
+venv/
+__pycache__/

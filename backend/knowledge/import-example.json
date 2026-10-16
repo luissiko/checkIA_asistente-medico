@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "version": "ejemplo-no-importar-sin-editar",
+  "topics": [],
+  "sources": [],
+  "documents": [
+    {
+      "id": "ejemplo-importacion",
+      "sourceId": "medline",
+      "topic": "dehydration",
+      "title": "Deshidratación",
+      "publisher": "MedlinePlus / NLM",
+      "url": "https://medlineplus.gov/spanish/dehydration.html",
+      "version": "beta-20261014",
+      "sourceUpdatedAt": "2024-01-09",
+      "checkedAt": "2026-10-14",
+      "reviewBy": "2027-01-14",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Introducción: síntomas y evaluación",
+      "reuseNote": "Paráfrasis breve de CHECKIA con atribución; no se redistribuye el documento completo. Revisar condiciones del titular antes de ampliar o redistribuir.",
+      "chunks": [
+        {
+          "id": "ejemplo-importacion-1",
+          "section": "Síntomas y pérdidas de líquido",
+          "kind": "symptoms",
+          "locator": "¿Cuáles son los síntomas de la deshidratación?",
+          "text": "La pérdida excesiva de líquido puede acompañarse de mucha sed, boca seca, menor cantidad de orina, orina oscura, cansancio o mareo. Diarrea, vómitos, fiebre y sudoración pueden contribuir a perder líquidos."
+        }
+      ]
+    }
+  ]
+}

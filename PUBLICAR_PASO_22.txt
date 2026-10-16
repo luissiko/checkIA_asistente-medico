@@ -1,0 +1,25 @@
+PUBLICAR CHECKIA PASO 22.3
+Ejecuta en PowerShell SOLO despues de probar localmente.
+$ErrorActionPreference = "Stop"
+Set-Location "C:\Users\cancu\Documents\GitHub\checkIA\backend"
+npm test
+if ($LASTEXITCODE -ne 0) { throw "Fallaron las pruebas del backend" }
+node scripts/check-cloud.mjs
+if ($LASTEXITCODE -ne 0) { throw "Fallo la preparacion del backend" }
+Set-Location ..
+# Conserva el archivo deploy/cloud-run.env.yaml que ya tienes configurado.
+# Conserva el secreto :1 del despliegue anterior; si lo rotaste, usa la version vigente.
+gcloud run deploy checkia-api --source .\backend --region us-central1 --project checkia-project --service-account checkia-runtime@checkia-project.iam.gserviceaccount.com --build-service-account projects/checkia-project/serviceAccounts/checkia-build@checkia-project.iam.gserviceaccount.com --env-vars-file .\deploy\cloud-run.env.yaml --set-secrets "OPENAI_API_KEY=checkia-openai-api-key:1" --allow-unauthenticated --memory 512Mi --cpu 1 --concurrency 8 --max-instances 3 --min-instances 0 --timeout 60
+if ($LASTEXITCODE -ne 0) { throw "Fallo el despliegue Cloud Run" }
+$health = Invoke-RestMethod "https://checkia-api-728407825506.us-central1.run.app/api/health"
+$health | ConvertTo-Json -Depth 6
+if ($health.interview -ne "intake-demo-v8" -or $health.validationVersion -lt 16 -or !$health.rag.ready -or !$health.llm.configured) { throw "Revisa el backend antes de publicar Hosting" }
+Set-Location .\frontend
+npm run build
+if ($LASTEXITCODE -ne 0) { throw "Fallo la compilacion del frontend" }
+Set-Location ..
+firebase deploy --only hosting --config firebase.checkia.json --project checkia-project
+if ($LASTEXITCODE -ne 0) { throw "Fallo la publicacion de Hosting" }
+Invoke-RestMethod "https://checkia-project.web.app/api/health" | ConvertTo-Json -Depth 6
+# Abre https://checkia-project.web.app, Ctrl+F5, y crea una consulta NUEVA.
+# Las consultas guardadas antes de esta actualizacion conservan sus preguntas originales.

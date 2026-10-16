@@ -1,0 +1,10 @@
+import {advanceDirect as v8Advance,correctDirect as v8Correct} from './interview-v8.js';
+import {advanceDirect as v7Advance,correctDirect as v7Correct} from './interview-v7.js';
+import {advanceDirect as v6Advance,correctDirect as v6Correct} from './interview-v6.js';
+export {initialInterview,QUESTIONS,PROTOCOL_ID,isGreetingOnly,followupsFor} from './interview-v8.js';
+import {advanceDirect as v5Advance,correctDirect as v5Correct} from './interview-v5.js';
+import {advanceDirect,correctDirect} from './direct-interview.js';
+import {advanceDirect as v3Advance,correctDirect as v3Correct} from './interview-v3.js';
+import {advanceInterview as previousAdvance,correctInterview as previousCorrect} from './interview-v2.js';
+export const advanceInterview=(state,...args)=>state?.protocolId==='intake-demo-v8'?v8Advance(state,...args):state?.protocolId==='intake-demo-v7'?v7Advance(state,...args):state?.protocolId==='intake-demo-v6'?v6Advance(state,...args):state?.protocolId==='intake-demo-v5'?v5Advance(state,...args):state?.protocolId==='intake-demo-v4'?advanceDirect(state,...args):state?.protocolId==='intake-demo-v3'?v3Advance(state,...args):previousAdvance(state,...args);
+export const correctInterview=(state,...args)=>state?.protocolId==='intake-demo-v8'?v8Correct(state,...args):state?.protocolId==='intake-demo-v7'?v7Correct(state,...args):state?.protocolId==='intake-demo-v6'?v6Correct(state,...args):state?.protocolId==='intake-demo-v5'?v5Correct(state,...args):state?.protocolId==='intake-demo-v4'?correctDirect(state,...args):state?.protocolId==='intake-demo-v3'?v3Correct(state,...args):previousCorrect(state,...args);

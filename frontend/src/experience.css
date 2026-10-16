@@ -1,0 +1,246 @@
+/* Icono de salud y robot del saludo */
+
+.health-mark {
+  color: #125f99;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.health-plus {
+  color: #b42336;
+  font-family: Arial, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+/* Saludo compacto */
+
+.consultation .welcome.welcome-compact {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 1rem;
+  line-height: 1.4;
+  padding: 10px 12px;
+  margin: 12px 0;
+}
+
+/* Pregunta inicial de señales de alarma */
+
+.question-card.alarm-question-compact {
+  padding: 14px 16px;
+  margin: 14px 0;
+}
+
+.question-card.alarm-question-compact > h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+  color: #a6192e;
+  margin: 8px 0 14px;
+  max-width: none;
+}
+
+.alarm-question-compact > .eyebrow {
+  color: #a6192e;
+}
+
+/* Introducción después de iniciar sesión */
+
+.checkia-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  overflow: auto;
+  background: radial-gradient(
+    circle at 50% 35%,
+    #d9edff,
+    #f4f9ff 65%
+  );
+  min-height: 100svh;
+}
+
+.intro-card {
+  text-align: center;
+  width: min(100%, 440px);
+  padding: 30px 20px;
+  animation: intro-appear 0.5s ease-out;
+}
+
+.intro-emblem {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 30px;
+  background: #e5f3ff;
+  border: 1px solid #b6d9f3;
+  margin: 0 auto 20px;
+  box-shadow: 0 14px 45px #125f991c;
+  animation: intro-float 2s ease-in-out infinite;
+}
+
+.intro-emblem .health-mark {
+  font-size: 2.5rem;
+}
+
+.intro-emblem .health-mark svg {
+  width: 48px;
+  height: 48px;
+}
+
+.intro-emblem .health-plus {
+  font-size: 2.6rem;
+}
+
+.intro-brand {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #174c75;
+  margin: 12px 0;
+}
+
+.intro-brand span {
+  color: #268bc1;
+}
+
+.intro-card h1 {
+  font-size: clamp(1.3rem, 5vw, 1.7rem);
+  line-height: 1.3;
+  color: #174c75;
+}
+
+.intro-progress {
+  height: 4px;
+  background: #c8e1f5;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 24px auto;
+  width: 180px;
+}
+
+.intro-progress::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #267db8;
+  transform-origin: left;
+  animation: intro-progress 2.5s linear;
+}
+
+.intro-card button {
+  min-height: 44px;
+  min-width: 110px;
+}
+
+/* Esfera azul arriba del chat */
+
+.checkia-orb-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 12px;
+  pointer-events: none;
+}
+
+.checkia-orb {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle at 30% 25%,
+    #ffffff 0%,
+    #b9e8ff 12%,
+    #42aaff 38%,
+    #1565c0 70%,
+    #082f68 100%
+  );
+
+  box-shadow:
+    inset -8px -10px 16px #082f6855,
+    0 10px 24px #1684db40;
+
+  animation: checkia-orb-float 3s ease-in-out infinite;
+}
+
+/* Animaciones */
+
+@keyframes intro-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes intro-float {
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes intro-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes checkia-orb-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-7px) scale(1.04);
+  }
+}
+
+/* Ajustes para celular */
+
+@media (max-width: 600px) {
+  .question-card.alarm-question-compact {
+    padding: 12px;
+  }
+
+  .question-card.alarm-question-compact > h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .checkia-orb-container {
+    height: 90px;
+  }
+}
+
+/* Respetar la preferencia de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-card,
+  .intro-emblem,
+  .intro-progress::after,
+  .checkia-orb {
+    animation: none !important;
+  }
+
+  .intro-progress::after {
+    transform: none;
+  }
+}

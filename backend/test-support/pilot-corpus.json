@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "version": "checkia-pilot-2026-10-14",
+  "scope": "Resúmenes editoriales breves para orientación informativa. No son protocolos de diagnóstico ni guías de triaje. Pendientes de revisión clínica.",
+  "documents": [
+    {
+      "id": "mp-headache", "topic": "headache", "title": "Dolor de cabeza", "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/headache.html", "sourceUpdatedAt": "2022-03-14", "checkedAt": "2026-10-14", "reviewBy": "2027-04-14", "type": "editorial_summary", "clinicalReview": "pending",
+      "chunks": [
+        {"id": "mp-headache-context", "section": "Introducción: contexto", "text": "El dolor de cabeza puede presentarse de distintas maneras. La página describe varios tipos de cefalea; por eso, decir únicamente que duele la cabeza no identifica una causa. Esta información general no permite asignar un tipo de dolor de cabeza a una persona."},
+        {"id": "mp-headache-warning", "section": "Introducción: señales que requieren ayuda", "text": "La fuente señala que un dolor de cabeza repentino y muy intenso necesita atención médica. También indica buscar ayuda inmediata cuando aparece después de un golpe o junto con fiebre, rigidez de cuello, confusión o pérdida de conocimiento. La ausencia de estas señales no garantiza que el problema sea leve."}
+      ]
+    },
+    {
+      "id": "mp-abdominal", "topic": "abdominal", "title": "Dolor abdominal", "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/abdominalpain.html", "sourceUpdatedAt": "2025-04-14", "checkedAt": "2026-10-14", "reviewBy": "2027-04-14", "type": "editorial_summary", "clinicalReview": "pending",
+      "chunks": [
+        {"id": "mp-abdominal-context", "section": "Introducción: ubicación e intensidad", "text": "El abdomen incluye la región entre el pecho y la ingle y contiene distintos órganos. Estómago es un nombre que a veces se usa para toda esa zona. La intensidad del dolor, por sí sola, no determina la gravedad: un dolor leve también puede acompañar un problema importante."},
+        {"id": "mp-abdominal-warning", "section": "Introducción: señales que requieren ayuda", "text": "La fuente indica buscar ayuda médica inmediata ante dolor abdominal repentino e intenso, vómito con sangre, sangre en las evacuaciones o un abdomen duro y sensible al tacto. También menciona dolor acompañado de molestias en el pecho, cuello u hombro. Esta lista no permite descartar otras emergencias."}
+      ]
+    },
+    {
+      "id": "mp-dizziness", "topic": "dizziness", "title": "Mareo y vértigo", "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/dizzinessandvertigo.html", "sourceUpdatedAt": "2026-09-01", "checkedAt": "2026-10-14", "reviewBy": "2027-04-14", "type": "editorial_summary", "clinicalReview": "pending",
+      "chunks": [
+        {"id": "mp-dizziness-description", "section": "Introducción: descripción de las sensaciones", "text": "Mareo y vértigo no significan exactamente lo mismo. Mareo puede describir aturdimiento o inestabilidad; vértigo describe la sensación de que uno mismo o el entorno gira. Explicar qué sensación ocurre ayuda a describir el síntoma, pero no confirma su causa."},
+        {"id": "mp-dizziness-evaluation", "section": "Evaluación y señales que requieren ayuda", "text": "La evaluación profesional del mareo incluye preguntas sobre síntomas y medicamentos, y puede incluir revisión del equilibrio y la marcha. La fuente indica atención de emergencia ante mareo o vértigo repentino o intenso acompañado de dificultad para hablar, problemas de visión o debilidad."}
+      ]
+    },
+    {
+      "id": "mp-food-allergy", "topic": "food_allergy", "title": "Alergia a los alimentos", "publisher": "MedlinePlus / Biblioteca Nacional de Medicina de Estados Unidos",
+      "url": "https://medlineplus.gov/spanish/foodallergy.html", "sourceUpdatedAt": "2024-03-12", "checkedAt": "2026-10-14", "reviewBy": "2027-04-14", "type": "editorial_summary", "clinicalReview": "pending",
+      "chunks": [
+        {"id": "mp-food-allergy-context", "section": "Introducción: alergia e intolerancia", "text": "Una alergia alimentaria implica una respuesta del sistema inmunitario a un alimento. La intolerancia alimentaria es diferente. Los cacahuates están entre los alimentos que pueden causar alergia. Referir molestias después de comer no basta para confirmar una alergia; su evaluación corresponde a un profesional de salud."},
+        {"id": "mp-food-allergy-warning", "section": "Síntomas y reacción grave", "text": "Las reacciones alimentarias pueden incluir sarpullido, enrojecimiento, hinchazón, vómito o dificultad respiratoria. Una reacción con problemas graves para respirar, hinchazón de garganta o desmayo puede poner en riesgo la vida; la fuente indica llamar al 911 ante síntomas de anafilaxia. Este resumen no confirma una alergia ni sustituye la atención de emergencia."}
+      ]
+    }
+  ]
+}

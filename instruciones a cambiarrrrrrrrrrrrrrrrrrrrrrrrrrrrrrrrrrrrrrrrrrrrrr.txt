@@ -1,0 +1,16 @@
+nuevo
+
+1.-el cuadro de 0.-¡Hola que tal! Seré tu asistente virtual de diagnóstico medico, por favor responde las siguientes preguntas que se te realizaran , quita el 0 y reduce el texto a un 50% aproximado y coloca un icono de robot y cruz roja.
+
+2.- en la pregunta 6,reduce el tamaño de las letras en un 50% y en color rojo porque actualmente cubre toda la pantalla.
+
+3.- “Agrega una introducción a CHECKIA después de iniciar sesión con correo y contraseña o con Google.
+Usa el logo de CHECKIA o un ícono sencillo de salud, con una animación suave en tonos azules.
+Muestra el texto ‘Bienvenido a CHECKIA’.
+La introducción debe durar entre 2 y 3 segundos y después abrir automáticamente la pantalla principal.
+Incluye un botón ‘Omitir’ que permita entrar de inmediato.
+Muéstrala una sola vez por inicio de sesión. No debe repetirse al recargar la página, abrir una consulta o navegar por la aplicación. Al cerrar sesión e iniciar nuevamente, debe volver a mostrarse.
+Adapta el diseño a celular, tableta y computadora.
+Respeta la preferencia de movimiento reducido del dispositivo y conserva el funcionamiento de las consultas y las alertas rojas.”
+
+4.-colocar el objeto 3den movimiento .glb  arriba del cuadro del chat en un tamaño pequeño ,que no interfiera en la consulta del chat esta es la ruta en el proyecto : "C:\Users\cancu\Documents\GitHub\checkIA\frontend\public\models\MorphStressTest.glb"

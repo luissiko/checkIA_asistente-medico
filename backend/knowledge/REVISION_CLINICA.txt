@@ -1,0 +1,11 @@
+CHECKIA - REVISION HUMANA DEL CORPUS Y DE LAS ORIENTACIONES
+Estado actual: pendiente. La verificación de una página, una prueba de software o un enlace válido no constituyen revisión clínica.
+1. Un profesional de salud revisa cada documento y fragmento, la población a la que aplica, su fecha y su pertinencia para México.
+2. Contrasta cada paráfrasis con el apartado o página indicados. Revisa unidades, negaciones, cifras, tablas y traducciones. No interpreta una lista de síntomas como confirmación diagnóstica.
+3. Registra documento, versión, id de fragmento, nombre y credenciales del revisor, fecha, hallazgos y decisión en un registro de revisión independiente. En corpus.json solo clinicalReview=approved cuando exista esa revisión, con reviewedBy y reviewedAt (AAAA-MM-DD). La aplicación no comprueba por sí sola la identidad profesional del revisor.
+4. Un documento rechazado se marca clinicalReview=rejected. Uno sin vigencia comprobada permanece status=needs_update. Esos documentos se excluyen de la recuperación.
+5. Cambiar una fecha para evitar un vencimiento no sustituye volver a revisar el documento. Actualiza versión y fecha de comprobación tras revisar, conserva respaldo y reconstruye el índice.
+6. Para cada orientación de prueba, separa las afirmaciones médicas y verifica: a) ¿la fuente recuperada habla de esa afirmación? b) ¿el fragmento realmente la respalda? c) ¿aplica a esa edad y situación? d) ¿se omitió una incertidumbre relevante? e) ¿se agregó un diagnóstico, tratamiento o tranquilidad injustificados?
+7. Registra por caso: identificador ficticio, versión del corpus, modelo, ids recuperados, ids utilizados, afirmación, fragmento que la respalda, evaluación (respaldada/parcial/no respaldada), omisiones y revisor. No uses datos personales en archivos de evaluación públicos.
+8. Separa recuperación documental de generación: acertar el documento no prueba que el LLM lo interprete correctamente. Las citas verificadas por id prueban procedencia, no verdad clínica de cada oración.
+9. Las señales de alarma siguen su mecanismo previo. Este corpus no amplía automáticamente las reglas ni valida triaje. La aprobación de textos tampoco valida clínicamente CHECKIA.

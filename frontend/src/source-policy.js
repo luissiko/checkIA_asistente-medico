@@ -1,0 +1,3 @@
+// Instituciones verificadas. Agregar temas no exige editar código; agregar dominios sí exige revisar esta política.
+export const SOURCE_HOSTS=Object.freeze(['medlineplus.gov','www.niddk.nih.gov','www.who.int','www.imss.gob.mx','www.cenetec-difusion.com','cenetec-difusion.com','www.nhs.uk','www.nice.org.uk','www.cdc.gov','www.paho.org','www.healthdirect.gov.au']);
+export function safeSourceUrl(value){try{const u=new URL(value);if(u.protocol==='https:'&&SOURCE_HOSTS.includes(u.hostname)&&!u.username&&!u.password&&!u.port&&!u.search&&!u.hash&&u.pathname.startsWith('/'))return u.href;}catch{}return undefined;}

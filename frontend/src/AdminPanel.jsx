@@ -1,0 +1,39 @@
+import React,{useState,useRef,useEffect} from 'react';
+import {ConsultationSummary} from './ConsultationSummary.jsx';
+const dateText=value=>Number.isFinite(value)?new Date(value).toLocaleString('es-MX',{timeZone:'America/Cancun'}):'Sin fecha';
+const phaseText=value=>({collecting:'En entrevista',complete:'Completada',safety_alert:'Alerta',legacy:'Anterior'}[value]||value);
+const day=value=>new Date(value-5*3600000).toISOString().slice(0,10);
+function initialFilters(){const now=Date.now();return {from:day(now-29*86400000),to:day(now),status:'all',phase:'all',owner:'',limit:'20'};}
+function search(filters,cursor=null){const p=new URLSearchParams(Object.entries(filters).filter(([,v])=>v!==''));if(cursor)p.set('cursor',cursor);return p.toString();}
+export function AdminPanel({api,download}){
+ const [filters,setFilters]=useState(initialFilters),[applied,setApplied]=useState(null),[page,setPage]=useState(null),[cursor,setCursor]=useState(null),[trail,setTrail]=useState([]),[detail,setDetail]=useState(null),[metrics,setMetrics]=useState(null),[busy,setBusy]=useState(false),[error,setError]=useState('');
+ const lock=useRef(false),alive=useRef(true);
+ useEffect(()=>{alive.current=true;return()=>{alive.current=false;};},[]);
+ async function action(fn){if(lock.current)return;lock.current=true;setBusy(true);setError('');try{await fn();}catch(e){if(alive.current)setError(e.message||'No se pudo completar la operación.');}finally{lock.current=false;if(alive.current)setBusy(false);}}
+ async function load(f,c=null,t=[]){const data=await api('/admin/sessions?'+search(f,c));if(!alive.current)return;setPage(data);setApplied({...f});setCursor(c);setTrail(t);setDetail(null);setMetrics(null);}
+ function change(key,value){setFilters(f=>({...f,[key]:value}));}
+ return <section className="panel admin-panel" aria-label="Panel de administración">
+  <p className="eyebrow">ACCESO ADMINISTRATIVO</p><h2>Consultas y métricas</h2>
+  <p>Revisa registros y descarga información de las pruebas. JSON y TXT incluyen respuestas personales. Los accesos y descargas quedan registrados.</p>
+  {error&&<div className="notice error" role="alert">{error}</div>}
+  <form className="admin-filters" onSubmit={e=>{e.preventDefault();action(()=>load(filters));}}>
+   <label>Desde<input type="date" required value={filters.from} disabled={busy} onChange={e=>change('from',e.target.value)}/></label>
+   <label>Hasta<input type="date" required value={filters.to} disabled={busy} onChange={e=>change('to',e.target.value)}/></label>
+   <label>Estado<select value={filters.status} disabled={busy} onChange={e=>change('status',e.target.value)}><option value="all">Todos</option><option value="open">Abiertas</option><option value="closed">Cerradas</option></select></label>
+   <label>Entrevista<select value={filters.phase} disabled={busy} onChange={e=>change('phase',e.target.value)}><option value="all">Todas</option><option value="collecting">En entrevista</option><option value="complete">Completadas</option><option value="safety_alert">Con alerta</option></select></label>
+   <label>Cuenta (UID opcional)<input value={filters.owner} maxLength={128} disabled={busy} autoComplete="off" onChange={e=>change('owner',e.target.value.trim())}/></label>
+   <button disabled={busy} type="submit">{busy?'Procesando…':'Buscar consultas'}</button>
+  </form>
+  <p className="small muted">Fechas de Cancún. Periodo máximo: 93 días. Incluye registros vencidos que todavía existan.</p>
+  <p className="small muted">Las métricas y el CSV utilizan el último filtro aplicado con Buscar consultas.</p>
+  {page&&applied&&<>
+   <div className="admin-actions"><button className="secondary" type="button" disabled={busy} onClick={()=>action(()=>download('/admin/export?'+search(applied,cursor)))}>Descargar esta página en CSV</button><button className="secondary" type="button" disabled={busy} onClick={()=>action(async()=>{const data=await api('/admin/metrics?'+search(applied));if(alive.current)setMetrics(data);})}>Calcular métricas del filtro</button></div>
+   <p role="status">{page.rows.length} consultas en esta página. Se examinaron {page.scanned} registros.{page.nextCursor?' Hay más registros por revisar.':''}</p>
+   <div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Consulta</th><th>Creación</th><th>Estado</th><th>Entrevista</th><th>Mensajes</th><th>Orientación</th><th>Acción</th></tr></thead><tbody>{page.rows.map(r=><tr key={r.id}><td>{r.id.slice(0,8)}</td><td>{dateText(r.createdAt)}</td><td>{r.status==='closed'?'Cerrada':'Abierta'}{r.expired?' · Vencida':''}</td><td>{phaseText(r.phase)}</td><td>{r.messageCount}</td><td>{r.orientationCurrent?'Vigente':r.orientationSaved?'Anterior':'Sin generar'}</td><td><button className="secondary" type="button" disabled={busy} aria-label={'Ver consulta '+r.id.slice(0,8)} onClick={()=>action(async()=>{const data=await api('/admin/sessions/'+r.id);if(alive.current)setDetail(data);})}>Ver</button></td></tr>)}</tbody></table></div>
+   {!page.rows.length&&<p>No hay coincidencias en este bloque.{page.nextCursor?' Pulsa Siguiente para seguir buscando.':''}</p>}
+   <div className="admin-actions"><button type="button" className="secondary" disabled={busy||!trail.length} onClick={()=>action(()=>load(applied,trail.at(-1),trail.slice(0,-1)))}>Anterior</button><button type="button" className="secondary" disabled={busy||!page.nextCursor} onClick={()=>action(()=>load(applied,page.nextCursor,[...trail,cursor]))}>Siguiente</button></div>
+  </>}
+  {metrics&&<section aria-label="Métricas internas"><h3>Métricas del periodo y filtro aplicado</h3><p>Coincidencias analizadas: {metrics.matched}. Registros examinados: {metrics.scanned}.{metrics.partial?' Resultado parcial: se alcanzó el límite de 500 registros más recientes. Reduce el periodo para revisar el resto.':' Se examinó el conjunto disponible dentro del periodo.'}</p><div className="admin-metrics">{[['Abiertas','open'],['Cerradas','closed'],['Entrevistas completadas','complete'],['Consultas con alerta','alarms'],['Vencidas','expired'],['Orientaciones vigentes','orientationCurrent'],['Orientación vigente con fuentes','ragMatched'],['Orientación vigente sin evidencia','ragInsufficient'],['Último intento fallido','lastRunFailed']].map(([title,key])=><div className="admin-metric" key={key}><span>{title}</span><strong>{metrics.counts[key]}</strong></div>)}</div><p>Tokens en resultados guardados: entrada {metrics.storedTokens.input}, salida {metrics.storedTokens.output}, búsqueda {metrics.storedTokens.embedding}.</p><p className="small muted">No representan facturación total, todos los intentos históricos ni exactitud clínica.</p></section>}
+  {detail&&<section className="admin-detail" aria-label="Detalle administrativo"><h3>Consulta {detail.id.slice(0,8)}</h3><p>Identificador: {detail.id}</p><p>Creada: {dateText(detail.createdAt)}. {detail.expired?'Vencida; se conserva en la base.':''}</p><div className="admin-actions">{['json','txt'].map(format=><button type="button" className="secondary" disabled={busy} key={format} onClick={()=>action(()=>download('/admin/sessions/'+detail.id+'/export?format='+format))}>Descargar consulta {format.toUpperCase()}</button>)}</div><ConsultationSummary summary={detail.summary} canCorrect={false}/><details><summary>Historial completo</summary>{detail.messages.map(m=><div className="bubble" key={m.id}><strong>{m.role==='user'?'Usuario':'CHECKIA'}</strong><p>{m.text}</p></div>)}</details>{detail.orientation&&<details><summary>Orientación guardada</summary><p>{detail.orientation.basedOnRevision===(detail.clinicalState?.revision||0)?'Corresponde a la revisión actual.':'Corresponde a una revisión anterior; no debe interpretarse como vigente.'}</p><pre>{JSON.stringify(detail.orientation.result,null,2)}</pre></details>}</section>}
+ </section>;
+}

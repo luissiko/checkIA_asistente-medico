@@ -1,0 +1,36 @@
+CHECKIA PASO 22.5 - ESCRITORIO, SIN ANIMACIONES Y ERRORES DE ORIENTACIÓN
+Aplicar sobre el paso 22.4. Crea respaldo antes de modificar.
+ALCANCE
+Solo frontend. No cambia backend, modelo OpenAI, claves, preguntas, datos, biblioteca RAG ni dependencias. Health continúa en 22.3, intake-demo-v8, validationVersion 16.
+Se retiran puntos y aro; se elimina LoadingIndicator.jsx con respaldo. Durante una solicitud se muestra texto estático y se conserva el bloqueo de duplicados.
+ESCRITORIO
+Sin consulta abierta, el módulo Consultas queda centrado. Con una consulta o panel administrativo, hay una columna lateral delimitada de 220-260 px y una columna principal flexible. Contenedores limitados al ancho disponible. El comportamiento de escritura móvil y la alerta roja se conservan.
+ERRORES
+Antes, friendlyApiError sustituía todos los errores 500 o superiores por el mismo mensaje genérico. Ahora conserva únicamente mensajes públicos seguros de una lista explícita: orientación, búsqueda, tiempo de espera o base no disponible. Nunca muestra mensajes arbitrarios del proveedor, claves, trazas ni rutas internas.
+No se ha confirmado la causa de la llamada real que falló. El cambio 22.4 no modificó el endpoint, el consentimiento ni la revisión enviados al backend. Esta corrección no puede reparar una clave sin acceso, cuota agotada, indisponibilidad externa o fallo del servidor desde CSS. El nuevo mensaje ayudará a ubicar el problema sin perder las respuestas.
+ARCHIVOS
+frontend/src/main.jsx: distribución de escritorio y retirada de la animación de creación; contexto del error de orientación.
+frontend/src/OrientationPanel.jsx: retira el aro y conserva texto estático de espera, consentimiento y reintento.
+frontend/src/mobile.css: elimina las animaciones y delimita el diseño de escritorio.
+frontend/src/interview-client.mjs: mensajes seguros específicos para errores del servicio.
+frontend/src/LoadingIndicator.jsx: eliminado con respaldo; ya no se importa.
+PRUEBA LOCAL
+1. Detén frontend con Ctrl+C y aplica el instalador desde la raíz del proyecto.
+2. En frontend ejecuta npm run build; si pasa, npm run dev. Mantén el backend activo en otra terminal con npm start.
+3. Abre http://127.0.0.1:5173/ y recarga. Comprueba escritorio y celular.
+4. Genera orientación en una consulta de prueba. No aparecerán figuras animadas. El texto de espera se retira al terminar o fallar.
+5. Si falla, conserva el nuevo mensaje exacto e indica si ocurrió en local o en la web publicada. No compartas claves ni .env.
+6. Para comprobar configuración pública: Invoke-RestMethod "https://checkia-project.web.app/api/health" | ConvertTo-Json -Depth 6
+El health no comprueba el acceso real a OpenAI ni confirma que una generación vaya a funcionar.
+VALIDACIÓN
+JSX validado; siete comprobaciones de errores públicos y ocultamiento de detalles. Prueba de navegador con creación y generación demoradas, error, reintento y prevención de duplicados; consentimiento, cierre, fuentes, navegación administrativa, señales de alarma, centrado y ancho de columnas. Anchos 320, 390, 768, 900, 901, 1024, 1280, 1440 y 1920. Backend real 22.3 con FakeDB; autenticación, OpenAI y CSS base simulados. No se hicieron llamadas reales con credenciales del usuario. La compilación final debe ejecutarse en su proyecto.
+PUBLICACIÓN
+Set-Location "C:\Users\cancu\Documents\GitHub\checkIA\frontend"
+npm run build
+if ($LASTEXITCODE -ne 0) { throw "Falló la compilación" }
+Set-Location ..
+firebase deploy --only hosting --config firebase.checkia.json --project checkia-project
+if ($LASTEXITCODE -ne 0) { throw "Falló el despliegue" }
+Abre https://checkia-project.web.app y recarga con Ctrl+F5. Cloud Run debe conservar el backend 22.3; no se modifica en esta entrega.
+RESPALDO
+respaldos/paso22_5_FECHA contiene archivos reemplazados y el componente retirado. ARCHIVOS_NUEVOS.txt enumera los archivos que antes no existían. Para revertir, detén frontend y restaura esos archivos en sus rutas originales.

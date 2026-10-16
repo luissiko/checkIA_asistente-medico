@@ -1,0 +1,164 @@
+{
+  "checkedAt": "2026-10-14",
+  "note": "Registro real de descarga y extracción en preparación. HTTP 200 no certifica contenido clínico. Los originales completos no se redistribuyen. OMS verificada mediante consulta web; Healthdirect extraído del JSON de aplicación. CENETEC/IMSS excluidos de recuperación por vigencia pendiente.",
+  "attempts": [
+    {
+      "id": "nhs",
+      "url": "https://www.nhs.uk/symptoms/headaches/",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.nhs.uk/symptoms/headaches/",
+      "bytes": 36208,
+      "sha256": "fe10b0e231c5a36dd26f0c8557046da6472112ed70977d252f3dda85342efd8f",
+      "extractedCharacters": 3422
+    },
+    {
+      "id": "nice",
+      "url": "https://www.nice.org.uk/guidance/cg150/chapter/recommendations",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.nice.org.uk/guidance/cg150/chapter/recommendations",
+      "bytes": 78996,
+      "sha256": "28ed45aaa0eda91a625fe99c733cbb234eb9b0f3f5ac27d9c8d119deb1f1f6e7",
+      "extractedCharacters": 23244
+    },
+    {
+      "id": "paho",
+      "url": "https://www.paho.org/es/temas/diabetes",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.paho.org/es/temas/diabetes",
+      "bytes": 130408,
+      "sha256": "3eb6c4d01f1c0a8268829e3c7e5f54a03dcbf4e66ffe4bbc74052753a9476ab7",
+      "extractedCharacters": 20329
+    },
+    {
+      "id": "healthdirect",
+      "url": "https://www.healthdirect.gov.au/symptoms/aches-and-pains/headaches",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.healthdirect.gov.au/symptoms/aches-and-pains/headaches",
+      "bytes": 129833,
+      "sha256": "2f118b493faa66fad68e7fea15c9e002669a6327e9ae6e1445f1587caa92a013",
+      "extractedCharacters": 19644,
+      "extractionMethod": "application_json_parsed_without_execution"
+    },
+    {
+      "id": "who",
+      "url": "https://www.who.int/es/news-room/fact-sheets/detail/diabetes",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden",
+      "alternativeVerification": "Official web page opened and sections Síntomas/Diagnóstico read on 2026-10-14; direct byte download unavailable."
+    },
+    {
+      "id": "niddk",
+      "url": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/diabetes/informacion-general/sintomas-causas",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/diabetes/informacion-general/sintomas-causas",
+      "bytes": 54756,
+      "sha256": "feb3c851775e93edc8b79faa04dd8ea92f17fc6d66fa807e0a9397b076faa487",
+      "extractedCharacters": 12507
+    },
+    {
+      "id": "cdc",
+      "url": "https://www.cdc.gov/diabetes/es/signs-symptoms/sintomas-de-la-diabetes.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.cdc.gov/diabetes/es/signs-symptoms/sintomas-de-la-diabetes.html",
+      "bytes": 46023,
+      "sha256": "7d9361039c6ad220d4730e68a7946e1f9b6489d16e69acf2dd9f5c733a93d8b9",
+      "extractedCharacters": 5857
+    },
+    {
+      "id": "cenetec",
+      "url": "https://www.cenetec-difusion.com/CMGPC/IMSS-047-08/ER.pdf",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "imss",
+      "url": "https://www.imss.gob.mx/sites/all/statics/guiasclinicas/047GRR.pdf",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": "unavailable",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "medline",
+      "url": "https://medlineplus.gov/spanish/headache.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://medlineplus.gov/spanish/headache.html",
+      "bytes": 99272,
+      "sha256": "82b811c33e1d25c49db7396a5d8f026050ce844fb9955125ee6de6248557fa35",
+      "extractedCharacters": 7808
+    },
+    {
+      "id": "mp-abdominal",
+      "url": "https://medlineplus.gov/spanish/abdominalpain.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://medlineplus.gov/spanish/abdominalpain.html",
+      "bytes": 69324,
+      "sha256": "29ba71a1a819fffd339a3901dc57f0a8f05f9ea405afdc5aebf7c6c24d71ac83",
+      "extractedCharacters": 5082
+    },
+    {
+      "id": "mp-dizziness",
+      "url": "https://medlineplus.gov/spanish/dizzinessandvertigo.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://medlineplus.gov/spanish/dizzinessandvertigo.html",
+      "bytes": 92216,
+      "sha256": "daaf630de98c9b55fbf124f6f25cc0034ba0c52c63324bd3f7e2326744fc22ab",
+      "extractedCharacters": 7388
+    },
+    {
+      "id": "mp-food-allergy",
+      "url": "https://medlineplus.gov/spanish/foodallergy.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://medlineplus.gov/spanish/foodallergy.html",
+      "bytes": 108268,
+      "sha256": "644948fc5aef0676eb70fa85ca149a3b4716af5b063921e663e8b64c95b5ff74",
+      "extractedCharacters": 10550
+    },
+    {
+      "id": "mp-dehydration",
+      "url": "https://medlineplus.gov/spanish/dehydration.html",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://medlineplus.gov/spanish/dehydration.html",
+      "bytes": 68162,
+      "sha256": "4252c843959e3b4f32f3aea45d7c35950d745af554a28aa6a49f1e3a6d161b31",
+      "extractedCharacters": 7271
+    },
+    {
+      "id": "niddk-diarrhea",
+      "url": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/enfermedades-digestivas/diarrea/sintomas-causas",
+      "checkedAt": "2026-10-14",
+      "clinicalReview": "pending",
+      "status": 200,
+      "finalUrl": "https://www.niddk.nih.gov/health-information/informacion-de-la-salud/enfermedades-digestivas/diarrea/sintomas-causas",
+      "bytes": 55760,
+      "sha256": "506151d4cc7189c5e65bf8f77dedf4c87f31c1ae55c5ec3c7ac1f429e3757f3c",
+      "extractedCharacters": 13341
+    }
+  ]
+}

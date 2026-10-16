@@ -1,0 +1,40 @@
+CHECKIA PASO 22.4 - INTERFAZ Y ESPERA
+Aplicar después del paso 22.3. El instalador respalda los archivos modificados.
+ARCHIVOS
+frontend/src/main.jsx: orden de consultas y navegación, título de consulta cerrada, ubicación del consentimiento y estado de espera/error por operación; guarda contra solicitudes duplicadas.
+frontend/src/OrientationPanel.jsx: consentimiento arriba, nuevo texto del botón, aviso de fuentes, aro de espera y error de orientación.
+frontend/src/LoadingIndicator.jsx: nuevo componente accesible reutilizable de puntos o aro.
+frontend/src/mobile.css: tamaños compactos, ubicación de módulos, animaciones y movimiento reducido.
+LEEME_PASO_22_4.txt: esta guía.
+No cambia backend, protocolo, preguntas, modelo OpenAI, claves, dependencias, Firebase, RAG ni datos.
+El health continúa indicando paso 22.3, intake-demo-v8 y validationVersion 16: esta entrega cambia solamente la interfaz.
+COMPORTAMIENTO
+El módulo Consultas aparece antes de Mis consultas y Panel de administrador. El panel de administrador conserva el permiso existente y permite volver a Mis consultas.
+Al abrir una consulta cerrada, Diagnóstico cerrado aparece encima de los módulos de consulta. Se retira el cuadro Esta consulta está cerrada. Puedes revisar su historial.
+El consentimiento y los controles de orientación aparecen antes del resumen y de las correcciones al completar la recopilación.
+El botón Comprobar primer diagnóstico sigue comprobando señales actuales; cambiar su nombre no introduce diagnóstico ni triaje validado. La generación sigue requiriendo comprobación de señales, confirmación de respuestas y consentimiento.
+Si cambia la revisión clínica al revisar o corregir respuestas, el consentimiento de la pantalla se restablece para los datos vigentes.
+Los puntos solo aparecen mientras se crea una consulta. El aro solo aparece mientras se solicita y recupera la orientación. Otros guardados no activan estas animaciones.
+No hay porcentajes ni fases ficticias. Los dos indicadores usan role=status y aria-live=polite. Movimiento reducido oculta la animación y conserva el texto.
+La referencia de IA permanece una sola vez al pie de la consulta con orientación vigente. Los enlaces y fragmentos de las fuentes siguen disponibles.
+PRUEBA LOCAL
+1. Detén frontend con Ctrl+C. Puedes dejar el backend 22.3 funcionando.
+2. Ejecuta CHECKIA_PASO_22_4.ps1 desde la raíz de checkIA.
+3. En frontend ejecuta npm run build. Si termina correctamente, ejecuta npm run dev y deja abierta esa terminal.
+4. El backend debe seguir activo con npm start en otra terminal, en el puerto 3001.
+5. Abre http://127.0.0.1:5173/ y recarga. Inicia una consulta: puntos y Preparando tu consulta…; después aparece la pregunta.
+6. Completa un caso ficticio. Comprueba consentimiento arriba y Comprobar primer diagnóstico. Después de revisar las señales, marca el consentimiento vigente y pulsa Generar orientación: aro y Preparando tu orientación… hasta terminar.
+7. Si falla una solicitud, el indicador desaparece, aparece el error y se habilita el reintento, sujeto a los límites del backend.
+8. Cierra una consulta y verifica título arriba. Abre y cierra el resumen y revisa que las fuentes conserven enlaces.
+VALIDACIÓN
+JSX comprobado. Prueba de navegador con los componentes reales y backend 22.3 sobre una base simulada: demora, error, reintento y doble clic en creación y generación; permisos de navegación; consulta cerrada; consentimiento; fuentes; alertas; movimiento reducido; anchos 320, 390, 768 y 1440. Autenticación, proveedor OpenAI y CSS base simulados. No se hicieron llamadas reales a Firebase/OpenAI ni se ejecutó la compilación privada del usuario. Comprueba también el teclado en un teléfono real.
+PUBLICAR SOLO FRONTEND
+Set-Location "C:\Users\cancu\Documents\GitHub\checkIA\frontend"
+npm run build
+if ($LASTEXITCODE -ne 0) { throw "Falló la compilación" }
+Set-Location ..
+firebase deploy --only hosting --config firebase.checkia.json --project checkia-project
+if ($LASTEXITCODE -ne 0) { throw "Falló el despliegue" }
+Abre https://checkia-project.web.app y recarga con Ctrl+F5. El backend publicado debe tener ya el paso 22.3. No necesitas volver a desplegar Cloud Run para esta entrega.
+RESPALDO
+La carpeta respaldos/paso22_4_FECHA conserva los archivos anteriores en sus rutas originales. ARCHIVOS_NUEVOS.txt enumera los archivos añadidos para facilitar revertir el cambio. No borres datos de Firestore para revertir la interfaz.

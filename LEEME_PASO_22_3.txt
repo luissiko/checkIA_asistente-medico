@@ -1,0 +1,30 @@
+CHECKIA PASO 22.3 - PREGUNTAS E INTERFAZ COMPACTA
+Aplicar sobre el paso 22.2. El instalador respalda los archivos antes de escribir.
+No cambia .env, OPENAI_MODEL, claves, firebase.js, dependencias, datos de Firestore ni corpus/índice RAG. No publica recursos.
+Consultas nuevas: intake-demo-v8, validationVersion 16, health step 22.3.
+Las consultas anteriores conservan su protocolo. Crea una consulta nueva para comprobar los cambios.
+Secuencia final: 15 alergias, 15.1 medicamento/remedio si corresponde, 16 desde cuándo y última reacción si corresponde, 17 antecedentes familiares y 17.1 familiar si corresponde, 18 confirmación Sí/No. La pregunta 14 continúa reservada como antes; no se crea una pregunta nueva sin contenido.
+Se elimina 9.1 de las consultas nuevas; 9.2 conserva la descripción del dolor o afectación.
+Una respuesta No a alergias omite los detalles, pero conserva antecedentes familiares y confirmación final. Corregir una respuesta exige confirmar de nuevo. Un No a la confirmación bloquea generar orientación.
+Pantalla sin tarjeta vacía: Nueva consulta abre la primera pregunta y el campo de respuesta. No se crean consultas automáticas al recargar.
+Sin contador 17/17 ni historial desplegable. Los mensajes originales continúan guardados y accesibles por la API y el panel administrativo autorizado.
+Recargar mensajes pasa al pie; el panel de orientación queda después del resumen y de las correcciones.
+La atribución de IA se muestra una sola vez, pequeña, al pie de la orientación generada.
+Pregunta 6: título sin Antes de continuar, fuente compacta y campo corto. Se mantienen Sí, No, No sé y letras como entradas admitidas por compatibilidad. Detectar señales y bloquear el LLM no cambia.
+Alerta roja: se retiran los párrafos solicitados; conserva llamada 911, hospital según seguridad social, selección Cancún/otra localidad y aviso sobre los enlaces aportados al prototipo.
+Los tamaños son aproximados y conservan legibilidad y controles utilizables; el campo de entrada mantiene fuente de 16 px para evitar zoom automático móvil.
+PRUEBA LOCAL
+1. Detén backend y frontend con Ctrl+C en sus terminales.
+2. Ejecuta el instalador desde la raíz del proyecto.
+3. En backend: npm test; si pasa, npm start. Mantén abierta esa terminal.
+4. En otra terminal, frontend: npm run build; si pasa, npm run dev.
+5. Abre http://127.0.0.1:5173/, recarga y crea una consulta nueva.
+6. Comprueba: 9 no pregunta zona 9.1; describe en 9.2; familiares antes de 18; 18 es la confirmación final. Prueba alergias No y alergias referidas.
+7. Prueba pregunta 6 Sí en un caso ficticio: aparece ayuda roja y no hay generación LLM. No realices una llamada de prueba al 911.
+8. Revisa Enter y un toque en Guardar respuesta, tanto en móvil como computadora.
+VALIDACIÓN REALIZADA
+142 pruebas automatizadas del backend, incluyendo regresiones de protocolos anteriores y seis pruebas del protocolo v8. JSX validado. Comprobación de interfaz con autenticación y proveedor simulados; no utiliza cuentas de Firebase ni llamadas reales de OpenAI. La revisión en teclado móvil real sigue siendo necesaria.
+PUBLICACIÓN
+Cloud Run primero y Firebase Hosting después; sigue PUBLICAR_PASO_22.txt. La comprobación health verifica configuración, no calidad clínica ni acceso efectivo a OpenAI.
+RESTAURAR
+Detén los servidores y copia los archivos del respaldo a sus rutas originales. ARCHIVOS_NUEVOS.txt enumera los archivos que se añadieron. Nunca restaures archivos mientras el servidor está escribiendo una consulta.
