@@ -1,0 +1,39 @@
+CHECKIA 22.6 — DESCARGAS BREVES Y MÓDULO PRINCIPAL
+Aplicar sobre 22.5. Detener backend y frontend antes de aplicar.
+El instalador verifica los archivos y crea respaldo en respaldos/paso22_6_FECHA.
+Solo cambia las representaciones descargadas en JSON/TXT y el orden de los módulos.
+JSON y TXT contienen los mismos datos vigentes, aclaraciones, observaciones guardadas,
+señales registradas, orientación y títulos/enlaces de fuentes. No duplican el historial.
+El formato JSON cambia a checkia-resumen-v1: es un resumen derivado, no una exportación
+completa para auditoría ni la entrada exacta enviada al LLM. Se conservan los originales
+y el historial en la base y en el detalle del panel administrativo.
+No interpreta síntomas ni corrige valores. No usa OpenAI para descargar.
+No incorpora la captura de solicitudes ni una tercera descarga de evaluación.
+La orientación, consentimiento y comprobación se muestran antes de Consultas y los demás
+controles cuando la consulta reúne los requisitos existentes. Durante la entrevista y
+ante alertas se mantienen las restricciones originales. El consentimiento sigue siendo
+necesario para generar orientación. No se cambian las preguntas ni reglas de seguridad.
+ARCHIVOS
+backend/src/admin.js
+backend/src/simple-exports.js (nuevo)
+frontend/src/main.jsx
+frontend/src/mobile.css
+frontend/src/AdminPanel.jsx
+backend/test/admin.test.js (expectativas del nuevo formato)
+backend/test/simple-exports.test.js (nuevo)
+LEEME_PASO_22_6.txt
+VERIFICACIÓN
+143 pruebas backend pasaron; comprobación adicional de resumen determinista, valor 56 cm,
+aclaraciones desconocidas, ausencia de historial duplicado y consulta sin orientación.
+JSX compilado. La comprobación visual utiliza autenticación, CSS base y proveedor simulados.
+No se comprueba una llamada real a OpenAI ni se publica automáticamente.
+LOCAL
+En backend: npm test (si existe script) o node --test test/*.test.js; después npm start.
+En frontend: npm run build; si termina correctamente, npm run dev.
+WEB
+Esta entrega cambia backend y frontend. Despliega Cloud Run con la configuración existente,
+comprueba /api/health y luego despliega Firebase Hosting. No cambies claves ni modelo.
+La versión de health se conserva porque no se cambia su código.
+REVERSIÓN
+Detén ambos servicios y restaura los archivos del respaldo en sus rutas originales.
+ARCHIVOS_NUEVOS.txt enumera archivos que deben eliminarse al revertir.

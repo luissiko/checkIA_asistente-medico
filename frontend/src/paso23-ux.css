@@ -1,0 +1,55 @@
+/* Solo Paso 23: conserva el entorno, login y administración. */
+.workspace .question-card.paso23-question{animation:paso23-question-in 220ms ease-out}
+.workspace .question-card.paso23-start{animation:paso23-start-in 360ms ease-out}
+.workspace .question-card.paso23-has-options{display:flex;flex-direction:column;height:clamp(24rem,calc(var(--visible-height,100svh) - 9rem),48rem);min-height:0}
+.workspace .paso23-has-options>.eyebrow,.workspace .paso23-has-options>h3{flex-shrink:0}
+.workspace .paso23-has-options>form{display:flex;flex-direction:column;flex:1;min-height:0}
+.workspace .paso23-options{display:flex;flex-direction:column;flex-wrap:nowrap;flex:1;min-height:0;max-height:none;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;gap:.4rem;margin:.35rem 0;padding:2px 4px 4px 2px;touch-action:pan-y}
+.workspace .paso23-options button{flex-shrink:0;width:100%;font-size:70%;line-height:1.4;padding:.45rem .65rem;min-height:44px;touch-action:manipulation;overflow-wrap:anywhere}
+.workspace .paso23-options button span{margin-top:.35rem!important}
+.workspace .paso23-has-options textarea#answer{flex:0 0 4.25rem;min-height:4.25rem!important;max-height:4.25rem!important;resize:none;margin-top:.5rem;font-size:1rem}
+.workspace .paso23-question .answer-footer{flex-shrink:0;justify-content:flex-end;margin-top:.4rem}
+.workspace .paso23-question .answer-footer button{font-size:50%;padding:.35rem .5rem;min-height:32px;max-width:50%;min-width:0;touch-action:manipulation}
+.workspace .paso23-generating{font-size:1.2rem;line-height:1.5;font-weight:650}
+.workspace .paso23-generating .checkia-dots{gap:6px;margin-left:.6rem}
+.workspace .paso23-generating .checkia-dots span{width:7.5px;height:7.5px}
+.workspace .paso23-result{animation:paso23-finish-in 320ms ease-out}
+.workspace .paso23-emergency{border-inline-start:4px solid #b01928;animation:paso23-emergency-in 180ms ease-out,paso23-emergency-halo 1100ms ease-in-out 3}
+@keyframes paso23-question-in{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes paso23-start-in{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes paso23-finish-in{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes paso23-emergency-in{from{opacity:.65}to{opacity:1}}
+@keyframes paso23-emergency-halo{0%,100%{box-shadow:0 0 0 0 #b0192800}50%{box-shadow:0 0 0 5px #b0192820}}
+@media(max-width:900px){
+ body.answer-focus .workspace .question-card.paso23-has-options{height:var(--visible-height,100dvh);min-height:0;max-height:var(--visible-height,100dvh)}
+ body.answer-focus .workspace .paso23-has-options>form{flex:1;min-height:0}
+ body.answer-focus .workspace .paso23-options{flex:1;min-height:0;max-height:none}
+ body.answer-focus .workspace .paso23-has-options textarea#answer{flex:0 0 3rem;min-height:3rem!important;max-height:3rem!important}
+ body.answer-focus .workspace .paso23-has-options>.eyebrow{padding-right:0;min-height:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .workspace .question-card.paso23-question,.workspace .question-card.paso23-start,.workspace .paso23-result,.workspace .paso23-emergency,.workspace .paso23-generating .checkia-dots span{animation:none!important;transition:none!important}
+}
+
+/* Preguntas primero, navegación después y ayuda de emergencia al final. */
+.workspace .layout.paso23-priority{grid-template-columns:minmax(0,1fr)}
+.workspace .layout.paso23-priority>.controls-column{position:static;top:auto;width:100%;grid-column:1 / -1}
+.workspace .layout.paso23-priority>.consultation{grid-column:1 / -1}
+.workspace .layout.paso23-priority>.paso23-emergency{grid-column:1 / -1;margin:0;font-size:60%;padding:.6rem .72rem;line-height:1.5}
+.workspace .layout.paso23-priority>.paso23-emergency h3{font-size:1.17em;margin:.4em 0}
+.workspace .layout.paso23-priority>.paso23-emergency p,.workspace .layout.paso23-priority>.paso23-emergency li,.workspace .layout.paso23-priority>.paso23-emergency a{font-size:inherit}
+.workspace .layout.paso23-priority>.paso23-emergency .secondary{min-height:36px;padding:.3rem .5rem;display:inline-flex;align-items:center}
+.workspace .layout.paso23-priority>.paso23-emergency ul{padding-left:1.1rem;margin:.5em 0}
+
+/* Últimos tamaños solicitados: A–H al 130% y Guardar al 150% de la base. */
+.workspace .paso23-options.paso23-emergency-options button{font-size:91%;padding:.585rem .845rem;min-height:57.2px}
+.workspace .paso23-options.paso23-emergency-options button span{margin-top:.455rem!important}
+.workspace .paso23-question .answer-footer button{font-size:75%;padding:.525rem .75rem;min-height:48px;max-width:100%}
+.workspace .paso23-scale-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-content:start;flex:0 1 auto}
+.workspace .paso23-scale-options button{text-align:center!important;min-height:48px;font-size:1em}
+.workspace .paso23-has-options{height:auto;max-height:none;min-height:0}
+.workspace .paso23-has-options .paso23-options{max-height:60svh;min-height:0;flex:0 1 auto}
+.workspace .paso23-has-options:has(.paso23-emergency-options){height:clamp(24rem,calc(var(--visible-height,100svh) - 9rem),48rem)}
+.workspace .paso23-has-options:has(.paso23-emergency-options) .paso23-options{flex:1;max-height:none}
+.workspace .paso23-options button{height:auto;overflow:visible}
+@media(max-width:900px){body.answer-focus .workspace .question-card.paso23-has-options{height:auto;max-height:none}}

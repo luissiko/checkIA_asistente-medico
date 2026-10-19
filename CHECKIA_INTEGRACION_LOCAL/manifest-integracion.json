@@ -1,0 +1,252 @@
+{
+  "format": "checkia-local-integration-v1",
+  "source": "CHECKIA_CODIGO_ACTUAL_20261018-145744.zip",
+  "files": [
+    {
+      "path": "INICIAR_BACKEND_CHECKIA_PASO23.ps1",
+      "sha256": "7461cc8195cd2b864817fdd8fe9cf1f59b271f61f32eb6c0121a07b3642970bb",
+      "allowedBefore": []
+    },
+    {
+      "path": "INICIAR_FRONTEND_CHECKIA_PASO23.ps1",
+      "sha256": "13cfac57cab0dd24c120bdcf893a6e3554271579ccf3200ac59a8ab4ab3daa91",
+      "allowedBefore": []
+    },
+    {
+      "path": "PROBAR_CHECKIA_INTEGRADO.ps1",
+      "sha256": "d3c982867a448163c61c78b7dc42faf9b168ba6454c0fe0277152e7dd8a0c767",
+      "allowedBefore": []
+    },
+    {
+      "path": "RESTAURAR_CHECKIA_INTEGRACION.ps1",
+      "sha256": "69e9f1e023c06932f9d1844e9ab2b04a97e698a8494b6a4ca32d671dc2d11c18",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/bmi.mjs",
+      "sha256": "719721957f3b0640b80a315810904829ffe8bdcce22dba1404895573b997e181",
+      "allowedBefore": [
+        "719721957f3b0640b80a315810904829ffe8bdcce22dba1404895573b997e181"
+      ]
+    },
+    {
+      "path": "backend/paso23/build-content.py",
+      "sha256": "8934f6382986e33b684eb2047b74c7eaadc93a72c50b2e7205b6f6af42ab875e",
+      "allowedBefore": [
+        "07467871017442d1ea766cd0e3d3a3f6d8e1a94bcee7c01aa1c2cd3947113c83",
+        "0d51dc02e8c2c0f621813f061909b08812f75c6d120b98d8a50505e306a5e54f",
+        "2c3129041aefbb0ffaf0aad11231038f516abeff6f0e0c78f17250d7641dcf92",
+        "30045a312851ad52301dc548b4b637a452f4a106092147950be4569058c2bf64",
+        "8934f6382986e33b684eb2047b74c7eaadc93a72c50b2e7205b6f6af42ab875e",
+        "c9b365880a29318ce5e7aed76676057f1b187975357c7fd7c427052120e75744"
+      ]
+    },
+    {
+      "path": "backend/paso23/content.json",
+      "sha256": "979d537898d5a73b6e3b94bf7d98142a84fd9682e76c32a7c10ef8ee7077d3a1",
+      "allowedBefore": [
+        "0a75ab2ce2847e5d95e8c6aa3375592d3706209ba66f98c1fedb831f14801358",
+        "1e9cf627b70f7f4528df82252218299f1b4b5b759862404341ae3488e0c18a7c",
+        "55a56d5e2c9d8198a85364180342be479c394c48e218d75e8dedb4f0ae31ba3a",
+        "939666d692a03c40de7cbd9faf39dcc2ee7b89fe66bdb853800f121d780e8c1c",
+        "979d537898d5a73b6e3b94bf7d98142a84fd9682e76c32a7c10ef8ee7077d3a1",
+        "bd7da661f5049aefe22ccb03516243a8ca2c5a4ec6f62539a459a8d8e5c9e2d4"
+      ]
+    },
+    {
+      "path": "backend/paso23/engine.mjs",
+      "sha256": "ff49fc102a98ab0a571ec0113676df43325b011a7ddcd00ab93bbe5da3b64087",
+      "allowedBefore": [
+        "98e682944b075b9f7e741617196580a90f7b458a60dff3c1d762a48604fad5ba",
+        "d2532fd80850d42a2c0e72d8a3d2a8e9a713ba87f631b6c14eb4642e558425fa",
+        "ef17e3b5f37fefc3acf553413e724d6aba5058b4888dd086b9b7305096d4af72",
+        "ff49fc102a98ab0a571ec0113676df43325b011a7ddcd00ab93bbe5da3b64087"
+      ]
+    },
+    {
+      "path": "backend/paso23/integrated-app.mjs",
+      "sha256": "ac5f2c91dc0d05abf4d3009ac24be64fb958cec6fecaa0af4d3ca5c7fd7b4152",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/integrated-orientation.mjs",
+      "sha256": "bc0814ea707151f423cda461fc08f448ad7b57797d0ede97376a822b53843536",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/integrated-protocol.mjs",
+      "sha256": "ddf207efccf66b0baeaad5392860478f496453ad4d621c6a11facf5d4f022b01",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/integrated-server.mjs",
+      "sha256": "8f6c09ca268e4188f30236920e740d0b0b5c316cb03d00b21b9fb838b728f5da",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/integrated-store.mjs",
+      "sha256": "c0243d4d3f4b1ba42d34768fcfe74b53ffb1fd40ab7dd5bc49010761128d0d0b",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/integrated.test.mjs",
+      "sha256": "e9bf33b9aaf8b1438a38ce349ae3ca9d774555523d78c0791f5752176cb9b707",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/local-client.mjs",
+      "sha256": "a494c4e13212e23c1156eff408b9fe56315416629c3710d6dc02e58b7b5d8a63",
+      "allowedBefore": [
+        "5e7f73e69ae0797a41187bb681a5d5a141f62708e127027dadcf013508302d10",
+        "a494c4e13212e23c1156eff408b9fe56315416629c3710d6dc02e58b7b5d8a63"
+      ]
+    },
+    {
+      "path": "backend/paso23/local-retrieval.mjs",
+      "sha256": "956fd03c1a76aaabe8a2ebf2f86608f16cfa1e07f3078de5f889609f93526742",
+      "allowedBefore": [
+        "956fd03c1a76aaabe8a2ebf2f86608f16cfa1e07f3078de5f889609f93526742"
+      ]
+    },
+    {
+      "path": "backend/paso23/paso23.test.mjs",
+      "sha256": "5b18276c9bee77dd9f2c4fdf9238507c4472f4c3921b9bae2f2c1dbb8450fbe6",
+      "allowedBefore": [
+        "1eb9212eb690d849067a31ea87f79ae5b584be6a5f5ba99c8a7ff346a4636117",
+        "5b18276c9bee77dd9f2c4fdf9238507c4472f4c3921b9bae2f2c1dbb8450fbe6",
+        "bcb18ccf191dd393086c645c0d9831ded912c019872bb31c5db19d3c2932acf0",
+        "bf3b83f4add3db40b07dee838d7def20252e0557abb16da6fa1de3df056d7d49",
+        "e5efe6bc41786f07628eebe895303b48e6445e30a1c827da13e5aec6e1a05b30"
+      ]
+    },
+    {
+      "path": "backend/paso23/public/app.js",
+      "sha256": "9159791243cf5a555c5dd1b8edf03b06ef92a38e0f774201a3aeb2fad9324c91",
+      "allowedBefore": [
+        "0d9445047dfb1c28bbfdbd3e2503ee4cbfe871d944eeb933cee4b7ee6d5a962d",
+        "348b7c7c816e1d5c37e95a14e14f636a319862f770c86b182ffc1ab6755d6caa",
+        "9159791243cf5a555c5dd1b8edf03b06ef92a38e0f774201a3aeb2fad9324c91",
+        "b7cc181d73a027d1378b0275a86e8315a753503f0dddb162d7a282be00585746"
+      ]
+    },
+    {
+      "path": "backend/paso23/public/index.html",
+      "sha256": "1e7aabfc66662c47b8022409e3af82cd42169a3aea018fd05e8202a5c469d63d",
+      "allowedBefore": [
+        "1e7aabfc66662c47b8022409e3af82cd42169a3aea018fd05e8202a5c469d63d",
+        "33e5ef634e74895bea91c43eff82d6c7015b1185631aba2ccb8c52628c5f6469",
+        "4a90eeb3bbf2c9841cdbc11c96210cc23782969338f2a86a6d9de140b63be143",
+        "9116cb73e5fbfb666cce124f158225c28373ddcd95352416aebe799201e8a886",
+        "aba83dd881a28c927f2ad5f9e696702dcf7b527732a6421a2d011c3bfc6510b3"
+      ]
+    },
+    {
+      "path": "backend/paso23/public/style.css",
+      "sha256": "c5e49ebc47b245f06446a5879ee9273a9b5a25500af5c95cf1f11b861dc1cb42",
+      "allowedBefore": [
+        "99559dbfc39d0a4e36e35059bb247423e43877c7b0dcbac89c456967b6bbf1dd",
+        "a13cd6cb92e6f275db92677c0ef3c26840b6b30dab90c5ea6446fcfe8e6911e5",
+        "c5e49ebc47b245f06446a5879ee9273a9b5a25500af5c95cf1f11b861dc1cb42"
+      ]
+    },
+    {
+      "path": "backend/paso23/public/view.mjs",
+      "sha256": "189f03b67d2b3f42377f5841d391741f65692e0d106e4ff528b4a62d72354d87",
+      "allowedBefore": [
+        "189f03b67d2b3f42377f5841d391741f65692e0d106e4ff528b4a62d72354d87",
+        "2d2ef056b460ebb17e3a4ce44574a9ab4df6b7ca199e2a2f1aa50868d5099edc"
+      ]
+    },
+    {
+      "path": "backend/paso23/server.mjs",
+      "sha256": "df4b1844301948184b506432eaa4f08818a129aa6c17f313abe2705b780c4e3e",
+      "allowedBefore": [
+        "120880e0426fc70b5f592c66db92b85b5150b62d10b7644097244c3f714afa94",
+        "467d23c793021f881e8fd8c51cbe51010a1e0e4e688200acf4d5ccb240dea7dd",
+        "df4b1844301948184b506432eaa4f08818a129aa6c17f313abe2705b780c4e3e"
+      ]
+    },
+    {
+      "path": "backend/paso23/test-support/fake-db.mjs",
+      "sha256": "0e20176616e5ae2d56694ba70be346d972c2b64b8c213317b09d5c5661ed02a4",
+      "allowedBefore": []
+    },
+    {
+      "path": "backend/paso23/who-bmi-reference.json",
+      "sha256": "36e0527dce51ec85d6b61423741da9bf7e71829be204273280b9ad4b3506b90a",
+      "allowedBefore": [
+        "36e0527dce51ec85d6b61423741da9bf7e71829be204273280b9ad4b3506b90a"
+      ]
+    },
+    {
+      "path": "backend/src/summary.js",
+      "sha256": "50143b5a5305e0f6d83e5f0f009fb87c51b6b1d63b79ae2035a8bb0c1234b5f5",
+      "allowedBefore": [
+        "c0719c63c6878bbc789469bbd3ae0995ac461da37d80a4f3336512c3f6b8544b"
+      ]
+    },
+    {
+      "path": "docs/paso23/ACLARACIONES_APLICADAS.md",
+      "sha256": "b8186d56ec80f3539b39b150bd34fd785631b46898e033fc7d9a68356cd458f8",
+      "allowedBefore": [
+        "0a68ca901de156c996baba9cebbdf3868c147e4d393fcd28ae453823ffd4fb87",
+        "455defb948a44874526f723e8fad461417c1c43f50090878a0cb844856b74dee",
+        "7cd7781245f38578cdf4b786a197bbaf31714edf79bfc84c6adc6916cb9736da",
+        "9af84a4f86021806b9096e7d045ebe903066cffb9767d07ebb0f0da7c8bd03c6",
+        "b8186d56ec80f3539b39b150bd34fd785631b46898e033fc7d9a68356cd458f8"
+      ]
+    },
+    {
+      "path": "docs/paso23/INTEGRACION_LOCAL.md",
+      "sha256": "1ea19a092b4025961843b64adfd724d455395fcbc3109ec96a545f05b4c38513",
+      "allowedBefore": []
+    },
+    {
+      "path": "docs/paso23/LEEME_LOCAL.md",
+      "sha256": "81a430b97ad9cabf2955b577eae128438b66395d7b13ae41a2e733f2d0f1143e",
+      "allowedBefore": [
+        "4a19c4d0721566f62d13db6edf4d5b0c3bd24715d84945719b661fc1af4741d8",
+        "606949b5562d3de7821eb710ef5c5c6d2746223ebf83c2b412d51d87bf33886c",
+        "65662e644876eb8f3ea2e1c27479514d5a3f121319d1e67750598250c6fdb1e0",
+        "81a430b97ad9cabf2955b577eae128438b66395d7b13ae41a2e733f2d0f1143e",
+        "c59794baa4c178de909f4656462a3ae9bc796188f17dc5726819a2dc501d0ba7",
+        "ea379a8db7f522eadf18d47884dc40dc8f6f7da39cddfe8f8f784fe8df8c2b94"
+      ]
+    },
+    {
+      "path": "docs/paso23/ORIGINAL_USUARIO.md",
+      "sha256": "36dba0914274444b41b6a6503e4f9546c003e03605dc771b100db3adc4cdb98e",
+      "allowedBefore": [
+        "36dba0914274444b41b6a6503e4f9546c003e03605dc771b100db3adc4cdb98e",
+        "878245281d2a93e2c0714e8b7011df7521bb2ae55bde7b1912e45f3077b48b93",
+        "d42a162bcaddf70fc0dfa8e60c3dd95e9780403df8ca5ce8ec6e73e40834899b"
+      ]
+    },
+    {
+      "path": "frontend/src/OrientationPanel.jsx",
+      "sha256": "76b21332a1221ef325c1079edda5e508a33e792c87a0765a4c45b101b5f2eda5",
+      "allowedBefore": [
+        "8e5690ce96c2d811f4f9c462d10ab92b63012027c1d6db21754fa79e0c089b44"
+      ]
+    },
+    {
+      "path": "frontend/src/Paso23.jsx",
+      "sha256": "c9ffe6c4344faaa57d126f117f32c39d2d912d363c58b3fda767bb73c2548a11",
+      "allowedBefore": []
+    },
+    {
+      "path": "frontend/src/interview-client.mjs",
+      "sha256": "7c2633f64afde2fb7353df853463143aa44d1a0fcc6043904e4c4ab705fa4454",
+      "allowedBefore": [
+        "2734a5971e2e647e9a6a58ffe562d35e8d5d8c8f9407926098a16c8c2afac58d"
+      ]
+    },
+    {
+      "path": "frontend/src/main.jsx",
+      "sha256": "dc39f92fa0ee2d21ff92cda23b287714adf4cb7ae8b5dc271d1409d2027e843c",
+      "allowedBefore": [
+        "1abecf9a4b2e9250a2714f876f202dd9dea909b52fe0f387e625e1450ac75108"
+      ]
+    }
+  ]
+}

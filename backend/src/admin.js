@@ -1,3 +1,4 @@
+import {simpleExport,simpleText} from './simple-exports.js';
 import {randomUUID} from 'node:crypto';
 import {buildSummary} from './summary.js';
 const fail=(status,message)=>{throw Object.assign(new Error(message),{status});};
@@ -40,13 +41,7 @@ export function csv(rows){
  return '\ufeff'+data.map(r=>r.map(cell).join(',')).join('\r\n');
 }
 export function publicSession(s,messages,now){return {id:s.id,createdAt:s.createdAt,updatedAt:s.updatedAt,expiresAt:s.expiresAt,status:s.status,expired:s.expiresAt<=now,clinicalState:s.clinicalState||null,messages,summary:buildSummary(s),orientation:s.orientation||null,orientationAttempts:number(s.orientationAttempts),lastOrientationRun:s.orientationRun?{status:s.orientationRun.status,updatedAt:s.orientationRun.updatedAt}:null};}
-export function textExport(s){
- const lines=['CHECKIA - CONSULTA REFERIDA','Consulta: '+s.id,'Creada (UTC): '+new Date(s.createdAt).toISOString(),'Estado: '+s.status,'Vencida: '+(s.expired?'Sí':'No'),'','RESPUESTAS'];
- for(const group of s.summary.groups)for(const f of group.fields){lines.push(f.label+': '+(f.text??'Sin recopilar')+' ['+f.status+']');for(const d of f.details)lines.push('  '+d.label+': '+d.text+' ['+d.status+']');}
- lines.push('','HISTORIAL');for(const m of s.messages)lines.push((m.role==='user'?'Usuario':'CHECKIA')+': '+m.text);
- if(s.orientation){lines.push('','ORIENTACIÓN GUARDADA','Revisión de origen: '+s.orientation.basedOnRevision,'Revisión actual: '+(s.clinicalState?.revision||0),'Modelo: '+s.orientation.model);const r=s.orientation.result;for(const key of ['resumen','datos_por_aclarar','orientacion_general','siguiente_paso','preguntas_para_profesional'])if(r?.[key])lines.push(key+': '+(Array.isArray(r[key])?r[key].join('\n'):r[key]));for(const f of s.orientation.rag?.sources||[])lines.push('Fuente: '+f.title+' - '+f.url);}
- lines.push('','Respuestas referidas y orientación de prueba; no constituyen un diagnóstico confirmado.');return lines.join('\n');
-}
+export function textExport(s){return simpleText(s);}
 export class AdminService{
  constructor(db,{now=()=>Date.now()}={}){this.db=db;this.now=now;}
  async audit(actor,action,detail={}){
@@ -83,6 +78,6 @@ export class AdminService{
    return publicSession({...s,id},messages.docs.map(m=>m.data()),this.now());
   });
  }
- async exportSession(actor,id,format){if(!['json','txt'].includes(format))fail(400,'Selecciona JSON o TXT.');const s=await this.detail(actor,id,'export',format);return {filename:'checkia-'+id+'.'+format,type:format==='json'?'application/json; charset=utf-8':'text/plain; charset=utf-8',content:format==='json'?JSON.stringify(s,null,2):textExport(s)};}
+ async exportSession(actor,id,format){if(!['json','txt'].includes(format))fail(400,'Selecciona JSON o TXT.');const s=await this.detail(actor,id,'export',format);return {filename:'checkia-'+id+'.'+format,type:format==='json'?'application/json; charset=utf-8':'text/plain; charset=utf-8',content:format==='json'?JSON.stringify(simpleExport(s),null,2):textExport(s)};}
  async exportPage(actor,input){const f=parseFilters(input,this.now()),page=await this.scan(f,MAX_SCAN,f.limit);await this.audit(actor,'export_page',{format:'csv',returned:page.rows.length,scanned:page.scanned});return {filename:'checkia-consultas.csv',type:'text/csv; charset=utf-8',content:csv(page.rows)};}
 }

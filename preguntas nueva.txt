@@ -1,0 +1,65 @@
+vamos a reorganizar las preguntas nuevas que se le haran al usuario paciente, en caso de tener emergencia, se manda a solicitar  la opción del 911 y se  de ubicaciones que ya se tiene listo, luego se evaluara que tipo de persona es (bebe,niño,joven,adulto, tercera edad,mujera,si tienesegún de los 3 triaje que se me sugeriste de 20 preguntas cada uno, lo reformulares de una forma simple al usuario, pero sin ser tan técnico
+
+
+1.-¿Cómo te llamas?
+
+2. ¿Qué edad tienes?
+
+3. ¿Masculino(m) o femenino(f) ?
+
+4. ¿Cuál es tu peso (nombre de la persona)?
+ 
+5. ¿Cuál es su altura (nombre de la persona?
+
+6. ANTES DE CONTINUAR: ¿TIENES ALGUNAS DE ESTA SEÑALES?
+
+a.- ¿Tienes dificultad importante para respirar o atragantamiento?
+
+b.- ¿Tienes dolor o presión en el pecho fuerte o intenso.
+
+c.-¿Tiene sangrado que no se detiene o vómito con sangre
+
+d.- ¿Usted tiene pérdida de conocimiento o te sientes realmente mareado?
+
+e.- ¿Tienes dificultad para hablar o debilidad de un lado de la boca ahora?.
+
+f.- ¿Tienes dolor abdominal muy intenso (estomago, vientre)?
+
+g.- ¿Tienes dolor de cabeza intenso(migraña)o has sufrido un desmayo hoy?.
+
+( si responde si, o una letra de la a-g, que surge el mensaje de buscar ayuda de emergencia, como ya lo habíamos colocado, y que se ponga la interfaz roja o un mensaje de alerta en rojo que llame la atención en eso no le mueva nada)porque es una emergencia y allí no podemos hacer mucho, mas adelante tengo una idea de complementar en este paso, pero tengo que diseñar una pagina web intuitiva de emergencia para que las personas se puedan auxiliar viendo unos videos de RCP oficiales de la cruz roja, pero eso será en otro momento)
+
+7. ¿Motivo de  tu consulta?
+
+8. ¿Cuándo comenzó tu dolencia o sintomas?
+8.1. Comente si usted recuerda cuando o un aproximado.
+ ¿Cuándo comenzó?
+9. ¿En qué parte le afecta?
+
+9.1. ¿En qué zona o lado del cuerpo ? (cuando responda algo ,pasa a la pregunta 9.2)
+9.2 Descríbeme su dolor o afectación
+
+10. Si tienes dolor, ¿Qué intensidad tienes del 1-10?
+
+11. ¿Qué otros síntomas presentas?
+
+12. ¿has tenido alguna enfermedad en el pasado?
+12.1(si responde si preguntar) ¿Cuál enfermedad o dolencia has tenido?
+
+13. ¿Tomas algún medicamento?
+(si responde a que si consume, pasa a la pregunta 13.1)
+(si responde no,preguntar 13.1¿Tomas algun remedio casero,naturista o botanico?si responde si preguntar¿Cual es y que contiene?, si responde que si preguntar¿Desde cuando lo consumes y proque lo consumes?)
+13.1¿Porque lo consumes,cuanto consumes {dosis})y desde cuando lo consumes?.
+
+
+13.2 ¿Sabe  usted del principio activo ó EFG (Equivalente Farmacéutico Genérico)? si ó no
+( si responde que si pasa a la pregunta 13.2.1 ¿Menciona cual es?
+
+15.- ¿tienes algún tipo de alergia?
+(si responde que si o menciona una alergia seguir con la pregunta 15.1,si dice que no,se cierra este formulario)
+
+15.1 ¿Que medicamento/remedio consumes para la alergia?
+
+15.2¿Desde cuándo la tienes y cuando fue la ultima vez?
+
+16.-¿Sus respuestas en las preguntas son verdaderas?( si ó no)

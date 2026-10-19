@@ -1,0 +1,816 @@
+{
+  "version": "paso23-local-v6",
+  "sourceSha256": "36dba0914274444b41b6a6503e4f9546c003e03605dc771b100db3adc4cdb98e",
+  "questions": [
+    {
+      "id": "respondent",
+      "number": "1",
+      "text": "¿Cuál es tu nombre o de la persona para el diagnóstico?",
+      "kind": "text"
+    },
+    {
+      "id": "reason",
+      "number": "2",
+      "text": "¿Motivo de la consulta?(Descríbemelo)",
+      "kind": "text"
+    },
+    {
+      "id": "emergency_level",
+      "number": "2.1",
+      "text": "¿Nivel de emergencia del 1 al 10 los numero 9-10 son realmente URGENCIA?",
+      "kind": "text"
+    },
+    {
+      "id": "emergency_options",
+      "number": "2.1.1",
+      "text": "🔵¿TIENES ALGO DE ESTO SINTOMAS O DOLENCIA?",
+      "kind": "options"
+    },
+    {
+      "id": "emergency_group",
+      "number": "aa1",
+      "text": "¿ES UN BEBE1)MUJER EMBARAZADA(2) ADULTO TERCERA EDAD(3)DISCAPACITADO(4),NO ES UNA EMERGENCIA(5)?",
+      "kind": "group"
+    },
+    {
+      "id": "infant_emergency",
+      "number": "1a",
+      "text": "¿Cuántos meses/año tiene el bebe y cual es su urgencia?",
+      "kind": "text"
+    },
+    {
+      "id": "pregnancy_emergency",
+      "number": "2a",
+      "text": "¿Edad de la mujer embarazada y cual es su urgencia?",
+      "kind": "text"
+    },
+    {
+      "id": "older_emergency",
+      "number": "3a",
+      "text": "¿Cual edad, sexo y urgencia tiene el adulto mayor?",
+      "kind": "text"
+    },
+    {
+      "id": "disability_emergency",
+      "number": "4a",
+      "text": "¿Cual edad, sexo, discapacidad tiene y cual urgencia tiene la persona?",
+      "kind": "text"
+    },
+    {
+      "id": "age",
+      "number": "3",
+      "text": "¿Qué edad tienes?",
+      "kind": "text"
+    },
+    {
+      "id": "sex",
+      "number": "4",
+      "text": "¿Hombre(h)o mujer(m) ?",
+      "kind": "text"
+    },
+    {
+      "id": "has_children",
+      "number": "4.1",
+      "text": "¿Tienes hijos?‬",
+      "kind": "yesno"
+    },
+    {
+      "id": "children_count",
+      "number": "4.1.1",
+      "text": "¿Cuantos hijos tienes?",
+      "kind": "text"
+    },
+    {
+      "id": "pregnant",
+      "number": "4.1.2",
+      "text": "¿Esta embarazada?",
+      "kind": "yesno"
+    },
+    {
+      "id": "pregnancy_months",
+      "number": "4.1.3",
+      "text": "¿Cuanto meses tiene tu embarazo?",
+      "kind": "text"
+    },
+    {
+      "id": "weight",
+      "number": "5",
+      "text": "¿Cuál es tu peso ?",
+      "kind": "text"
+    },
+    {
+      "id": "height",
+      "number": "6",
+      "text": "¿Cuál es tu altura?",
+      "kind": "text"
+    },
+    {
+      "id": "bmi_consent",
+      "number": "7",
+      "text": "¿Quieres saber tu índice de masa corporal con tu información(si/no))",
+      "kind": "yesno"
+    },
+    {
+      "id": "onset",
+      "number": "8",
+      "text": "¿Cuándo comenzó su dolor ó síntomas?",
+      "kind": "text"
+    },
+    {
+      "id": "location",
+      "number": "9",
+      "text": "¿En qué parte ó zona le afecta?",
+      "kind": "text"
+    },
+    {
+      "id": "location_description",
+      "number": "9.2",
+      "text": "¿ Podría describir el dolor o afectación?",
+      "kind": "text"
+    },
+    {
+      "id": "severity",
+      "number": "10",
+      "text": "¿Cómo clasifica su dolor o afectación del 1 al 10?",
+      "kind": "text"
+    },
+    {
+      "id": "history",
+      "number": "11",
+      "text": "¿has tenido algo similar en el pasado?",
+      "kind": "yesno"
+    },
+    {
+      "id": "history_detail",
+      "number": "12",
+      "text": "¿Cuál dolor o afectación(descríbalo)?",
+      "kind": "text"
+    },
+    {
+      "id": "medications",
+      "number": "13",
+      "text": "¿Tomas algún medicamento/suplemento alimenticio/vitamina?",
+      "kind": "yesno"
+    },
+    {
+      "id": "medications_details",
+      "number": "13.1",
+      "text": "¿Cual, desde cuando y porque lo consumes?",
+      "kind": "text"
+    },
+    {
+      "id": "medications_knows_active",
+      "number": "13.2",
+      "text": "¿Sabe el Nombre de la sustancia que tiene el producto(principio activo ó EFG) SI/NO?",
+      "kind": "yesno"
+    },
+    {
+      "id": "medications_identity",
+      "number": "13.4",
+      "text": "¿Menciona cual es?",
+      "kind": "text"
+    },
+    {
+      "id": "remedies",
+      "number": "14",
+      "text": "¿Tomas algún remedio casero, naturista o botánico?",
+      "kind": "yesno"
+    },
+    {
+      "id": "remedies_detail",
+      "number": "14.1",
+      "text": "¿Cual es, porque lo consumes y desde hace cuanto tiempo?",
+      "kind": "text"
+    },
+    {
+      "id": "allergies",
+      "number": "15",
+      "text": "¿tienes algún tipo de alergia?",
+      "kind": "yesno"
+    },
+    {
+      "id": "allergy_timing",
+      "number": "15.1",
+      "text": "¿Cual es ,desde cuándo la tienes y cuando tiempo te tarda la alergia?",
+      "kind": "text"
+    },
+    {
+      "id": "allergy_reaction",
+      "number": "15.2",
+      "text": "¿Qué medicamento/remedio consumes para la alergia?",
+      "kind": "text"
+    },
+    {
+      "id": "pets",
+      "number": "15.3",
+      "text": "¿tiene mascota en casa(SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "pets_detail",
+      "number": "15.4",
+      "text": "¿Cuál o cuales tipo de mascota y cuanto tienes)",
+      "kind": "text"
+    },
+    {
+      "id": "cancer_diabetes",
+      "number": "16",
+      "text": "¿Tiene cáncer o diabetes?",
+      "kind": "yesno"
+    },
+    {
+      "id": "cancer_diabetes_detail",
+      "number": "16.1",
+      "text": "¿Cuál y que tipo?",
+      "kind": "text"
+    },
+    {
+      "id": "hereditary",
+      "number": "17",
+      "text": "¿Tienes alguna enfermedad hereditaria?",
+      "kind": "yesno"
+    },
+    {
+      "id": "hereditary_since",
+      "number": "17.1",
+      "text": "¿Desde hace cuanto tiempo?",
+      "kind": "text"
+    },
+    {
+      "id": "hereditary_relatives",
+      "number": "17.2",
+      "text": "¿Qué familiares la tienen o la tuvieron?",
+      "kind": "text"
+    },
+    {
+      "id": "hereditary_relative_age",
+      "number": "17.3",
+      "text": "¿Si te acuerdas, desde que edad la tuvieron y cuanto tiempo tuvieron o tienen con ella aproximadamente?",
+      "kind": "text"
+    },
+    {
+      "id": "degenerative",
+      "number": "18",
+      "text": "¿Tienes una enfermedad degenerativa SI/NO?",
+      "kind": "yesno"
+    },
+    {
+      "id": "degenerative_since",
+      "number": "18.1",
+      "text": "¿Desde cuando la tienes y si la tiene o tuvo un familiar cercano?",
+      "kind": "text"
+    },
+    {
+      "id": "sti",
+      "number": "19",
+      "text": "¿Tienes una enfermedad de trasmisión sexual SI/NO?",
+      "kind": "yesno"
+    },
+    {
+      "id": "sti_since",
+      "number": "19.1",
+      "text": "¿Desde cuando la tienes y si la tiene o tuvo un familiar cercano?",
+      "kind": "text"
+    },
+    {
+      "id": "physical_activity",
+      "number": "20",
+      "text": "¿Realiza actividades físicas (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "activity_detail",
+      "number": "20.1",
+      "text": "¿Cuales son y que tiempo la realizas (dias por semana y cuantas hora aprox)",
+      "kind": "text"
+    },
+    {
+      "id": "healthy_diet",
+      "number": "21",
+      "text": "¿Su alimentación es saludable?",
+      "kind": "yesno"
+    },
+    {
+      "id": "avoids_processed",
+      "number": "21.1",
+      "text": "¿Evita usted consumir comida procesada (embutidos ,harinas refinada, comida rápida, ETC?",
+      "kind": "yesno"
+    },
+    {
+      "id": "unhealthy_food",
+      "number": "22",
+      "text": "¿Que tipo de comida no saludable consume?",
+      "kind": "text"
+    },
+    {
+      "id": "city",
+      "number": "23",
+      "text": "¿Que ciudad vives actualmente?",
+      "kind": "text"
+    },
+    {
+      "id": "city_since",
+      "number": "23.1",
+      "text": "¿Desde hace cuanto tiempo vives allí?",
+      "kind": "text"
+    },
+    {
+      "id": "origin",
+      "number": "24",
+      "text": "¿Donde nació?",
+      "kind": "text"
+    },
+    {
+      "id": "origin_visits",
+      "number": "24.1",
+      "text": "¿Visita seguido ese lugar?",
+      "kind": "yesno"
+    },
+    {
+      "id": "travel",
+      "number": "25",
+      "text": "¿Viajo algún lugar recientemente?",
+      "kind": "yesno"
+    },
+    {
+      "id": "travel_where",
+      "number": "25.1",
+      "text": "¿Donde?",
+      "kind": "text"
+    },
+    {
+      "id": "travel_duration",
+      "number": "25.2",
+      "text": "¿Cuánto tiempo estuvo y hace cuanto (fecha)?",
+      "kind": "text"
+    },
+    {
+      "id": "travel_frequent",
+      "number": "25.3",
+      "text": "¿Llega frecuente a ese lugar?",
+      "kind": "yesno"
+    },
+    {
+      "id": "medical_visits",
+      "number": "26",
+      "text": "¿Realiza visita medica?",
+      "kind": "yesno"
+    },
+    {
+      "id": "medical_last",
+      "number": "26.1",
+      "text": "¿Cuándo fue la ultima vez?",
+      "kind": "text"
+    },
+    {
+      "id": "medical_reason",
+      "number": "26.2",
+      "text": "¿Por qué fue y cual fue el diagnostico medico?",
+      "kind": "text"
+    },
+    {
+      "id": "medical_treatment",
+      "number": "26.3",
+      "text": "¿Siguió algún tratamiento después de la visita medica?",
+      "kind": "yesno"
+    },
+    {
+      "id": "lab_tests",
+      "number": "27",
+      "text": "¿Se ha realizado análisis últimamente?",
+      "kind": "yesno"
+    },
+    {
+      "id": "lab_which",
+      "number": "27.1",
+      "text": "¿Cuáles?",
+      "kind": "text"
+    },
+    {
+      "id": "lab_results",
+      "number": "27.2",
+      "text": "¿Qué resultado salieron?",
+      "kind": "text"
+    },
+    {
+      "id": "lab_review",
+      "number": "27.3",
+      "text": "¿Visito a un medico por los resultados?",
+      "kind": "yesno"
+    },
+    {
+      "id": "sleep",
+      "number": "28",
+      "text": "¿Cuánta horas duermes?",
+      "kind": "text"
+    },
+    {
+      "id": "sleep_medications",
+      "number": "28.1",
+      "text": "¿tomas medicamento para dormir?",
+      "kind": "yesno"
+    },
+    {
+      "id": "occupation",
+      "number": "29",
+      "text": "¿A que se dedica?",
+      "kind": "text"
+    },
+    {
+      "id": "work_hours",
+      "number": "29.1",
+      "text": "¿Cuánta horas trabaja aproximadamente?",
+      "kind": "text"
+    },
+    {
+      "id": "alcohol",
+      "number": "30",
+      "text": "¿Toma alcohol?",
+      "kind": "yesno"
+    },
+    {
+      "id": "alcohol_current",
+      "number": "30.1",
+      "text": "¿consume actualmente (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "alcohol_detail",
+      "number": "30.2",
+      "text": "¿Cada cuanto tiempo consumes y desde hace cuanto tiempo?",
+      "kind": "text"
+    },
+    {
+      "id": "alcohol_past",
+      "number": "30.2",
+      "text": "¿Hace cuanto tiempo consumió y durante cuanto tiempo aproximadamente?",
+      "kind": "text"
+    },
+    {
+      "id": "smoking",
+      "number": "31",
+      "text": "¿fumas cigarro?",
+      "kind": "yesno"
+    },
+    {
+      "id": "smoking_current",
+      "number": "31.1",
+      "text": "¿consume actualmente (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "smoking_detail",
+      "number": "31.2",
+      "text": "¿Cuanto cigarros por día y desde hace cuanto tiempo?",
+      "kind": "text"
+    },
+    {
+      "id": "smoking_past",
+      "number": "31.2",
+      "text": "¿Hace cuanto tiempo consumió y durante cuanto tiempo aproximadamente?",
+      "kind": "text"
+    },
+    {
+      "id": "drugs",
+      "number": "32",
+      "text": "¿Consume o consumió algún tipo de droga (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "drugs_current",
+      "number": "32.1",
+      "text": "¿consume actualmente (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "drugs_detail",
+      "number": "31.2",
+      "text": "¿Cada cuanto consumes  y desde hace cuanto tiempo?",
+      "kind": "text"
+    },
+    {
+      "id": "drugs_past",
+      "number": "31.2",
+      "text": "¿Hace cuanto tiempo consumió y durante cuanto tiempo aproximadamente?",
+      "kind": "text"
+    },
+    {
+      "id": "protection",
+      "number": "33",
+      "text": "¿utiliza protección en las relaciones intima(SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "partners",
+      "number": "33.1",
+      "text": "¿Es pareja única con la persona que tiene intimidad o frecuenta con otra persona?",
+      "kind": "text"
+    },
+    {
+      "id": "donated",
+      "number": "34",
+      "text": "¿Usted a donado sangre (SI/NO)?",
+      "kind": "yesno"
+    },
+    {
+      "id": "donated_when",
+      "number": "34.1",
+      "text": "¿Cuando?",
+      "kind": "text"
+    },
+    {
+      "id": "answers_confirmation",
+      "number": "35",
+      "text": "¿todas sus respuesta son verdaderas (SI/NO)",
+      "kind": "yesno"
+    },
+    {
+      "id": "hereditary_choice",
+      "number": "17",
+      "text": "",
+      "kind": "condition",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1. Hipercolesterolemia familiar"
+        },
+        {
+          "value": "2",
+          "label": "2. Fibrosis quística"
+        },
+        {
+          "value": "3",
+          "label": "3. Anemia falciforme"
+        },
+        {
+          "value": "4",
+          "label": "4. Enfermedad de Huntington"
+        },
+        {
+          "value": "5",
+          "label": "5. Hemofilia"
+        },
+        {
+          "value": "6",
+          "label": "6. Síndrome de Marfan"
+        },
+        {
+          "value": "7",
+          "label": "7. Distrofia muscular"
+        },
+        {
+          "value": "8",
+          "label": "8. Hemocromatosis"
+        },
+        {
+          "value": "9",
+          "label": "9. Neurofibromatosis"
+        },
+        {
+          "value": "10",
+          "label": "10. NINGUNA"
+        }
+      ]
+    },
+    {
+      "id": "degenerative_choice",
+      "number": "18",
+      "text": "",
+      "kind": "condition",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1. Enfermedad de Alzheimer (y otras demencias seniles)"
+        },
+        {
+          "value": "2",
+          "label": "2. Artrosis / Osteoartritis (desgaste del cartílago articular)"
+        },
+        {
+          "value": "3",
+          "label": "3. Enfermedad de Parkinson (degeneración del sistema nervioso motor)"
+        },
+        {
+          "value": "4",
+          "label": "4. Osteoporosis (pérdida progresiva de la densidad ósea)"
+        },
+        {
+          "value": "5",
+          "label": "5. Maculopatía / Degeneración Macular Asociada a la Edad (DMAE)"
+        },
+        {
+          "value": "6",
+          "label": "6. Esclerosis Lateral Amiotrófica (ELA)"
+        },
+        {
+          "value": "7",
+          "label": "7. Enfermedad Cardiovascular Degenerativa (Arterioesclerosis por envejecimiento arterial)"
+        },
+        {
+          "value": "8",
+          "label": "8. Sarcopenia (pérdida gradual y natural de la masa y fuerza muscular)"
+        },
+        {
+          "value": "9",
+          "label": "9. Presbiacusia (pérdida progresiva de la audición por la edad)"
+        },
+        {
+          "value": "10",
+          "label": "10. NINGUNA"
+        }
+      ]
+    },
+    {
+      "id": "sti_choice",
+      "number": "19",
+      "text": "",
+      "kind": "condition",
+      "choices": [
+        {
+          "value": "1",
+          "label": "1. VIH / SIDA (Virus de la Inmunodeficiencia Humana)"
+        },
+        {
+          "value": "2",
+          "label": "2. Virus del Papiloma Humano (VPH)"
+        },
+        {
+          "value": "3",
+          "label": "3. Sífilis (Treponema pallidum)"
+        },
+        {
+          "value": "4",
+          "label": "4. Hepatitis B (VHB)"
+        },
+        {
+          "value": "5",
+          "label": "5. Hepatitis C (VHC)"
+        },
+        {
+          "value": "6",
+          "label": "6. Clamidia (Chlamydia trachomatis)"
+        },
+        {
+          "value": "7",
+          "label": "7. Gonorrea (Neisseria gonorrhoeae)"
+        },
+        {
+          "value": "8",
+          "label": "8. Herpes Genital (Virus del Herpes Simple tipo 2 y tipo 1)"
+        },
+        {
+          "value": "9",
+          "label": "9. Tricomoniasis (Trichomonas vaginalis)"
+        },
+        {
+          "value": "10",
+          "label": "10. NIGUNA"
+        }
+      ]
+    }
+  ],
+  "emergencyOptions": [
+    {
+      "value": "a",
+      "label": "A. 🔵¿ES UN BEBE1)MUJER EMBARAZADA(2) ADULTO TERCERA EDAD(3)DISCAPACITADO(4),NO ES UNA EMERGENCIA(5)?"
+    },
+    {
+      "value": "b",
+      "label": "B. 🔵PARO CARDIACO O REPSIRATORIO",
+      "question": "¿La persona está inconsciente y no respira normalmente, o solamente jadea?",
+      "paragraphs": [
+        "La persona podría estar en paro cardíaco. Llama al 911  inmediatamente y pon el teléfono en altavoz.",
+        "Acuéstala boca arriba sobre una superficie firme y comienza compresiones en el centro del pecho. Empuja fuerte y rápido, entre 100 y 120 veces por minuto, con una profundidad aproximada de 5 a 6 centímetros, permitiendo que el pecho vuelva a subir después de cada compresión.",
+        "Si sabes realizar RCP con ventilaciones(MIRA UN VIDEO EN YOUTUBE), utiliza ciclos de 30 compresiones y 2 respiraciones. Si no tienes entrenamiento, realiza compresiones continuas siguiendo las indicaciones del operador.",
+        "Si hay un desfibrilador externo automático (DEA) disponible, pide que lo traigan, enciéndelo y sigue sus instrucciones. Continúa hasta que llegue el personal de emergencias, la persona muestre signos claros de vida o no puedas continuar.",
+        "(NO HACER: No perder tiempo buscando el pulso si no tienes formación sanitaria, no dar agua y no suspender compresiones innecesariamente, Si la persona está inconsciente pero respira normalmente, no iniciar compresiones; mantener vigilancia de la respiración, colocarla en posición lateral de seguridad cuando sea apropiado y seguir las instrucciones del 911 )"
+      ]
+    },
+    {
+      "value": "c",
+      "label": "C. 🔵DIFICULTAD RESPIRATORIA GRAVE",
+      "question": "¿Tienes dificultad extrema para respirar, te estás asfixiando o no puedes hablar por falta de aire?",
+      "paragraphs": [
+        "La dificultad extrema para respirar es una emergencia. Llama al 911.",
+        "Mantente en una posición que facilite la respiración, generalmente sentado y ligeramente inclinado hacia adelante. Evita caminar, realizar esfuerzos o hablar innecesariamente.",
+        "Afloja la ropa ajustada y pide a alguien que permanezca contigo.",
+        "Si tienes un inhalador de rescate prescrito para asma, úsalo siguiendo tu plan médico o las instrucciones del operador de emergencias.",
+        "Si no puedes toser, hablar ni respirar porque tienes algo atorado en la garganta, es necesario iniciar maniobras para desobstruir la vía aérea.",
+        "Cuando existe atragantamiento por un objeto:",
+        "Si puede toser con fuerza, animarla a seguir tosiendo y vigilarla.",
+        "Si no puede respirar, hablar ni toser eficazmente, realizar ciclos de 5 golpes firmes entre los omóplatos y 5 compresiones abdominales en un adulto consciente, según la técnica de primeros auxilios, hasta expulsar el objeto o hasta que pierda el conocimiento.",
+        "Si pierde el conocimiento, colocarla en el suelo, iniciar RCP y seguir las instrucciones del 911. Retirar un objeto de la boca únicamente si es claramente visible.",
+        "(No hacer: No introducir los dedos a ciegas en la boca, no dar alimentos ni bebidas y no forzar a la persona a acostarse si respirar resulta más difícil, distinguir dificultad respiratoria por enfermedad de obstrucción por cuerpo extraño; las maniobras de desobstrucción no se utilizan para asma, edema de garganta u otras causas de falta de aire.)"
+      ]
+    },
+    {
+      "value": "d",
+      "label": "D. 🔵HEMORRAGIA GRAVE",
+      "question": "¿Tienes un sangrado abundante que no se detiene o has vomitado sangre o coagulación?",
+      "paragraphs": [
+        "llama al 911 y presiona directamente la herida con una gasa, tela o paño limpio, de forma firme y continua.",
+        "Si se empapa, mantén la presión; puedes añadir otra tela encima sin retirar la primera.",
+        "Si el sangrado es potencialmente mortal y ocurre en un brazo o una pierna, utiliza un torniquete comercial si está disponible y sabes colocarlo, aproximadamente entre 5 y 7 centímetros por encima de la herida, nunca sobre una articulación. Apriétalo hasta detener la hemorragia y no lo aflojes.",
+        "Mantén a la persona en reposo, protegida del frío y bajo observación.",
+        "Si hay un objeto profundamente incrustado, no retirarlo; aplicar presión alrededor.",
+        "Situación 2: Vómito con sangre o aspecto de café molido",
+        "Vomitar sangre puede indicar una hemorragia interna importante.",
+        "No comas ni bebas nada.",
+        "Evita caminar o realizar esfuerzos.",
+        "Si continúas vomitando, mantente de lado o inclinado para evitar aspirar el vómito.",
+        "Si sientes que vas a desmayarte, pide ayuda para acostarte de manera segura, manteniendo la vía aérea protegida.",
+        "No tomes aspirina, ibuprofeno ni otros medicamentos por tu cuenta.",
+        "(No hacer: No intentar detener una hemorragia interna mediante presión en el abdomen, no retirar un torniquete colocado correctamente ni retrasar la atención porque el vómito sea oscuro en lugar de rojo.)"
+      ]
+    },
+    {
+      "value": "e",
+      "label": "E. 🔵INFARTO O EMERGENCIA CARDIACA",
+      "question": "¿Tienes dolor o presión persistente en el pecho, especialmente con falta de aire, sudor frío o desmayo?",
+      "paragraphs": [
+        "los síntomas podrían indicar un infarto u otra emergencia del corazón. Llama al 911 inmediatamente.",
+        "Deja de realizar cualquier actividad física.",
+        "Siéntate en una posición cómoda, preferentemente con la espalda apoyada, y evita caminar.",
+        "Pide a alguien que permanezca contigo y no conduzcas.",
+        "Si tienes nitroglicerina prescrita para episodios de dolor torácico, sigue las indicaciones de tu prescripción o del personal de emergencias. No utilices medicamentos de otra persona.",
+        "Pregunta al operador del 911 si debes masticar aspirina.",
+        "Puede recomendarse en determinados casos de sospecha de infarto, pero no debe administrarse cuando hay alergia, sangrado activo, sospecha de disección aórtica u otra contraindicación.",
+        "Si pierdes el conocimiento y dejas de respirar normalmente, tu acompañante deberá iniciar RCP.",
+        "(No hacer: No hacer ejercicio, no intentar conducir hasta el hospital, no esperar a que desaparezca el dolor ni administrar aspirina automáticamente desde el algoritmo, el dolor torácico con signos de alarma exige asistencia inmediata.\nNo debe intentar diferenciar un infarto de otras causas peligrosas exclusivamente mediante preguntas.)"
+      ]
+    },
+    {
+      "value": "f",
+      "label": "F. 🔵ACCIDENTE CEREBROVASCULAR (ACV)",
+      "question": "¿Presentaste repentinamente la cara torcida, debilidad de un lado del cuerpo o dificultad para hablar?",
+      "paragraphs": [
+        "Los síntomas pueden indicar un accidente cerebrovascular. Llama al 911 inmediatamente y comunica que sospechas un ACV.",
+        "No camines ni conduzcas. Permanece en un lugar seguro, preferentemente sentado o acostado en una posición cómoda, mientras llega la asistencia.",
+        "Recuerda la hora exacta en que comenzaron los síntomas. Si no la conoces, identifica cuándo fue la última vez que estabas completamente bien.",
+        "No comas, no bebas agua y no tomes medicamentos por tu cuenta.",
+        "Si tienes dificultad para mantenerte despierto o comienzas a vomitar, tu acompañante debe vigilar la respiración y proteger la vía aérea, colocándote de lado si es seguro.",
+        "Aunque los síntomas desaparezcan, necesitas atención médica urgente.",
+        "(No hacer: No administrar aspirina, anticoagulantes ni medicamentos para bajar rápidamente la presión arterial por cuenta propia. No intentar que camine para comprobar si recuperó la fuerza, una respuesta afirmativa a cualquiera de los tres signos neurológicos es suficiente para activar el protocolo de posible ACV.\nLa hora de inicio o de última vez visto bien debe registrarse para el equipo médico, pero nunca retrasar la llamada al 911 para obtenerla.)"
+      ]
+    },
+    {
+      "value": "g",
+      "label": "G. 🔵ALERGIA (Anafilaxia) U OBSTRUCICON DE GARGANTA",
+      "question": "¿Tienes hinchazón repentina de lengua o garganta, o dificultad para respirar o tragar después de un alimento, medicamento o picadura?",
+      "paragraphs": [
+        "Los síntomas que describes pueden indicar una reacción alérgica grave llamada anafilaxia. Llama al 911 inmediatamente.",
+        "Si tienes un auto inyector de adrenalina (epinefrina) disponible, úsalo de inmediato en la parte externa del muslo, siguiendo las instrucciones del dispositivo.",
+        "Evita caminar o ponerte de pie repentinamente. Si puedes respirar cómodamente acostado, permanece tumbado. Si respirar acostado es difícil, adopta una posición sentada con las piernas extendidas.",
+        "Si estás vomitando, colócate de lado. Si te sientes débil o a punto de desmayarte, permanece acostado, siempre protegiendo tu respiración.",
+        "Si los síntomas no mejoran o reaparecen y tienes una segunda dosis disponible, podría necesitarse después de aproximadamente cinco minutos, siguiendo el plan de emergencia y las instrucciones del 911.",
+        "Aunque mejores con la adrenalina, necesitas valoración hospitalaria urgente.",
+        "(No hacer: No utilizar antihistamínicos como sustituto de la adrenalina, no dar alimentos ni bebidas y no esperar a que aparezcan ronchas para actuar, la hinchazón de lengua o garganta y la dificultad respiratoria pueden aparecer incluso sin una alergia conocida. Amy debe activar emergencias independientemente de que se identifique o no el alimento, medicamento o picadura responsable.)"
+      ]
+    },
+    {
+      "value": "h",
+      "label": "H. 🔵NINGUNA DE ESTA,SEGUIR EL FORMULARIO"
+    }
+  ],
+  "recheckOptions": [],
+  "hospitals": [
+    {
+      "label": "HOSPITAL GENERAL PUBLICO CANCÚN",
+      "url": "https://maps.app.goo.gl/qxRa93CMcFx8SPaU9"
+    },
+    {
+      "label": "HOSPITAL IMSS URGENCIAS CANCÚN",
+      "url": "https://maps.app.goo.gl/1zB3MtMiEW2PsRTt7"
+    },
+    {
+      "label": "HOSPITALES PRIVADOS CANÇÚN",
+      "url": "https://maps.app.goo.gl/QMwN4sfFLyYpNrpRA"
+    },
+    {
+      "label": "INSTITUCIONES PUBLICAS DE SALUD DE QUINTANA ROO",
+      "url": "https://docs.google.com/document/d/18OXmmfO2w8QtXOLRd38TrUhuiEJpRiuEiLxNpM32OjA/edit?usp=sharing"
+    }
+  ],
+  "decisions": {
+    "struckTextActive": false,
+    "alertByLevel": true,
+    "levelNormalMax": 8,
+    "levelSelectorMin": 9,
+    "levelImmediate": 9,
+    "group5Target": "age",
+    "bmiConsentRequired": true,
+    "adultMinAge": 20,
+    "stiOptions": "ten_including_none",
+    "diet21_1Target": "unhealthy_food",
+    "questionTextOverrides": {
+      "emergency_level": "¿Nivel de emergencia del 1 al 10 los numero 9-10 son realmente URGENCIA?",
+      "emergency_options": "🔵¿TIENES ALGO DE ESTO SINTOMAS O DOLENCIA?",
+      "pets_detail": "¿Cuál o cuales tipo de mascota y cuanto tienes)",
+      "alcohol_detail": "¿Cada cuanto tiempo consumes y desde hace cuanto tiempo?",
+      "alcohol_past": "¿Hace cuanto tiempo consumió y durante cuanto tiempo aproximadamente?",
+      "drugs_detail": "¿Cada cuanto consumes  y desde hace cuanto tiempo?",
+      "drugs_past": "¿Hace cuanto tiempo consumió y durante cuanto tiempo aproximadamente?",
+      "emergency_group": "¿ES UN BEBE1)MUJER EMBARAZADA(2) ADULTO TERCERA EDAD(3)DISCAPACITADO(4),NO ES UNA EMERGENCIA(5)?"
+    }
+  }
+}

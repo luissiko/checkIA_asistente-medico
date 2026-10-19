@@ -27,6 +27,7 @@ export function validateCorpus(corpus){
   if(modern&&(!corpus.sources.some(s=>s.id===d.sourceId)||!['active_beta','needs_update','excluded'].includes(d.status)||!validId(d.version)||!['es','en'].includes(d.language)||typeof d.locator!=='string'||!d.locator.trim()||typeof d.reuseNote!=='string'||!d.reuseNote.trim()))throw new Error('Trazabilidad incompleta.');
   if(d.clinicalReview==='approved'&&(!d.reviewedBy||!validDate(d.reviewedAt)))throw new Error('Falta evidencia de revisión clínica.');
   if(d.minAge!==undefined&&(!Number.isInteger(d.minAge)||d.minAge<0||d.minAge>120))throw new Error('Población inválida.');
+  if(d.maxAgeMonths!==undefined&&(!Number.isInteger(d.maxAgeMonths)||d.maxAgeMonths<0||d.maxAgeMonths>1440))throw new Error('Límite de edad inválido.');
   ids.add(d.id);
   if(!Array.isArray(d.chunks)||!d.chunks.length||d.chunks.length>100)throw new Error('Fragmentos inválidos.');
   for(const c of d.chunks){if(!validId(c.id)||!c.id.startsWith(d.id+'-')||chunks.has(c.id)||typeof c.section!=='string'||!c.section.trim()||typeof c.text!=='string'||!c.text.trim()||c.text.length>2400)throw new Error('Fragmento inválido.');if(modern&&(!['context','symptoms','history','questions','warning','limits'].includes(c.kind)||typeof c.locator!=='string'||!c.locator.trim()))throw new Error('Falta sección o clasificación del fragmento.');chunks.add(c.id);}
@@ -34,13 +35,16 @@ export function validateCorpus(corpus){
  if(chunks.size>30000)throw new Error('Máximo técnico: 30000 fragmentos.');
  return corpus;
 }
-export function flattenCorpus(corpus){return corpus.documents.filter(d=>!['needs_update','excluded'].includes(d.status)&&d.clinicalReview!=='rejected').flatMap(d=>d.chunks.map(c=>({id:c.id,documentId:d.id,topic:d.topic,title:d.title,section:c.section,url:d.url,publisher:d.publisher,checkedAt:d.checkedAt,sourceUpdatedAt:d.sourceUpdatedAt??null,reviewBy:d.reviewBy,type:d.type,text:c.text,clinicalReview:d.clinicalReview,reviewedBy:d.reviewedBy??null,reviewedAt:d.reviewedAt??null,kind:c.kind||'context',minAge:d.minAge??null,version:d.version||corpus.version||'legacy',locator:c.locator||d.locator||c.section,sourceId:d.sourceId||'medline',language:d.language||'es'})));}
+export function flattenCorpus(corpus){return corpus.documents.filter(d=>!['needs_update','excluded'].includes(d.status)&&d.clinicalReview!=='rejected').flatMap(d=>d.chunks.map(c=>({id:c.id,documentId:d.id,topic:d.topic,title:d.title,section:c.section,url:d.url,publisher:d.publisher,checkedAt:d.checkedAt,sourceUpdatedAt:d.sourceUpdatedAt??null,reviewBy:d.reviewBy,type:d.type,text:c.text,clinicalReview:d.clinicalReview,reviewedBy:d.reviewedBy??null,reviewedAt:d.reviewedAt??null,kind:c.kind||'context',minAge:d.minAge??null,maxAgeMonths:d.maxAgeMonths??null,version:d.version||corpus.version||'legacy',locator:c.locator||d.locator||c.section,sourceId:d.sourceId||'medline',language:d.language||'es'})));}
 export function isApplicable(chunk,context){
- if(chunk.minAge===null||chunk.minAge===undefined)return true;
+ const min=chunk.minAge,max=chunk.maxAgeMonths;
+ if(min==null&&max==null)return true;
  const age=(context.fields||[]).find(f=>f.key==='age'&&f.status==='reported'&&!f.omitted);
- // Una edad desconocida o no interpretable no autoriza aplicar una guía con límite de edad.
- const text=String(age?.answer??'').trim(),value=/^\d{1,3}$/.test(text)?Number(text):NaN;
- return Number.isFinite(value)&&value>=chunk.minAge;
+ const text=String(age?.answer??'').trim(),years=/^\d{1,3}$/.test(text)?Number(text):NaN;
+ // La edad exacta en meses procede del normalizador del Paso 23, nunca del LLM.
+ const months=Number.isFinite(context.ageMonths)?context.ageMonths:Number.isFinite(years)&&years>0?years*12:NaN;
+ const ageYears=Number.isFinite(months)?months/12:years;
+ return (min==null||Number.isFinite(ageYears)&&ageYears>=min)&&(max==null||Number.isFinite(months)&&months<=max);
 }
 export function embeddingText(c){return c.title+' — '+c.section+'\n'+c.text;}
 export function makeIndex(corpus,vectors,createdAt=new Date().toISOString()){

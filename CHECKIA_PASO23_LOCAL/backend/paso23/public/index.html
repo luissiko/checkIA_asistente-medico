@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CHECKIA · Paso 23 local</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><div><span class="mark">+</span><strong>CHECKIA</strong><span class="badge">Paso 23 · Prueba local</span></div><p>Formulario del 17/10/2026</p></header>
+<main>
+<aside class="test-note">Prueba con casos ficticios. Las instrucciones clínicas del documento aún no están validadas. No realices llamadas de emergencia durante una simulación.</aside>
+<section id="start" class="card"><h1>Nueva prueba de preguntas</h1><p>Responde con tus palabras. En las preguntas de sí/no escribe si o no.</p><label class="check"><input type="checkbox" id="consent"> Autorizar el envío de este caso de prueba a OpenAI para generar la orientación con la biblioteca, si el servicio está configurado.</label><p class="muted">Las respuestas permanecen en memoria local durante dos horas de inactividad o hasta cerrar el servidor. Descarga el JSON antes de terminar.</p><p id="services" class="muted"></p><button id="new">Comenzar prueba</button></section>
+<div id="workspace" hidden>
+<nav><button id="restart" class="secondary">Nueva prueba</button><button id="download" class="secondary">Descargar respuestas JSON</button><button id="reload" class="secondary">Recargar consulta</button></nav>
+<section id="alert" class="alert" hidden aria-label="Ayuda urgente"><h2>Ayuda de emergencia</h2><a class="call" href="tel:911">Llamar al 911</a><p>En una situación real no esperes una respuesta de la IA para pedir ayuda. En una simulación no llames.</p><div id="advice"></div><div id="hospitals"></div><small>Enlaces proporcionados en el documento. No confirman disponibilidad hospitalaria en tiempo real.</small></section>
+<section id="question" class="card"><p id="number" class="eyebrow"></p><h2 id="question-text"></h2><div id="choices"></div><form id="answer-form"><label for="answer">Tu respuesta</label><textarea id="answer" rows="3" maxlength="4000" required></textarea><button id="send" type="submit">Continuar</button></form></section>
+<section id="done" class="card" hidden><h2>Respuestas registradas</h2><p id="done-text"></p><p id="bmi"></p></section>
+<section id="orientation" class="card" hidden><h2>Orientación con biblioteca y OpenAI</h2><p id="generation-status" role="status"></p><button id="generate" class="secondary">Generar orientación</button><div id="generated"></div></section>
+<section class="card"><details><summary>Respuestas y correcciones</summary><p class="muted">Corregir vuelve a esa pregunta y solicita nuevamente las posteriores. El historial original permanece en la exportación.</p><div id="answers"></div></details></section>
+</div>
+<p id="error" role="alert"></p>
+<section class="card"><details><summary>Promedios de esta prueba local</summary><button id="metrics" class="secondary">Actualizar métricas</button><pre id="metrics-output"></pre><p class="muted">Cuenta pruebas, preguntas y duración; no mide precisión diagnóstica ni eficacia clínica.</p></details></section>
+<footer><a href="/original" target="_blank" rel="noopener noreferrer">Documento original íntegro</a><p>Sin conexión con Firestore. No sustituye la entrevista publicada.</p></footer>
+</main></body></html>

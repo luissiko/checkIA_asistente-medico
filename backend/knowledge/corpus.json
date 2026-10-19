@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "version": "checkia-beta-20-20261014",
-  "scope": "Resúmenes editoriales informativos. Sin validación diagnóstica ni de triaje. La comprobación de acceso no equivale a revisión clínica.",
+  "version": "checkia-ampliacion-20261019",
+  "scope": "Resúmenes editoriales informativos. Sin validación diagnóstica ni de triaje. La comprobación de acceso no equivale a revisión clínica. Ampliación editorial del 19 de octubre de 2026; revisión clínica pendiente.",
   "sources": [
     {
       "id": "cenetec",
@@ -62,6 +62,126 @@
       "name": "Healthdirect Australia",
       "url": "https://www.healthdirect.gov.au/symptoms/aches-and-pains/headaches",
       "note": "Resumen beta traducido; contenido recuperado del JSON de la página"
+    },
+    {
+      "id": "nhlbi",
+      "name": "NHLBI / NIH",
+      "url": "https://www.nhlbi.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "ninds",
+      "name": "NINDS / NIH",
+      "url": "https://www.ninds.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "epilepsy",
+      "name": "Epilepsy Foundation",
+      "url": "https://www.epilepsy.com/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "acaai",
+      "name": "American College of Allergy, Asthma & Immunology",
+      "url": "https://acaai.org/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "redcross",
+      "name": "American Red Cross",
+      "url": "https://www.redcross.org/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "sja",
+      "name": "St John Ambulance",
+      "url": "https://www.sja.org.uk/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "aap",
+      "name": "American Academy of Pediatrics / HealthyChildren",
+      "url": "https://www.healthychildren.org/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nichd",
+      "name": "NICHD / NIH",
+      "url": "https://espanol.nichd.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "saludmx",
+      "name": "Secretaría de Salud de México",
+      "url": "https://www.gob.mx/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "niaaa",
+      "name": "NIAAA / NIH",
+      "url": "https://www.niaaa.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nccih",
+      "name": "NCCIH / NIH",
+      "url": "https://www.nccih.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nia",
+      "name": "National Institute on Aging / NIH",
+      "url": "https://www.nia.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nimh",
+      "name": "NIMH / NIH",
+      "url": "https://www.nimh.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nci",
+      "name": "National Cancer Institute / NIH",
+      "url": "https://www.cancer.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nkf",
+      "name": "National Kidney Foundation",
+      "url": "https://www.kidney.org/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "niams",
+      "name": "NIAMS / NIH",
+      "url": "https://www.niams.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nei",
+      "name": "National Eye Institute / NIH",
+      "url": "https://www.nei.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nidcd",
+      "name": "NIDCD / NIH",
+      "url": "https://www.nidcd.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nidcr",
+      "name": "NIDCR / NIH",
+      "url": "https://www.nidcr.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
+    },
+    {
+      "id": "nida",
+      "name": "NIDA / NIH",
+      "url": "https://nida.nih.gov/",
+      "note": "Paráfrasis editorial beta en español; revisión clínica pendiente. Los institutos NIH no constituyen organizaciones independientes entre sí."
     }
   ],
   "topics": [
@@ -143,6 +263,249 @@
         "diarrea",
         "evacuaciones líquidas",
         "heces líquidas"
+      ]
+    },
+    {
+      "id": "ext_heart_attack",
+      "title": "Dolor torácico y posible ataque cardíaco",
+      "aliases": [
+        "pecho",
+        "dolor toracico",
+        "presion en el pecho",
+        "infarto"
+      ]
+    },
+    {
+      "id": "ext_cardiac_arrest",
+      "title": "Persona inconsciente que no respira normalmente",
+      "aliases": [
+        "inconsciente",
+        "no respira",
+        "jadea",
+        "paro cardiaco"
+      ]
+    },
+    {
+      "id": "ext_asthma_attack",
+      "title": "Empeoramiento del asma y dificultad respiratoria",
+      "aliases": [
+        "asma",
+        "crisis asmatica",
+        "silbidos",
+        "sibilancias"
+      ]
+    },
+    {
+      "id": "ext_sleep_apnea",
+      "title": "Ronquidos y somnolencia diurna",
+      "aliases": [
+        "ronquidos",
+        "ronco",
+        "apnea",
+        "somnolencia"
+      ]
+    },
+    {
+      "id": "ext_stroke_warning",
+      "title": "Síntomas neurológicos repentinos y posible ACV",
+      "aliases": [
+        "cara torcida",
+        "derrame",
+        "acv",
+        "dificultad para hablar",
+        "debilidad de un lado"
+      ]
+    },
+    {
+      "id": "ext_seizure_first_aid",
+      "title": "Convulsiones y primeros auxilios",
+      "aliases": [
+        "convulsion",
+        "convulsiones",
+        "convulsionando",
+        "crisis epileptica"
+      ]
+    },
+    {
+      "id": "ext_anaphylaxis",
+      "title": "Reacción alérgica grave",
+      "aliases": [
+        "anafilaxia",
+        "garganta hinchada",
+        "lengua hinchada",
+        "hinchazon de garganta"
+      ]
+    },
+    {
+      "id": "ext_external_bleeding",
+      "title": "Hemorragia externa importante",
+      "aliases": [
+        "sangrado",
+        "hemorragia",
+        "sangra",
+        "herida"
+      ]
+    },
+    {
+      "id": "ext_thermal_burns",
+      "title": "Quemaduras térmicas",
+      "aliases": [
+        "quemadura",
+        "quemaduras",
+        "me queme",
+        "escaldadura"
+      ]
+    },
+    {
+      "id": "ext_infant_fever",
+      "title": "Fiebre en bebés pequeños",
+      "aliases": [
+        "fiebre",
+        "bebe con fiebre",
+        "temperatura"
+      ]
+    },
+    {
+      "id": "ext_preeclampsia_symptoms",
+      "title": "Embarazo y síntomas de complicaciones hipertensivas",
+      "aliases": [
+        "embarazada",
+        "embarazo",
+        "preeclampsia",
+        "eclampsia"
+      ]
+    },
+    {
+      "id": "ext_dengue_warning",
+      "title": "Dengue: referencia con acceso parcial",
+      "aliases": [
+        "dengue"
+      ]
+    },
+    {
+      "id": "ext_heat_illness",
+      "title": "Golpe de calor: referencia con acceso parcial",
+      "aliases": [
+        "golpe de calor",
+        "insolacion"
+      ]
+    },
+    {
+      "id": "ext_alcohol_overdose",
+      "title": "Intoxicación por alcohol",
+      "aliases": [
+        "alcohol",
+        "borracho",
+        "borracha",
+        "intoxicacion alcoholica"
+      ]
+    },
+    {
+      "id": "ext_supplement_interactions",
+      "title": "Medicamentos, suplementos y productos herbales",
+      "aliases": [
+        "suplemento",
+        "suplementos",
+        "hierbas",
+        "herbal",
+        "remedio",
+        "remedios"
+      ]
+    },
+    {
+      "id": "ext_older_adult_balance",
+      "title": "Mareo y equilibrio en personas mayores",
+      "aliases": [
+        "mareo",
+        "mareos",
+        "equilibrio",
+        "caidas"
+      ]
+    },
+    {
+      "id": "ext_depression_context",
+      "title": "Estado de ánimo y síntomas depresivos",
+      "aliases": [
+        "depresion",
+        "tristeza",
+        "sin interes",
+        "irritabilidad"
+      ]
+    },
+    {
+      "id": "ext_cancer_symptoms",
+      "title": "Síntomas persistentes y preocupación por cáncer",
+      "aliases": [
+        "cancer",
+        "tumor",
+        "bulto"
+      ]
+    },
+    {
+      "id": "ext_kidney_disease_context",
+      "title": "Antecedentes y riesgo de enfermedad renal",
+      "aliases": [
+        "renal",
+        "rinon",
+        "rinones",
+        "enfermedad renal"
+      ]
+    },
+    {
+      "id": "ext_urinary_symptoms",
+      "title": "Ardor al orinar y síntomas urinarios",
+      "aliases": [
+        "ardor al orinar",
+        "orina",
+        "orinar",
+        "infeccion urinaria"
+      ]
+    },
+    {
+      "id": "ext_back_pain",
+      "title": "Dolor de espalda",
+      "aliases": [
+        "espalda",
+        "lumbar",
+        "lumbalgia"
+      ]
+    },
+    {
+      "id": "ext_retinal_detachment",
+      "title": "Destellos, manchas nuevas y sombra en visión",
+      "aliases": [
+        "destellos",
+        "cortina",
+        "manchas en la vision",
+        "perdida de vision"
+      ]
+    },
+    {
+      "id": "ext_sudden_hearing_loss",
+      "title": "Pérdida repentina de audición",
+      "aliases": [
+        "sordera",
+        "no escucho",
+        "perdida de audicion",
+        "perdida auditiva"
+      ]
+    },
+    {
+      "id": "ext_tooth_decay",
+      "title": "Dolor dental, caries e infección",
+      "aliases": [
+        "diente",
+        "dientes",
+        "muela",
+        "caries",
+        "dolor dental"
+      ]
+    },
+    {
+      "id": "ext_cocaine_pending",
+      "title": "Cocaína: referencia pendiente de acceso completo",
+      "aliases": [
+        "cocaina"
       ]
     }
   ],
@@ -641,6 +1004,1034 @@
           "kind": "limits",
           "locator": "Portada y página 2; edición 2016",
           "text": "Documento identificado para revisión de acceso y vigencia. No se utiliza para generar orientación hasta completar esa revisión."
+        }
+      ]
+    },
+    {
+      "id": "nhlbi-heart-attack",
+      "sourceId": "nhlbi",
+      "topic": "ext_heart_attack",
+      "title": "Dolor torácico y posible ataque cardíaco",
+      "publisher": "NHLBI / NIH",
+      "url": "https://www.nhlbi.nih.gov/es/salud/ataque-cardiaco/sintomas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2022-03-24",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nhlbi-heart-attack-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Un ataque cardíaco puede causar presión o molestia en el pecho, dolor hacia brazos, espalda, mandíbula o abdomen superior, falta de aire, sudoración, náuseas o mareo. Puede empezar de forma gradual o con síntomas leves e intermitentes."
+        },
+        {
+          "id": "nhlbi-heart-attack-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "La sospecha requiere atención de emergencia. Una descripción por chat no distingue de forma segura un ataque cardíaco de otras causas. La ausencia de dolor intenso no descarta gravedad. No retrasar la solicitud de ayuda esperando al LLM."
+        },
+        {
+          "id": "nhlbi-heart-attack-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, duración, localización, irradiación, relación con esfuerzo, falta de aire y antecedentes cardiovasculares. Son datos editoriales para comunicar el problema; no un cuestionario diagnóstico."
+        }
+      ],
+      "minAge": 18
+    },
+    {
+      "id": "nhlbi-cardiac-arrest",
+      "sourceId": "nhlbi",
+      "topic": "ext_cardiac_arrest",
+      "title": "Persona inconsciente que no respira normalmente",
+      "publisher": "NHLBI / NIH",
+      "url": "https://www.nhlbi.nih.gov/es/salud/paro-cardiaco/sintomas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2022-05-27",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nhlbi-cardiac-arrest-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "El colapso repentino, la falta de respuesta y la ausencia de respiración normal pueden indicar paro cardíaco. Los jadeos aislados no equivalen a respiración normal. Paro cardíaco y ataque cardíaco son problemas distintos."
+        },
+        {
+          "id": "nhlbi-cardiac-arrest-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Activar de inmediato la atención de emergencia y seguir las instrucciones de reanimación del operador o la capacitación disponible. Una persona sin entrenamiento no necesita buscar el pulso antes de pedir ayuda. No esperar una respuesta de IA."
+        },
+        {
+          "id": "nhlbi-cardiac-arrest-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Describir respuesta, respiración, momento del colapso y presencia de otra persona, sin demorar la llamada de emergencia."
+        }
+      ]
+    },
+    {
+      "id": "nhlbi-asthma-attack",
+      "sourceId": "nhlbi",
+      "topic": "ext_asthma_attack",
+      "title": "Empeoramiento del asma y dificultad respiratoria",
+      "publisher": "NHLBI / NIH",
+      "url": "https://www.nhlbi.nih.gov/es/salud/asma/crisis",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2024-05-01",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nhlbi-asthma-attack-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La crisis asmática puede comenzar con tos, presión en el pecho, silbidos o dificultad para respirar. Puede avanzar rápida o gradualmente. Importan los antecedentes de ataques graves y el plan individual indicado por el médico."
+        },
+        {
+          "id": "nhlbi-asthma-attack-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "La dificultad respiratoria grave o persistente, especialmente si el tratamiento prescrito no ayuda, necesita emergencia. En niños, confusión, somnolencia o labios azulados son preocupantes. No inventar dosis ni sustituir el plan de tratamiento."
+        },
+        {
+          "id": "nhlbi-asthma-attack-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Identificar diagnóstico previo, plan de acción, tratamiento de rescate prescrito, respuesta y hospitalizaciones. Estas preguntas no confirman asma."
+        }
+      ]
+    },
+    {
+      "id": "nhlbi-sleep-apnea",
+      "sourceId": "nhlbi",
+      "topic": "ext_sleep_apnea",
+      "title": "Ronquidos y somnolencia diurna",
+      "publisher": "NHLBI / NIH",
+      "url": "https://www.nhlbi.nih.gov/es/salud/apnea-del-sueno/sintomas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2025-02-03",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nhlbi-sleep-apnea-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Pausas respiratorias observadas al dormir, ronquidos frecuentes y somnolencia diurna pueden justificar evaluación del sueño. Pueden coexistir cansancio, cefalea o problemas de concentración. En niños las manifestaciones pueden incluir hiperactividad o dificultades escolares."
+        },
+        {
+          "id": "nhlbi-sleep-apnea-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Dormir poco o roncar no confirma apnea. Puede requerirse un estudio del sueño. No usar este contexto para explicar automáticamente un dolor de cabeza nuevo o intenso."
+        },
+        {
+          "id": "nhlbi-sleep-apnea-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar observaciones de quien comparte habitación, frecuencia, descanso percibido y repercusión diurna."
+        }
+      ]
+    },
+    {
+      "id": "ninds-stroke-warning",
+      "sourceId": "ninds",
+      "topic": "ext_stroke_warning",
+      "title": "Síntomas neurológicos repentinos y posible ACV",
+      "publisher": "NINDS / NIH",
+      "url": "https://www.ninds.nih.gov/health-information/stroke/signs-and-symptoms",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "ninds-stroke-warning-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La debilidad de un lado, asimetría facial o dificultad para hablar o comprender de inicio súbito pueden indicar accidente cerebrovascular. También pueden presentarse cambios repentinos de visión, equilibrio o dolor de cabeza intenso."
+        },
+        {
+          "id": "ninds-stroke-warning-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Buscar atención inmediata incluso si los síntomas mejoran. Registrar la hora sin retrasar la solicitud de ayuda. No se puede distinguir por chat entre un evento isquémico, hemorrágico u otras causas."
+        },
+        {
+          "id": "ninds-stroke-warning-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Identificar hora de inicio, última vez que estuvo bien, síntomas observados y mejoría o persistencia. No esperar a completar el formulario."
+        }
+      ]
+    },
+    {
+      "id": "epilepsy-seizure-first-aid",
+      "sourceId": "epilepsy",
+      "topic": "ext_seizure_first_aid",
+      "title": "Convulsiones y primeros auxilios",
+      "publisher": "Epilepsy Foundation",
+      "url": "https://www.epilepsy.com/espanol/primeros-auxilios-para-crisis-epilepticas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "epilepsy-seizure-first-aid-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Durante una convulsión se debe proteger a la persona de lesiones, acompañarla y observar cuánto dura. No introducir objetos en la boca, sujetar por la fuerza ni dar alimentos, líquidos o pastillas hasta estar plenamente despierta."
+        },
+        {
+          "id": "epilepsy-seizure-first-aid-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "La primera convulsión, las crisis prolongadas, las repetidas sin recuperación o los problemas respiratorios requieren emergencia. Una crisis que alcanza cinco minutos debe tratarse como prolongada. Una convulsión aislada no diagnostica epilepsia."
+        },
+        {
+          "id": "epilepsy-seizure-first-aid-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar duración, primera crisis o antecedentes, recuperación, lesiones y repetición, sin retrasar ayuda. El umbral de cinco minutos se apoya además en https://www.epilepsy.com/recognition/emergency-help ."
+        }
+      ]
+    },
+    {
+      "id": "acaai-anaphylaxis",
+      "sourceId": "acaai",
+      "topic": "ext_anaphylaxis",
+      "title": "Reacción alérgica grave",
+      "publisher": "American College of Allergy, Asthma & Immunology",
+      "url": "https://acaai.org/allergies/symptoms/anaphylaxis/",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2025-03-24",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "acaai-anaphylaxis-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Una reacción alérgica grave puede avanzar rápidamente y afectar respiración, garganta o circulación. Puede acompañarse de ronquera, urticaria, hinchazón, vómitos, mareo o desmayo. Alimentos, medicamentos y picaduras son desencadenantes posibles."
+        },
+        {
+          "id": "acaai-anaphylaxis-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "El compromiso de respiración, garganta o circulación necesita actuación inmediata. La adrenalina es el tratamiento principal; contextualizar su uso con el dispositivo y plan prescritos, sin inventar un plan individual. No confirmar el desencadenante por chat."
+        },
+        {
+          "id": "acaai-anaphylaxis-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar exposición, tiempo hasta síntomas, progresión y existencia de un plan de emergencia o adrenalina prescrita."
+        }
+      ]
+    },
+    {
+      "id": "redcross-external-bleeding",
+      "sourceId": "redcross",
+      "topic": "ext_external_bleeding",
+      "title": "Hemorragia externa importante",
+      "publisher": "American Red Cross",
+      "url": "https://www.redcross.org/take-a-class/resources/learn-first-aid/bleeding-life-threatening-external",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "redcross-external-bleeding-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La salida continua o a chorros de sangre y el deterioro de la persona pueden indicar hemorragia peligrosa. En bebés y niños pequeños una pérdida menor puede ser importante."
+        },
+        {
+          "id": "redcross-external-bleeding-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Solicitar ayuda y aplicar presión firme y sostenida sobre la herida protegiéndose del contacto con sangre. No retirar objetos incrustados; presionar alrededor. Torniquete o empaquetamiento requieren capacitación e instrucciones adecuadas. Estas medidas no controlan una hemorragia interna."
+        },
+        {
+          "id": "redcross-external-bleeding-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Describir localización, mecanismo, sangrado, objetos incrustados y cambios en respuesta o respiración, sin retrasar el control del sangrado."
+        }
+      ]
+    },
+    {
+      "id": "sja-thermal-burns",
+      "sourceId": "sja",
+      "topic": "ext_thermal_burns",
+      "title": "Quemaduras térmicas",
+      "publisher": "St John Ambulance",
+      "url": "https://www.sja.org.uk/first-aid-advice/burns-and-scalds/",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2025-04-28",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "en",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "sja-thermal-burns-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "El calor seco, líquidos calientes o vapor pueden causar quemaduras con dolor, enrojecimiento, hinchazón o ampollas."
+        },
+        {
+          "id": "sja-thermal-burns-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Iniciar enfriamiento con agua corriente fresca durante al menos veinte minutos. No aplicar hielo, reventar ampollas ni arrancar ropa pegada. No extrapolar automáticamente estas indicaciones a quemaduras químicas, eléctricas o graves: requieren referencias específicas y atención adecuada."
+        },
+        {
+          "id": "sja-thermal-burns-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar causa, momento, zona afectada y ropa o accesorios adheridos."
+        }
+      ]
+    },
+    {
+      "id": "aap-infant-fever",
+      "sourceId": "aap",
+      "topic": "ext_infant_fever",
+      "title": "Fiebre en bebés pequeños",
+      "publisher": "American Academy of Pediatrics / HealthyChildren",
+      "url": "https://www.healthychildren.org/Spanish/health-issues/conditions/fever/Paginas/Fever-and-Your-Baby.aspx",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "aap-infant-fever-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La interpretación de temperatura depende de edad y método. Tocar la frente no sustituye el termómetro. En un bebé de tres meses o menos, temperatura rectal de 38 °C o más requiere contacto médico inmediato, aunque no tenga otros síntomas."
+        },
+        {
+          "id": "aap-infant-fever-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Conservar el método de medición; no tratar todas las lecturas como equivalentes. No atribuir automáticamente fiebre verdadera a dentición. Este criterio es específico de bebés pequeños, no de niños mayores o adultos. No diagnostica causa ni prescribe antitérmicos."
+        },
+        {
+          "id": "aap-infant-fever-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar edad exacta, temperatura, método, hora de lectura y estado general."
+        }
+      ],
+      "maxAgeMonths": 3
+    },
+    {
+      "id": "nichd-preeclampsia-symptoms",
+      "sourceId": "nichd",
+      "topic": "ext_preeclampsia_symptoms",
+      "title": "Embarazo y síntomas de complicaciones hipertensivas",
+      "publisher": "NICHD / NIH",
+      "url": "https://espanol.nichd.nih.gov/salud/temas/preeclampsia/informacion/sintomas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2015-01-20",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nichd-preeclampsia-symptoms-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Durante embarazo, dolor de cabeza intenso con alteraciones visuales o dolor en abdomen superior derecho puede ser preocupante. Importan cambios en orina y convulsiones."
+        },
+        {
+          "id": "nichd-preeclampsia-symptoms-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Las manifestaciones preocupantes requieren valoración inmediata. No disponer de presión elevada medida no descarta complicaciones. El diagnóstico necesita evaluación y posibles pruebas. No generar umbrales ni tratamientos adicionales desde este resumen."
+        },
+        {
+          "id": "nichd-preeclampsia-symptoms-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar semanas de embarazo, antecedentes, presión medida si existe y síntomas asociados."
+        }
+      ]
+    },
+    {
+      "id": "saludmx-dengue-warning",
+      "sourceId": "saludmx",
+      "topic": "ext_dengue_warning",
+      "title": "Dengue: referencia con acceso parcial",
+      "publisher": "Secretaría de Salud de México",
+      "url": "https://www.gob.mx/salud/en/articulos/estrategia-nacional-contra-el-dengue-prevencion-y-control-activo",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "needs_update",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "saludmx-dengue-warning-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Publicación localizada en búsqueda oficial: describe dolor abdominal intenso, vómitos persistentes y sangrado entre las señales de alarma. Apertura automatizada completa no disponible."
+        },
+        {
+          "id": "saludmx-dengue-warning-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "No usar este registro como evidencia activa hasta revisar directamente el documento completo. Residencia en zona con mosquitos o fiebre no confirma dengue."
+        },
+        {
+          "id": "saludmx-dengue-warning-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Pendiente de revisión: inicio, evolución, sangrado, vómitos y exposición geográfica."
+        }
+      ]
+    },
+    {
+      "id": "saludmx-heat-illness",
+      "sourceId": "saludmx",
+      "topic": "ext_heat_illness",
+      "title": "Golpe de calor: referencia con acceso parcial",
+      "publisher": "Secretaría de Salud de México",
+      "url": "https://www.gob.mx/salud/prensa/107-secretaria-de-salud-llama-a-tomar-precauciones-para-prevenir-golpe-de-calor-por-altas-temperaturas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "needs_update",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "saludmx-heat-illness-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Publicación localizada en búsqueda institucional sobre calor y signos de gravedad. Apertura automatizada completa bloqueada."
+        },
+        {
+          "id": "saludmx-heat-illness-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "No utilizar como evidencia activa antes de revisar publicación completa. La ciudad de residencia no identifica por sí sola la causa de síntomas."
+        },
+        {
+          "id": "saludmx-heat-illness-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Pendiente de revisión: exposición al calor, actividad, duración y cambios del estado mental."
+        }
+      ]
+    },
+    {
+      "id": "niaaa-alcohol-overdose",
+      "sourceId": "niaaa",
+      "topic": "ext_alcohol_overdose",
+      "title": "Intoxicación por alcohol",
+      "publisher": "NIAAA / NIH",
+      "url": "https://www.niaaa.nih.gov/publications/brochures-and-fact-sheets/entender-los-riesgos-de-sobredosis-de-alcohol",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "niaaa-alcohol-overdose-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "El alcohol puede comprometer conciencia y respiración. Confusión, dificultad para despertar, convulsiones o respiración anormal pueden indicar intoxicación peligrosa. Combinar alcohol con sedantes u opioides aumenta riesgo."
+        },
+        {
+          "id": "niaaa-alcohol-overdose-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "No esperar todos los síntomas para pedir ayuda. Café, duchas frías o caminar no revierten una sobredosis. Una persona inconsciente no debe dejarse simplemente dormir."
+        },
+        {
+          "id": "niaaa-alcohol-overdose-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar bebidas, cantidad aproximada, horario, otras sustancias y estado actual. La cantidad declarada no basta para descartar intoxicación."
+        }
+      ]
+    },
+    {
+      "id": "nccih-supplement-interactions",
+      "sourceId": "nccih",
+      "topic": "ext_supplement_interactions",
+      "title": "Medicamentos, suplementos y productos herbales",
+      "publisher": "NCCIH / NIH",
+      "url": "https://www.nccih.nih.gov/health/espanol/conozca-la-ciencia/interaccion-de-medicamentos-y-suplementos",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nccih-supplement-interactions-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Los suplementos pueden interactuar con medicamentos recetados o de venta libre. Es importante comunicar todos los productos utilizados, incluso los que la persona no considera medicamentos."
+        },
+        {
+          "id": "nccih-supplement-interactions-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "No declarar segura una combinación porque no se recuperó una interacción. No recomendar suspender un tratamiento prescrito sin valoración. Usar esta información para preparar revisión con médico o farmacéutico."
+        },
+        {
+          "id": "nccih-supplement-interactions-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar nombre, composición, presentación, cantidad, frecuencia, motivo y medicamentos concomitantes. La etiqueta ayuda a identificar el producto."
+        }
+      ]
+    },
+    {
+      "id": "nia-older-adult-balance",
+      "sourceId": "nia",
+      "topic": "ext_older_adult_balance",
+      "title": "Mareo y equilibrio en personas mayores",
+      "publisher": "National Institute on Aging / NIH",
+      "url": "https://www.nia.nih.gov/espanol/caidas/adultos-mayores-problemas-equilibrio",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nia-older-adult-balance-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Los problemas de equilibrio pueden relacionarse con medicamentos, oído interno, alcohol u otras enfermedades. No atribuirlos automáticamente a edad. Pueden afectar movilidad y riesgo de caídas."
+        },
+        {
+          "id": "nia-older-adult-balance-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Los episodios recurrentes merecen valoración. La revisión puede incluir medicamentos y condiciones previas. No reducir dosis ni suspender tratamientos por cuenta del asistente. Interpretar síntomas nuevos junto con manifestaciones acompañantes."
+        },
+        {
+          "id": "nia-older-adult-balance-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, giro o desvanecimiento, caídas, medicamentos y dificultad para caminar."
+        }
+      ],
+      "minAge": 60
+    },
+    {
+      "id": "nimh-depression-context",
+      "sourceId": "nimh",
+      "topic": "ext_depression_context",
+      "title": "Estado de ánimo y síntomas depresivos",
+      "publisher": "NIMH / NIH",
+      "url": "https://www.nimh.nih.gov/health/publications/espanol/depresion-sp",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nimh-depression-context-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La depresión puede afectar ánimo, interés, sueño y funcionamiento cotidiano. En niños y adolescentes puede destacar irritabilidad. Puede coexistir con enfermedades físicas y acompañarse de molestias corporales."
+        },
+        {
+          "id": "nimh-depression-context-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Un formulario general no diagnostica depresión. Los antecedentes emocionales no permiten atribuirles automáticamente dolor torácico, cefalea u otro síntoma físico. Los problemas físicos y emocionales pueden necesitar evaluación simultánea."
+        },
+        {
+          "id": "nimh-depression-context-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar duración, cambios respecto al funcionamiento habitual, interferencia, sueño, apetito y tratamientos."
+        }
+      ]
+    },
+    {
+      "id": "nci-cancer-symptoms",
+      "sourceId": "nci",
+      "topic": "ext_cancer_symptoms",
+      "title": "Síntomas persistentes y preocupación por cáncer",
+      "publisher": "National Cancer Institute / NIH",
+      "url": "https://www.cancer.gov/espanol/cancer/diagnostico-estadificacion/sintomas",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nci-cancer-symptoms-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Síntomas como bultos, sangrado inexplicado, tos persistente, cambios intestinales o urinarios y cansancio prolongado pueden motivar consulta. También tienen causas distintas del cáncer."
+        },
+        {
+          "id": "nci-cancer-symptoms-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Una lista de síntomas no identifica cáncer. Diferenciar diagnóstico referido de sospecha personal. Conocer tipo de enfermedad y documentación ayuda a contextualizar un antecedente, sin confirmarlo desde el asistente."
+        },
+        {
+          "id": "nci-cancer-symptoms-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar persistencia, evolución, cambios asociados y si hay diagnóstico confirmado."
+        }
+      ]
+    },
+    {
+      "id": "nkf-kidney-disease-context",
+      "sourceId": "nkf",
+      "topic": "ext_kidney_disease_context",
+      "title": "Antecedentes y riesgo de enfermedad renal",
+      "publisher": "National Kidney Foundation",
+      "url": "https://www.kidney.org/es/acerca/enfermedad-renal-hoja-informativa",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nkf-kidney-disease-context-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Diabetes e hipertensión son factores importantes de enfermedad renal. También cuentan antecedentes familiares, lesiones renales previas, enfermedades hereditarias y uso excesivo de determinados analgésicos."
+        },
+        {
+          "id": "nkf-kidney-disease-context-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "El riesgo no equivale a diagnóstico. La función renal requiere pruebas y contexto clínico, no se determina con peso, talla o IMC. Distinguir factores de riesgo, síntomas referidos y análisis confirmados."
+        },
+        {
+          "id": "nkf-kidney-disease-context-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar diagnóstico renal, análisis disponibles, diabetes, hipertensión y productos utilizados habitualmente."
+        }
+      ]
+    },
+    {
+      "id": "nkf-urinary-symptoms",
+      "sourceId": "nkf",
+      "topic": "ext_urinary_symptoms",
+      "title": "Ardor al orinar y síntomas urinarios",
+      "publisher": "National Kidney Foundation",
+      "url": "https://www.kidney.org/es/temas-del-rinon/infecciones-del-tracto-urinario",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nkf-urinary-symptoms-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Una infección urinaria puede acompañarse de ardor, urgencia o frecuencia para orinar, molestias en abdomen bajo y cambios en orina. Algunas personas no presentan manifestaciones evidentes."
+        },
+        {
+          "id": "nkf-urinary-symptoms-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Los síntomas no determinan por sí solos infección o antibiótico apropiado. El olor aislado no debe convertirse en diagnóstico. Puede necesitarse muestra de orina y evaluación de otras causas."
+        },
+        {
+          "id": "nkf-urinary-symptoms-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, frecuencia, dolor, fiebre, episodios anteriores y resultados de análisis."
+        }
+      ]
+    },
+    {
+      "id": "niams-back-pain",
+      "sourceId": "niams",
+      "topic": "ext_back_pain",
+      "title": "Dolor de espalda",
+      "publisher": "NIAMS / NIH",
+      "url": "https://www.niams.nih.gov/es/informacion-de-salud/dolor-de-espalda",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "niams-back-pain-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "El dolor de espalda puede relacionarse con lesiones, esfuerzos, columna u otras enfermedades, y extenderse a otras regiones."
+        },
+        {
+          "id": "niams-back-pain-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Debilidad o entumecimiento de piernas, problemas al orinar, fiebre, pérdida de peso involuntaria o dolor tras lesión requieren valoración. Sobrepeso o postura no demuestran causalidad. El resumen no diagnostica lesión muscular o de columna."
+        },
+        {
+          "id": "niams-back-pain-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, traumatismo, trabajo físico, irradiación, limitación y síntomas acompañantes."
+        }
+      ]
+    },
+    {
+      "id": "nei-retinal-detachment",
+      "sourceId": "nei",
+      "topic": "ext_retinal_detachment",
+      "title": "Destellos, manchas nuevas y sombra en visión",
+      "publisher": "National Eye Institute / NIH",
+      "url": "https://www.nei.nih.gov/espanol/informacion-sobre-la-salud-ocular/enfermedades-y-afecciones-de-los-ojos/desprendimiento-de-la-retina",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": "2025-11-05",
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nei-retinal-detachment-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Un aumento repentino de manchas flotantes, destellos o sombra como cortina en la visión puede indicar problema de retina. Algunas lesiones necesitan tratamiento rápido para proteger visión."
+        },
+        {
+          "id": "nei-retinal-detachment-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Estas manifestaciones requieren evaluación oftalmológica inmediata o urgencias. No atribuirlas a cansancio sin evaluación. La confirmación puede necesitar examen con dilatación de pupilas."
+        },
+        {
+          "id": "nei-retinal-detachment-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, uno o ambos ojos, región de visión afectada y lesión o cirugía ocular previa."
+        }
+      ]
+    },
+    {
+      "id": "nidcd-sudden-hearing-loss",
+      "sourceId": "nidcd",
+      "topic": "ext_sudden_hearing_loss",
+      "title": "Pérdida repentina de audición",
+      "publisher": "NIDCD / NIH",
+      "url": "https://www.nidcd.nih.gov/es/espanol/sordera-subita",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nidcd-sudden-hearing-loss-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La pérdida de audición brusca o rápidamente progresiva necesita evaluación inmediata. Puede confundirse con cerumen u otros problemas; retrasar valoración puede reducir eficacia del tratamiento."
+        },
+        {
+          "id": "nidcd-sudden-hearing-loss-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "Por chat no se distingue obstrucción de alteración del oído interno. Puede requerirse exploración y audiometría. No recomendar esperar varios días para ver si vuelve audición."
+        },
+        {
+          "id": "nidcd-sudden-hearing-loss-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar inicio, oído, síntomas asociados, traumatismo y medicamentos."
+        }
+      ]
+    },
+    {
+      "id": "nidcr-tooth-decay",
+      "sourceId": "nidcr",
+      "topic": "ext_tooth_decay",
+      "title": "Dolor dental, caries e infección",
+      "publisher": "NIDCR / NIH",
+      "url": "https://www.nidcr.nih.gov/espanol/temas-de-salud/la-caries-dental",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "active_beta",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nidcr-tooth-decay-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "La caries puede ser asintomática al principio. Al avanzar puede causar dolor o sensibilidad a frío, calor o dulces. Una infección puede producir absceso, hinchazón facial y fiebre."
+        },
+        {
+          "id": "nidcr-tooth-decay-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "La evaluación corresponde al profesional dental y puede requerir exploración o radiografía. Ausencia de dolor no descarta caries. No indicar antibióticos ni asumir que todo dolor de boca es dental."
+        },
+        {
+          "id": "nidcr-tooth-decay-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Registrar zona, duración, sensibilidad, inflamación y fiebre."
+        }
+      ]
+    },
+    {
+      "id": "nida-cocaine-pending",
+      "sourceId": "nida",
+      "topic": "ext_cocaine_pending",
+      "title": "Cocaína: referencia pendiente de acceso completo",
+      "publisher": "NIDA / NIH",
+      "url": "https://nida.nih.gov/es/areas-de-investigacion/la-cocaina",
+      "version": "ampliacion-20261019",
+      "sourceUpdatedAt": null,
+      "checkedAt": "2026-10-19",
+      "reviewBy": "2027-01-19",
+      "type": "editorial_summary",
+      "clinicalReview": "pending",
+      "status": "needs_update",
+      "language": "es",
+      "locator": "Apartados públicos de síntomas, orientación y evaluación; localizador editorial por fragmento.",
+      "reuseNote": "Paráfrasis breve propia en español; sin imágenes, artículos completos ni cuestionarios oficiales. Verificar condiciones del editor antes de redistribuir.",
+      "chunks": [
+        {
+          "id": "nida-cocaine-pending-context",
+          "kind": "context",
+          "section": "Contexto y alcance",
+          "locator": "Contexto y alcance",
+          "text": "Publicación oficial identificada. La comprobación de acceso impidió revisar todo el contenido durante la búsqueda."
+        },
+        {
+          "id": "nida-cocaine-pending-warning",
+          "kind": "warning",
+          "section": "Orientación y límites",
+          "locator": "Orientación y límites",
+          "text": "No utilizar este registro como evidencia clínica antes de revisar texto completo. La relación temporal declarada entre consumo y síntomas no confirma por sí sola causalidad."
+        },
+        {
+          "id": "nida-cocaine-pending-questions",
+          "kind": "questions",
+          "section": "Datos sugeridos por CHECKIA para organizar el relato",
+          "locator": "Datos sugeridos por CHECKIA para organizar el relato",
+          "text": "Pendiente: ampliar efectos, consumo actual y pasado y relación temporal con síntomas."
         }
       ]
     }

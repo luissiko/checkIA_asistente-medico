@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CHECKIA · Prueba local</title><link rel="stylesheet" href="/style.css"><script type="module" src="/app.js"></script></head>
+<body>
+<header><div><span class="mark">+</span><strong>CHECKIA</strong><span class="badge">Prueba local</span></div></header>
+<main>
+<aside class="test-note">Prueba con casos ficticios. Las instrucciones clínicas del documento aún no están validadas. No realices llamadas de emergencia durante una simulación.</aside>
+<section id="start" class="card"><button id="new">Comenzar</button><p class="muted">Al comenzar autorizas que las respuestas de esta prueba se procesen con OpenAI.</p></section>
+<div id="workspace" hidden>
+<nav><button id="restart" class="secondary">Nueva prueba</button><button id="download" class="secondary">Descargar respuestas JSON</button><button id="reload" class="secondary">Recargar consulta</button></nav>
+<section id="alert" class="alert" hidden aria-label="Ayuda urgente"><h2>Ayuda de emergencia</h2><a class="call" href="tel:911">Llamar al 911</a><p>En una situación real no esperes una respuesta de la IA para pedir ayuda. En una simulación no llames.</p><h3 id="emergency-title"></h3><p id="emergency-question"></p><div id="advice"></div><div id="hospitals"></div><small>Los enlaces no confirman disponibilidad hospitalaria en tiempo real.</small></section>
+<section id="bmi-result" class="card" hidden tabindex="-1"><h2>Índice de masa corporal</h2><p id="bmi"></p><button id="bmi-continue" hidden>Continuar</button></section>
+<section id="question" class="card"><p id="number" class="eyebrow"></p><h2 id="question-text"></h2><div id="choices"></div><form id="answer-form"><label for="answer">Tu respuesta</label><textarea id="answer" rows="3" maxlength="4000" required></textarea><button id="send" type="submit">Continuar</button></form></section>
+<section id="orientation" class="card" hidden><p id="generation-status" role="status" aria-live="polite"></p><button id="generate" class="secondary">Generar respuesta</button><div id="generated"></div><p id="result-notice" class="muted" hidden></p>
+<div id="extra-controls" hidden><button id="extra-open" type="button">Añadir mas información extra</button><form id="extra-form" hidden><label for="extra-text">Información extra para ampliar tu relato</label><textarea id="extra-text" maxlength="4000" rows="4" required></textarea><button type="submit">Enviar y volver a evaluar</button><button id="extra-cancel" type="button" class="secondary">Cancelar</button></form><p id="extra-status" role="status" aria-live="polite"></p></div></section>
+<section class="card"><details><summary>Respuestas y correcciones</summary><p class="muted">Corregir vuelve a esa pregunta y solicita nuevamente las posteriores. El historial original permanece en la exportación.</p><div id="answers"></div><div id="extra-answers"></div></details></section>
+</div>
+<p id="error" role="alert"></p>
+<footer><a href="/original" target="_blank" rel="noopener noreferrer">Documento original íntegro</a></footer>
+</main></body></html>

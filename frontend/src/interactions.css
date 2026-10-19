@@ -1,0 +1,28 @@
+/* CHECKIA: interacciones discretas, sin dependencias externas. */
+@keyframes checkia-fade {from {opacity:.6} to {opacity:1}}
+@keyframes checkia-rise {from {transform:translateY(6px)} to {transform:translateY(0)}}
+@keyframes checkia-dot {0%,80%,100% {opacity:.3} 40% {opacity:1}}
+.workspace .question-card:not(.alarm-question-compact):not(.checkia-safety-question) {animation:checkia-fade 280ms ease-out}
+.workspace button {transition:background-color 180ms ease,border-color 180ms ease,box-shadow 180ms ease,scale 150ms ease}
+.workspace button:active:not(:disabled) {scale:.98}
+.workspace button:focus-visible,.workspace textarea:focus-visible,.workspace input:focus-visible {outline:3px solid #0e7490;outline-offset:3px}
+@media (hover:hover) and (pointer:fine) {.workspace button:hover:not(:disabled) {box-shadow:0 2px 7px #0f172a20}}
+.workspace .checkia-options {display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+.workspace .checkia-options button {min-height:44px;padding:.5rem 1rem;border:2px solid #64748b;border-radius:10px;background:#fff;color:#1e293b}
+.workspace .checkia-options button[aria-pressed="true"] {background:#e0f2fe;border-color:#0369a1;color:#0c4a6e;box-shadow:inset 0 0 0 1px #0369a1}
+.workspace .orientation-consent {transition:background-color 180ms ease,box-shadow 180ms ease}
+.workspace .orientation-consent:has(input:checked) {background:#e0f2fe;box-shadow:inset 3px 0 #0369a1}
+.workspace .checkia-progress {margin:.5rem 0 1rem;font-size:.875rem;color:#334155}
+.workspace .checkia-progress-track {height:6px;border-radius:6px;background:#e2e8f0;overflow:hidden;margin-top:.4rem}
+.workspace .checkia-progress-fill {height:100%;background:#0e7490;transition:width 280ms ease-out}
+.workspace .checkia-result {animation:checkia-rise 300ms ease-out}
+.checkia-dots {display:inline-flex;gap:4px;margin-left:.4rem;vertical-align:middle}
+.checkia-dots span {width:5px;height:5px;border-radius:50%;background:currentColor;animation:checkia-dot 1.2s infinite}
+.checkia-dots span:nth-child(2) {animation-delay:.15s}
+.checkia-dots span:nth-child(3) {animation-delay:.3s}
+.workspace textarea[aria-invalid="true"] {border:2px solid #b91c1c}
+.workspace .inline-answer-error {color:#991b1b;font-weight:600}
+@media (prefers-reduced-motion:reduce) {
+ .workspace .question-card,.workspace .checkia-result,.checkia-dots span {animation:none!important}
+ .workspace button,.workspace .orientation-consent,.workspace .checkia-progress-fill {transition:none!important}
+}

@@ -1,3 +1,4 @@
+import {isPaso23,integratedSummary} from '../paso23/integrated-protocol.mjs';
 import {currentAdditionalAnswers} from './adaptive.js';
 // Resumen determinista de datos referidos. No extrae hechos del chat ni diagnostica.
 import {normalize} from './response-quality.js';
@@ -10,6 +11,7 @@ function sites(text) {
  return Object.entries(groups).filter(([,pattern])=>clauses.some(c=>pattern.test(c))).map(([key])=>key);
 }
 export function buildSummary(session) {
+ if(isPaso23(session.clinicalState))return integratedSummary(session);
  const state=session.clinicalState || {},direct=['intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(state.protocolId),current=['intake-demo-v2','intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(state.protocolId);
  const supported=current || state.protocolId==='intake-demo-v1';
  const keys=current?['name','age','sex','weight','height','reason','onset','location','severity','associated','history','medications','allergies']:['reason','age','onset','location','severity','associated','history','medications','allergies'];

@@ -1,3 +1,5 @@
+import {TextSizeControl} from './TextSizeControl.jsx';
+import {isPaso23Protocol,Paso23Options,Paso23Bmi,Paso23Emergency} from './Paso23.jsx';
 import {AdminPanel} from './AdminPanel.jsx';
 import './admin.css';
 import React, { useEffect, useRef, useState } from 'react';
@@ -9,6 +11,9 @@ import './refinement.css';
 import './responsive.css';
 import './experience.css';
 import './mobile.css';
+import './interactions.css';
+import './paso23-ux.css';
+import {AnswerOptions,InterviewProgress,LoadingDots} from './Interactions.jsx';
 import {WelcomeIntro,HealthMark} from './Experience.jsx';
 import {ConsultationSummary} from './ConsultationSummary.jsx';
 import {createdInterview,friendlyApiError} from './interview-client.mjs';
@@ -38,6 +43,7 @@ function App() {
   const [authMode,setAuthMode]=useState('login'),[confirmPassword,setConfirmPassword]=useState(''),[authNotice,setAuthNotice]=useState('');
   const [sessions, setSessions] = useState([]), [selected, setSelected] = useState(null), [message, setMessage] = useState('');
   const [chosenId, setChosenId] = useState('');
+  const [bmiAcknowledged,setBmiAcknowledged]=useState('');
   const [correctionKey, setCorrectionKey] = useState(''), [correctionText, setCorrectionText] = useState('');
   useEffect(() => onAuthStateChanged(auth, current => { setUser(current); if(!current)setShowIntro(false); setAdminAllowed(false);setView('consultations');setAccountInfo(null); setReady(true); setPassword('');setConfirmPassword('');setAuthMode('login'); setSessions([]); setSelected(null); setMessage(''); setChosenId(''); setCorrectionKey(''); setCorrectionText('');  }), []);
   useEffect(()=>{let active=true;if(!user)return;api('/me').then(data=>{if(active){setAdminAllowed(data.admin===true);setAccountInfo(data);}}).catch(()=>{});return()=>{active=false;};},[user]);
@@ -152,22 +158,35 @@ function App() {
   const createSession = () => action(async () => {
     const healthResponse = await fetch('/api/health');
     const health = await healthResponse.json().catch(() => ({}));
-    if (!healthResponse.ok || health.interview !== 'intake-demo-v8' || !(health.validationVersion >= 16) || health.safetyVersion !== 'alarm-demo-v2') {
-      throw new Error('El servicio de entrevistas no está disponible en este momento. Actualiza la página e inténtalo nuevamente.');
+    if (!healthResponse.ok || !isPaso23Protocol(health.interview) || !(health.validationVersion >= 16) || health.safetyVersion !== 'alarm-demo-v2') {
+      throw new Error('No está activo el formulario actualizado. Cierra el backend anterior e inicia INICIAR_BACKEND_CHECKIA_PASO23.ps1 desde la carpeta CHECKIA.');
     }
     const data = await api('/sessions', 'POST');
     const session=createdInterview(data,health.interview);
     setSelected(session); setView('consultations'); setChosenId(session.id); setMessage(''); setCorrectionKey(''); setCorrectionText('');
     await listSessions();
   },'create');
+  async function refreshAfterAnswer(id){
+    const session=await api('/sessions/'+id);setSelected(session);
+    if(isPaso23Protocol(session.clinicalState?.protocolId)&&session.clinicalState.canGenerate&&session.status==='open'){
+      setBusyOperation('orientation');
+      try{await api('/sessions/'+id+'/orientation','POST',{consent:true,expectedRevision:session.clinicalState.revision});setSelected(await api('/sessions/'+id));}
+      catch(e){setErrorOperation('orientation');setError(e.message||'No se pudo generar la respuesta. Tus respuestas están guardadas.');}
+    }
+  }
+  const addPaso23Extra=async text=>{
+    let saved=false;
+    await action(async()=>{const id=selected.id;await api('/sessions/'+id+'/extra','POST',{text,requestId:crypto.randomUUID(),expectedRevision:selected.clinicalState.revision});saved=true;await refreshAfterAnswer(id);},'orientation');
+    return saved;
+  };
+  const sendAnswer=text=>{
+    if(!text.trim()||!selected||inFlight.current)return;
+    action(async()=>{const id=selected.id;await api('/sessions/'+id+'/messages','POST',{message:text.trim(),requestId:crypto.randomUUID(),questionId:selected.clinicalState?.pendingQuestions?.[0]?.id});setMessage('');await refreshAfterAnswer(id);});
+  };
   const generateOrientation=body=>action(async()=>{const id=selected.id;await api('/sessions/'+id+'/orientation','POST',body);setSelected(await api('/sessions/'+id));},'orientation');
   const beginAdditional=mode=>action(async()=>{const id=selected.id;await api('/sessions/'+id+(mode==='review'?'/safety-review':'/clarifications'),'POST',{expectedRevision:selected.clinicalState.revision||0,requestId:crypto.randomUUID()});setSelected(await api('/sessions/'+id));setMessage('');setCorrectionKey('');setCorrectionText('');});
   const loadSession = id => action(async () => { setSelected(await api('/sessions/' + id)); setChosenId(id); setMessage(''); setCorrectionKey(''); setCorrectionText(''); });
-  const sendMessage = e => { e.preventDefault(); if (!message.trim() || !selected || inFlight.current) return; action(async () => {
-    const id = selected.id;
-    await api('/sessions/' + id + '/messages','POST',{ message: message.trim(), requestId: crypto.randomUUID(), questionId: selected.clinicalState?.pendingQuestions?.[0]?.id });
-    setMessage(''); setSelected(await api('/sessions/' + id));
-  }); };
+  const sendMessage=e=>{e.preventDefault();sendAnswer(message);};
   const closeSession = () => action(async () => { await api('/sessions/' + selected.id + '/close','POST'); setSelected(await api('/sessions/' + selected.id)); await listSessions(); });
   const deleteSession = id => {
     if (!window.confirm('¿Eliminar esta consulta de prueba y sus mensajes? Esta acción no se puede deshacer.')) return;
@@ -179,31 +198,36 @@ function App() {
     action(async()=>{
       const id=selected.id;
       await api('/sessions/'+id+'/corrections','POST',{factKey:correctionKey,answer:correctionText.trim(),expectedRevision:selected.clinicalState.revision || 0,requestId:crypto.randomUUID()});
-      setSelected(await api('/sessions/'+id)); setCorrectionKey(''); setCorrectionText(''); setMessage('');
+      await refreshAfterAnswer(id); setCorrectionKey(''); setCorrectionText(''); setMessage('');
     });
   };
-  const cleanProtocol=selected?.clinicalState?.protocolId==='intake-demo-v8';
-  const freeTextProtocol=['intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
+  const paso23Protocol=isPaso23Protocol(selected?.clinicalState?.protocolId);
+  const completedPaso23=paso23Protocol&&selected?.clinicalState?.phase==='complete';
+  const cleanProtocol=paso23Protocol||selected?.clinicalState?.protocolId==='intake-demo-v8';
+  const freeTextProtocol=paso23Protocol||['intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
   const mobileProtocol=selected?.clinicalState?.protocolId==='intake-demo-v6';
   const betaProtocol = selected?.clinicalState?.protocolId === 'intake-demo-v5';
   const revisedProtocol = ['intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
   const directProtocol = ['intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
-  const currentProtocol = ['intake-demo-v2','intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
-  const interview = ['intake-demo-v1','intake-demo-v2','intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
-  const questionNumbers = {...(cleanProtocol ? {...mobileQuestionNumbers,allergy_timing:'16',family_history:'17',family_history_condition:'17.a',family_history_relative:'17.1',answers_confirmation:'18',location_description:'9.2'} : freeTextProtocol ? {...mobileQuestionNumbers,family_history:'17',family_history_condition:'17.a',family_history_relative:'17.1'} : mobileProtocol ? mobileQuestionNumbers : betaProtocol ? betaQuestionNumbers : revisedProtocol ? revisedQuestionNumbers : directProtocol ? directQuestionNumbers : currentProtocol ? currentQuestionNumbers : legacyQuestionNumbers),alarm_recheck:'R',...Object.fromEntries((selected?.clinicalState?.additionalAnswers||[]).map(a=>[a.key,a.number])),...Object.fromEntries((selected?.clinicalState?.pendingQuestions||[]).filter(q=>q.number).map(q=>[q.id,q.number]))};
+  const currentProtocol = paso23Protocol||['intake-demo-v2','intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
+  const interview = paso23Protocol||['intake-demo-v1','intake-demo-v2','intake-demo-v3','intake-demo-v4','intake-demo-v5','intake-demo-v6','intake-demo-v7','intake-demo-v8'].includes(selected?.clinicalState?.protocolId);
+  const questionNumbers = {...(cleanProtocol ? {...mobileQuestionNumbers,allergy_timing:'16',family_history:'17',family_history_condition:'17.a',family_history_relative:'17.1',answers_confirmation:'18',location_description:'9.2'} : freeTextProtocol ? {...mobileQuestionNumbers,family_history:'17',family_history_condition:'17.a',family_history_relative:'17.1'} : mobileProtocol ? mobileQuestionNumbers : betaProtocol ? betaQuestionNumbers : revisedProtocol ? revisedQuestionNumbers : directProtocol ? directQuestionNumbers : currentProtocol ? currentQuestionNumbers : legacyQuestionNumbers),alarm_recheck:'R',...(paso23Protocol?Object.fromEntries((selected?.clinicalState?.facts||[]).map(f=>[f.key,f.number])):{}),...Object.fromEntries((selected?.clinicalState?.additionalAnswers||[]).map(a=>[a.key,a.number])),...Object.fromEntries((selected?.clinicalState?.pendingQuestions||[]).filter(q=>q.number).map(q=>[q.id,q.number]))};
   const numbered = (key,text) => questionNumbers[key] ? `${questionNumbers[key]}. ${text}` : text;
   const totalAnswers = freeTextProtocol ? 17 : mobileProtocol ? 16 : directProtocol ? 15 : currentProtocol ? 13 : 9;
   const alarm = selected?.clinicalState?.assessment?.type === 'safety_alert';
   const safety = selected?.clinicalState?.safety;
   const pending = interview ? selected.clinicalState.pendingQuestions?.[0] : null;
-  const canAnswer = selected?.status === 'open' && interview && selected.clinicalState.phase === 'collecting' && pending;
+  const bmiAnswer=paso23Protocol?selected?.clinicalState?.paso23?.answers?.at(-1):null;
+  const bmiKey=bmiAnswer?.key==='bmi_consent'&&selected?.clinicalState?.bmi?selected.id+':'+bmiAnswer.recordedAt:null;
+  const pauseForBmi=Boolean(bmiKey&&bmiKey!==bmiAcknowledged);
+  const canAnswer = !pauseForBmi&&selected?.status === 'open' && interview && selected.clinicalState.phase === 'collecting' && pending;
   const answers = selected?.clinicalState?.facts?.length || 0;
   const lastMessage = selected?.messages?.at(-1);
   const statusLabel = status => ({reported:'Referido por el usuario',unknown:'Desconocido',declined:'Prefirió no responder',not_applicable:'No corresponde',none_reported:'Ninguno referido'}[status] || status);
   const questionNumber = questionNumbers[pending?.id] || '?';
   const knownQuestions = [...(selected?.clinicalState?.additionalAnswers||[]).map(a=>({id:a.key,text:a.question})),...(selected?.clinicalState?.facts || []).flatMap(f => [{id:f.key,text:f.question}, ...(f.clarifications || []).map(d=>({id:d.key,text:d.question}))]), ...(selected?.clinicalState?.pendingQuestions || [])];
   const historyQuestion = m => m.role === 'assistant' ? (m.nextQuestionId || knownQuestions.find(q=>m.text === q.text || m.text.endsWith(q.text))?.id) : null;
-  useEffect(() => { if (!busy && canAnswer) answerInput.current?.focus({preventScroll:true}); }, [busy, canAnswer, selected?.id, pending?.id]);
+  useEffect(() => { if (!busy && canAnswer && !(paso23Protocol && pending?.choices?.length)) answerInput.current?.focus({preventScroll:true}); }, [busy, canAnswer, selected?.id, pending?.id, paso23Protocol, pending?.choices?.length]);
   useEffect(()=>{
     const input=answerInput.current;if(!input)return;
     input.style.height='auto';
@@ -234,49 +258,34 @@ function App() {
     {authNotice && <div className="notice success" role="status">{authNotice}</div>}
     {error && <div className="notice error" role="alert">{error}</div>}
     {user&&view==='consultations'&&selected?.status==='closed'&&<div className="consultation-heading compact-heading closed-consultation-heading"><div className="consultation-title"><h2>Diagnóstico cerrado</h2><span className="session-id">Consulta {selected.id.slice(0,8)}</span></div></div>}
-    {!ready ? <p role="status">Comprobando acceso…</p> : user ? (<div className={"layout"+(!selected&&view==='consultations'?" waiting-consultation":" has-content")}>
-      <div className="controls-column">
-      <aside className={"panel controls"+(selected?" has-session":"")}>
-        <h2>Consultas</h2><p className="muted">Empieza el diagnóstico de checkIA</p>
-        <button disabled={busy} aria-busy={busyOperation==='create'} onClick={createSession}>Nueva consulta</button>
-        {busyOperation==='create'&&<p className="request-status" role="status">Preparando tu consulta…</p>}
-        {errorOperation==='create'&&error&&<p className="operation-error" role="alert">{error}</p>}
-        <details className="consultation-library"><summary>Consultas guardadas</summary><div className="history-picker">
-          <button className="secondary" disabled={busy} onClick={() => action(listSessions)}>Actualizar mis consultas</button>
-          <label htmlFor="session-picker">Consulta guardada</label>
-          <select id="session-picker" value={chosenId} onChange={e=>setChosenId(e.target.value)} disabled={busy}>
-            <option value="">Selecciona una consulta</option>
-            {selected && !sessions.some(s=>s.id === selected.id) && <option value={selected.id}>{selected.id} · {selected.status === 'closed' ? 'Cerrada' : 'Abierta'}</option>}
-            {sessions.map(s=><option key={s.id} value={s.id}>{s.id.slice(0,8)} · {s.status === 'closed' ? 'Cerrada' : 'Abierta'} · {new Date(s.createdAt).toLocaleString('es-MX')}</option>)}
-          </select>
-          <button className="secondary" disabled={busy || !chosenId} onClick={()=>loadSession(chosenId)}>Abrir consulta</button>
-          <p className="small muted">Se muestran hasta 20 consultas.</p>
-        </div></details>
-        <p className="small muted">Puedes retomar tus consultas durante 24 horas.</p>
-      </aside>
-      <nav className="admin-nav" aria-label="Secciones de CHECKIA"><button type="button" className="secondary" disabled={busy} aria-pressed={view==='consultations'} onClick={()=>setView('consultations')}>Mis consultas</button>{adminAllowed&&<button type="button" className="secondary" disabled={busy} aria-pressed={view==='admin'} onClick={()=>setView('admin')}>Panel de administrador</button>}</nav>
-      </div>
+    {!ready ? <p role="status">Comprobando acceso…</p> : user ? (<div className={"layout"+(!selected&&view==='consultations'?" waiting-consultation":" has-content")+(view==='consultations'&&paso23Protocol?" paso23-priority":"")}>
+      {view==='consultations'&&paso23Protocol&&selected.clinicalState.emergency?.requiresRag&&<Paso23Emergency state={selected.clinicalState}/>}
+      {view==='consultations'&&selected&&completedPaso23&&<div className="primary-orientation">
+          <OrientationPanel key={selected.id+":"+(selected.clinicalState?.revision||0)} session={selected} busy={busy} generating={busyOperation==='orientation'} error={errorOperation==='orientation'?error:''} onGenerate={generateOrientation} onBegin={beginAdditional} onExtra={addPaso23Extra}/>
+      </div>}
       {view==='admin'&&adminAllowed?<div id="main-content" tabIndex={-1}><AdminPanel key={user.uid} api={api} download={downloadAdmin}/></div>:<section id="main-content" tabIndex={-1} className={"panel consultation"+(!selected?" no-selected-consultation":"")} aria-label="Entrevista">
         
         {!selected ? null : <>
           {selected.status!=='closed'&&<div className="consultation-heading compact-heading"><div className="consultation-title"><h2>Diagnóstico</h2><span className="session-id">Consulta {selected.id.slice(0,8)}</span></div></div>}
           {interview && answers===0 && !selected.messages?.length && <p className="welcome welcome-compact" role="note"><HealthMark/><span>¡Hola! Soy tu asistente virtual CHECKIA. Responde estas preguntas para comenzar.</span></p>}
           {interview && !currentProtocol && <p className="small muted">Esta consulta conserva sus preguntas originales.</p>}
+          {interview&&!paso23Protocol&&<p className="notice" role="status">Esta consulta conserva el formulario anterior. Inicia Nueva consulta para usar tus preguntas actualizadas.</p>}
+          {paso23Protocol&&pauseForBmi&&<Paso23Bmi state={selected.clinicalState} pause={pauseForBmi} busy={busy} onContinue={()=>setBmiAcknowledged(bmiKey)}/>}
           {alarm && <div className="notice error" role="alert"><h3>Posible señal de alarma</h3><EmergencyHelp key={selected.id}/><p>{selected.clinicalState.assessment.reply}</p><ul>{selected.clinicalState.assessment.signals.map(signal=><li key={signal.id}>{signal.label}</li>)}</ul><p className="small">Prototipo sin validación clínica. La alerta se conserva al recargar y la entrevista no continúa.</p><details><summary>Fuentes de estas señales</summary>{selected.clinicalState.assessment.signals.map(signal=><p key={signal.id}><a href={signal.source.url} target="_blank" rel="noopener noreferrer">{signal.source.title}</a></p>)}</details></div>}
           {!alarm && interview && safety?.status === 'unknown' && <div className="notice">La comprobación inicial quedó como desconocida. No se han descartado señales de alarma y la urgencia sigue sin determinar.</div>}
           {!alarm && interview && !safety && <div className="notice">Esta consulta anterior no incluye la comprobación inicial de señales de alarma.</div>}
-          {canAnswer ? <div className={"question-card"+(pending.id==='alarm_screen'?' alarm-question-compact':'')}>
-            <button type="button" className="finish-writing secondary" onClick={()=>{answerInput.current?.blur();document.body.classList.remove('answer-focus');}}>Listo</button><p className="eyebrow">{'PREGUNTA ' + questionNumber + (pending.id==='alarm_recheck' ? ' · SEÑALES ACTUALES' : pending.id==='alarm_screen' ? ' · COMPROBACIÓN INICIAL' : pending.parentKey ? ' · ACLARACIÓN' : '')}</p><h3 style={{whiteSpace:'pre-line'}}>{pending.text}</h3>
+          {interview&&!alarm&&selected.status==='open'&&<InterviewProgress state={selected.clinicalState} numbers={questionNumbers}/>}
+          {pauseForBmi?null:canAnswer ? <div key={selected.id+':'+pending.id} className={"question-card"+(paso23Protocol?" paso23-question"+(pending.choices?.length?" paso23-has-options":"")+(answers===0?" paso23-start":""):"")+(['alarm_screen','alarm_recheck'].includes(pending.id)?' alarm-question-compact checkia-safety-question':'')}>
+            <p className="eyebrow">{'PREGUNTA ' + questionNumber + (pending.id==='alarm_recheck' ? ' · SEÑALES ACTUALES' : pending.id==='alarm_screen' ? ' · COMPROBACIÓN INICIAL' : pending.parentKey ? ' · ACLARACIÓN' : '')}</p><h3 style={{whiteSpace:'pre-line'}}>{pending.text}</h3>
             {clarification && <div className="notice" role="status">{clarification}</div>}
             <form onSubmit={sendMessage}>
-              {error && <p className="inline-answer-error" role="alert">{error}</p>}
-              <label htmlFor="answer">Tu respuesta</label>
-              <textarea enterKeyHint="send" ref={answerInput} onKeyDown={enterToSubmit} id="answer" value={message} onChange={e=>setMessage(e.target.value)} maxLength={4000} required disabled={busy} rows={3} inputMode={!freeTextProtocol && revisedProtocol && ['age','weight','height'].includes(pending.id) ? 'decimal' : 'text'} placeholder={freeTextProtocol && ['age','weight','height'].includes(pending.id) ? 'Escribe tu respuesta con texto o números.' : revisedProtocol && pending.id === 'height' ? 'Solo número en cm, por ejemplo 175.' : revisedProtocol && pending.id === 'weight' ? 'Solo número en kg, por ejemplo 70.' : pending.id === 'name' ? 'Solo tus nombres o un alias, por ejemplo Luis Alejandro.' : pending.id === 'reason' ? 'Por ejemplo: molestia en el abdomen.' : 'Escribe tu respuesta a la pregunta actual.'}/>
-              <div className="answer-footer"><button type="submit" onPointerDown={e=>e.preventDefault()} onMouseDown={e=>e.preventDefault()} disabled={busy || !message.trim()}>Guardar respuesta</button></div>
+              {error && <p id="answer-feedback" className="inline-answer-error" role="alert">{error}</p>}
+              {!paso23Protocol&&<label htmlFor="answer">Tu respuesta</label>}
+              {paso23Protocol?<Paso23Options question={pending} onSelect={sendAnswer} disabled={busy}/>:<AnswerOptions questionId={pending.id} value={message} onChange={setMessage} disabled={busy}/>}{!(paso23Protocol&&pending.selectionOnly)&&<><textarea aria-label={paso23Protocol?"Escribe una respuesta":undefined} aria-invalid={!!error} aria-describedby={error?"answer-feedback":undefined} enterKeyHint="send" ref={answerInput} onKeyDown={enterToSubmit} id="answer" value={message} onChange={e=>setMessage(e.target.value)} maxLength={4000} required disabled={busy} rows={3} inputMode={!freeTextProtocol && revisedProtocol && ['age','weight','height'].includes(pending.id) ? 'decimal' : 'text'} placeholder={paso23Protocol&&pending.placeholder?pending.placeholder:freeTextProtocol && ['age','weight','height'].includes(pending.id) ? 'Escribe tu respuesta con texto o números.' : revisedProtocol && pending.id === 'height' ? 'Solo número en cm, por ejemplo 175.' : revisedProtocol && pending.id === 'weight' ? 'Solo número en kg, por ejemplo 70.' : pending.id === 'name' ? 'Solo tus nombres o un alias, por ejemplo Luis Alejandro.' : pending.id === 'reason' ? 'Por ejemplo: molestia en el abdomen.' : 'Escribe tu respuesta a la pregunta actual.'}/>
+              <div className="answer-footer"><button type="submit" onPointerDown={e=>e.preventDefault()} onMouseDown={e=>e.preventDefault()} disabled={busy || !message.trim()}>Guardar respuesta</button></div></>}
             </form>
-          </div> : alarm ? <p className="muted">Entrevista detenida. Puedes revisar el historial o cerrar esta consulta de prueba.</p> : selected.status === 'closed' ? null : !interview ? <div className="notice">Esta consulta no contiene una entrevista. Pulsa “Nueva consulta” para comenzar.</div> : selected.clinicalState.phase === 'complete' ? <p className="completion-state">Respuestas guardadas.</p> : <div className="notice error">No se pudo cargar la siguiente pregunta. Pulsa “Recargar mensajes” e inténtalo nuevamente.</div>}
+          </div> : alarm ? <p className="muted">Entrevista detenida. Puedes revisar el historial o cerrar esta consulta de prueba.</p> : selected.status === 'closed' ? null : !interview ? <div className="notice">Esta consulta no contiene una entrevista. Pulsa “Nueva consulta” para comenzar.</div> : selected.clinicalState.phase === 'complete' ? (paso23Protocol?null:<p className="completion-state">Respuestas guardadas.</p>) : <div className="notice error">No se pudo cargar la siguiente pregunta. Pulsa “Recargar mensajes” e inténtalo nuevamente.</div>}
 
-          <OrientationPanel key={selected.id+":"+(selected.clinicalState?.revision||0)} session={selected} busy={busy} generating={busyOperation==='orientation'} error={errorOperation==='orientation'?error:''} onGenerate={generateOrientation} onBegin={beginAdditional}/>
           {selected.summary?.supported && <ConsultationSummary summary={selected.summary} canCorrect={selected.status==='open' && !alarm && !selected.clinicalState.clarificationContext && !selected.clinicalState.pendingQuestions?.[0]?.customFlow} onCorrect={key=>{setCorrectionKey(key);setCorrectionText(selected.clinicalState.facts.find(f=>f.key===key)?.text || '');document.getElementById('answers-corrections')?.setAttribute('open','');setTimeout(()=>document.getElementById('correction-text')?.focus(),0);}}/>}
           {selected.clinicalState.qualityEvents?.length > 0 && <details className="technical"><summary>Respuestas que necesitaron aclaración ({selected.clinicalState.qualityEvents.length})</summary>
             <p className="small muted">Estas respuestas permanecen en el historial; no sustituyen el dato finalmente registrado.</p>
@@ -297,6 +306,31 @@ function App() {
           <div className="consultation-footer"><button type="button" className="secondary reload-messages" disabled={busy} onClick={()=>loadSession(selected.id)}>Recargar mensajes</button></div>
         </>}
       </section>}
+      {view==='consultations'&&selected&&!completedPaso23&&<div className="primary-orientation">
+          <OrientationPanel key={selected.id+":"+(selected.clinicalState?.revision||0)} session={selected} busy={busy} generating={busyOperation==='orientation'} error={errorOperation==='orientation'?error:''} onGenerate={generateOrientation} onBegin={beginAdditional} onExtra={addPaso23Extra}/>
+      </div>}
+      <div className="controls-column">
+      <aside className={"panel controls"+(selected?" has-session":"")}>
+        <h2>Consultas</h2><p className="muted">Empieza el diagnóstico de checkIA</p>
+        <button disabled={busy} aria-busy={busyOperation==='create'} onClick={createSession}>Nueva consulta</button>
+        {busyOperation==='create'&&<p className="request-status" role="status">Preparando tu consulta…<LoadingDots/></p>}
+        {errorOperation==='create'&&error&&<p className="operation-error" role="alert">{error}</p>}
+        <details className="consultation-library"><summary>Consultas guardadas</summary><div className="history-picker">
+          <button className="secondary" disabled={busy} onClick={() => action(listSessions)}>Actualizar mis consultas</button>
+          <label htmlFor="session-picker">Consulta guardada</label>
+          <select id="session-picker" value={chosenId} onChange={e=>setChosenId(e.target.value)} disabled={busy}>
+            <option value="">Selecciona una consulta</option>
+            {selected && !sessions.some(s=>s.id === selected.id) && <option value={selected.id}>{selected.id} · {selected.status === 'closed' ? 'Cerrada' : 'Abierta'}</option>}
+            {sessions.map(s=><option key={s.id} value={s.id}>{s.id.slice(0,8)} · {s.status === 'closed' ? 'Cerrada' : 'Abierta'} · {new Date(s.createdAt).toLocaleString('es-MX')}</option>)}
+          </select>
+          <button className="secondary" disabled={busy || !chosenId} onClick={()=>loadSession(chosenId)}>Abrir consulta</button>
+          <p className="small muted">Se muestran hasta 20 consultas.</p>
+        </div></details>
+        <p className="small muted">Puedes retomar tus consultas durante 24 horas.</p>
+      </aside>
+      <nav className="admin-nav" aria-label="Secciones de CHECKIA"><button type="button" className="secondary" disabled={busy} aria-pressed={view==='consultations'} onClick={()=>setView('consultations')}>Mis consultas</button>{adminAllowed&&<button type="button" className="secondary" disabled={busy} aria-pressed={view==='admin'} onClick={()=>setView('admin')}>Panel de administrador</button>}</nav>
+      </div>
+      {view==='consultations'&&paso23Protocol&&!selected.clinicalState.emergency?.requiresRag&&<Paso23Emergency state={selected.clinicalState}/>}
     </div>) : <section id="main-content" tabIndex={-1} className="panel login-card"><h2>{authMode==='register'?'Crear cuenta':authMode==='reset'?'Recuperar contraseña':'Inicia sesión'}</h2>
       <p className="muted">{authMode==='reset'?'Escribe el correo de tu cuenta para solicitar el enlace de recuperación.':'Accede para crear y recuperar tus consultas de prueba.'}</p>
       <form onSubmit={authMode==='register'?register:authMode==='reset'?recoverPassword:login}>
@@ -314,7 +348,7 @@ function App() {
     </section>}
 
     {user && <details className="account-settings"><summary>Mi cuenta</summary><p>Identificador de cuenta (UID): {accountInfo?.uid||user.uid}</p><p>{adminAllowed?'Permiso de administrador activo.':'Cuenta de usuario.'}</p><button type="button" className="secondary" disabled={busy} onClick={()=>action(refreshPermissions)}>Actualizar permisos</button></details>}
-    {busy && !['create','orientation'].includes(busyOperation) && <p className="busy-status" role="status">Procesando…</p>}
+    {busy && !['create','orientation'].includes(busyOperation) && <p className="busy-status" role="status">Procesando…<LoadingDots/></p>}
   </main>;
 }
-createRoot(document.getElementById('root')).render(<App/>);
+createRoot(document.getElementById('root')).render(<><TextSizeControl/><App/></>);

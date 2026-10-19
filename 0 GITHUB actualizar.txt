@@ -1,0 +1,4 @@
+git add .
+git diff --cached --stat
+git commit -m "Describe los cambios realizados"
+git push

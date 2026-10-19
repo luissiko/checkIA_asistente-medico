@@ -51,8 +51,8 @@ test('detalle: lectura coherente de otra cuenta y vencida, historial ordenado y 
  await assert.rejects(service.detail('ADMIN',randomUUID()),{status:404});await assert.rejects(service.detail('ADMIN','../'),{status:404});
 });
 test('exportaciones: JSON/TXT con respuestas, CSV acotado sin identidad ni texto y fórmulas neutralizadas',async()=>{
- const db=new AdminDB(),service=new AdminService(db,{now}),id=seed(db);const json=await service.exportSession('ADMIN',id,'json');assert.equal(JSON.parse(json.content).id,id);assert.match(json.content,/Molestia privada/);assert.match(json.filename,/\.json$/);
- const txt=await service.exportSession('ADMIN',id,'txt');assert.match(txt.content,/RESPUESTAS/);assert.match(txt.content,/Nombre privado/);
+ const db=new AdminDB(),service=new AdminService(db,{now}),id=seed(db);const json=await service.exportSession('ADMIN',id,'json');assert.equal(JSON.parse(json.content).formato,'checkia-resumen-v1');assert.match(json.content,/Molestia privada/);assert.match(json.filename,/\.json$/);
+ const txt=await service.exportSession('ADMIN',id,'txt');assert.match(txt.content,/DATOS BÁSICOS/);assert.match(txt.content,/Nombre privado/);
  const page=await service.exportPage('ADMIN',{});assert.match(page.content,/consulta/);assert.doesNotMatch(page.content,/Nombre privado|Molestia privada|ownerUid/);
  assert.throws(()=>parseFilters({limit:'1000'},now()),{status:400});await assert.rejects(service.exportSession('ADMIN',id,'html'),{status:400});
  const value=csv([{id,createdAt:now(),status:'open',phase:'complete',model:' =HYPERLINK("evil")'}]);assert.match(value,/' =HYPERLINK/);assert.equal(logs(db).filter(l=>l.action.startsWith('export')).length,3);
@@ -71,7 +71,7 @@ test('todas las rutas administrativas exigen token y claim booleano; no basta bo
  assert.equal(logs(db).length,0);
  let res=await fetch(base+'/me',{headers:{Authorization:'Bearer user'}});assert.equal((await res.json()).admin,false);
  res=await fetch(base+'/admin/sessions',{headers:{Authorization:'Bearer admin'}});assert.equal(res.status,200);assert.equal((await res.json()).rows.length,1);
- res=await fetch(base+'/admin/sessions/'+id+'/export?format=json',{headers:{Authorization:'Bearer admin'}});assert.equal(res.status,200);assert.match(res.headers.get('content-disposition'),/attachment/);assert.equal(res.headers.get('cache-control'),'no-store');assert.equal(res.headers.get('x-content-type-options'),'nosniff');assert.equal((await res.json()).id,id);
+ res=await fetch(base+'/admin/sessions/'+id+'/export?format=json',{headers:{Authorization:'Bearer admin'}});assert.equal(res.status,200);assert.match(res.headers.get('content-disposition'),/attachment/);assert.equal(res.headers.get('cache-control'),'no-store');assert.equal(res.headers.get('x-content-type-options'),'nosniff');assert.equal((await res.json()).formato,'checkia-resumen-v1');
  res=await fetch(base+'/sessions/'+id,{headers:{Authorization:'Bearer user'}});assert.equal(res.status,404);
  res=await fetch(base+'/admin/sessions/'+id,{method:'POST',headers:{Authorization:'Bearer admin','Content-Type':'application/json'},body:JSON.stringify({admin:true})});assert.equal(res.status,404);assert.ok(calls>0);
  }finally{server.closeAllConnections();await new Promise(r=>server.close(r));}

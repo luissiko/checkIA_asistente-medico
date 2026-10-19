@@ -1,7 +1,7 @@
 export const WELCOME='0. ¡Hola, qué tal! Seré tu asistente virtual de diagnóstico médico. Por favor, responde las siguientes preguntas que se te realizarán.';
 export function createdInterview(data,expectedProtocol) {
  const session=data?.session,state=session?.clinicalState;
- if(!session?.id||state?.protocolId!==expectedProtocol||state?.phase!=='collecting'||state?.pendingQuestions?.[0]?.id!=='name') {
+ if(!session?.id||state?.protocolId!==expectedProtocol||state?.phase!=='collecting'||state?.pendingQuestions?.[0]?.id!==(expectedProtocol?.startsWith('paso23-local-')?'respondent':'name')) {
   throw new Error('No se pudo iniciar la entrevista. Actualiza la página e inténtalo nuevamente.');
  }
  return session;

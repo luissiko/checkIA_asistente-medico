@@ -1,0 +1,14 @@
+/* Espacio reservado para el control en todas las pantallas. */
+body{--text-toolbar-space:64px}
+body main,body .welcome-intro{padding-top:calc(var(--text-toolbar-space) + 16px)!important}
+.text-size-control{position:fixed;top:max(8px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));z-index:10000;max-width:calc(100vw - 24px)}
+.text-size-trigger{height:44px;min-width:48px;padding:4px 10px;background:#075f80;color:#fff;border:2px solid #fff;box-shadow:0 2px 10px #0003;font-size:20px;line-height:1}
+.text-size-menu{display:flex;flex-direction:column;gap:6px;width:max-content;max-width:calc(100vw - 24px);max-height:calc(100dvh - 72px);overflow:auto;margin-top:6px;padding:10px;background:#fff;border:1px solid #bed0df;border-radius:12px;box-shadow:0 6px 24px #16344c33}
+.text-size-menu button{font-size:1rem;min-height:44px;white-space:normal;text-align:left;background:#fff;color:#16344c;border:1px solid #bed0df}
+.text-size-menu button[aria-pressed=true]{background:#075f80;color:white}
+body.answer-focus .workspace .question-card{top:var(--text-toolbar-space)!important;max-height:calc(var(--visible-height,100dvh) - var(--text-toolbar-space))!important}
+body.answer-focus .workspace .question-card.paso23-has-options{height:calc(var(--visible-height,100dvh) - var(--text-toolbar-space))!important}
+.consultation-downloads{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.consultation-downloads button{font-size:.8rem;padding:.45rem .65rem;min-height:44px}
+.consultation-downloads .download-pdf{background:#b01928;color:#fff}
+.consultation-downloads .download-txt{background:#f5ce49;color:#382b05}

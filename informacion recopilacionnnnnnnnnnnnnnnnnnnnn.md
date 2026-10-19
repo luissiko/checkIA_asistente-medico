@@ -1,516 +1,1 @@
-cambiar orden
-
-
-
-ANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO?
-
-
-
-a.- ¿Tienes dificultad para respirar?
-
-
-
-b.- ¿Tienes dolor intenso  o presión en el pecho?
-
-
-
-c.-¿Tiene sangrado o vómito con sangre?
-
-
-
-d.- ¿tuvo pérdida de conocimiento o esta mareado ahora?
-
-
-
-e.- ¿Tienes mareo, náuseas o desmayo?.
-
-
-
-f.- ¿Tienes dolor abdominal intenso (estomago, vientre)?
-
-
-
-g.- ¿Tienes dolor de cabeza intenso(migraña)?.
-
-
-
-h.-¿Tiene sudoración fría,trasnpiracion repentina o pegajosa?
-
-
-
-\------------------------------------------------------------------------------
-
-cambios de interfaz por realizar.
-
-Estos cambios se realizara para una apariencia visual mas agradable y adaptativa a la pantalla de donde usara(smartphones, tablets/desktop web),primero se eliminara la esfera ocupa mucho espacio,luego.
-
-
-
-
-
-##### ahora nos emfocaremos mas en dispositivo móvil (smartphones /tabletas)
-
-
-
-1.- pantalla de inicio nueva consulta, (reducir el tamaño de la palabra CHECKIA y cambiarlo por checkIA),eliminar las palabras (Tu información paso a paso), el botón cerrar seción reduirlo al 60% de su tamaño , las palabras del correo electrónico reduciro al 60% igual
-
-
-
-la pantalla se debe adaptar correctamente cuando se esta escribiendo,porque el teclado de cualquier teléfono cubre de un 30 a 50% de la pantalla y el otro espacio queda para la visualización de la app web,tendrias que reducir a un 80 % el tamaño de las letra y que al estar escribiendo el cuadro de las pregunta se adapte visualmente al momento de escribir y no se tenga la necesidad de escrollear y visualizare el botoon
-
-
-
-3.- reducir botón "guardar respuesta" y "cerrar sesión" al 50 %
-
-
-
-4.- las palabras que aparecen arriba del botón de Guardar respuesta "Puedes escribir No sé o prefiero no responder y Enter guarda; shift + enter agrega una linea " eliminala.
-
-
-
-
-
-4.- El tamaño de las palabras en la pregunta  redúcelo a un 70 % aproximadamente
-
-
-
-5.- la pregunta 13.1, se repite la pregunta  abajo de la pregunta original, elimina la repetición.
-
-
-
-6.- Pregunta 15 cámbiala a la (¿Tienes alguna alergia?) y la 15.1 (¿Cuál alergia tienes y si tomas algún medicamento/remedio para eliminar').
-
-
-
-7.- La palabra "Entrevista"  cámbiala por Diagnóstico y redúcela al 60%. y la palabra consulta redúcela  al 60% y colocalo alado de la nueva palabra diagnóstico.
-
-
-
-8.- El botón recargar mensaje redúcelo al 50% y colócalo del lado derecho en la misma linea/espacio aproximadamente del  la nueva palabra Entrevista.
-
-
-
-9.- Elimina la frase ( el usuario respondio no a la lista inicial,esa respuesta no descarta otra emergencia ni determina una urgencia baja y también Recopilación terminada .
-
-
-
-10.- en la sesión de datos básicos referido reduce el tamaño de las palabras a un 60% y el botón corregir a un 50%, elimina las palabras "referido sin confirmar", se reducira los espacios entre las palabras de tal manera que se resuma las respuesta del usuario en poco espacio, actualmente absorbe mucho espacio y se tiene que scrollear mucho.
-
-
-
-10.- en la parte de Respuesta registrada y correcciones redúcelo al 60% y los espacio en preguntas redúcelo también con la intensión de optimizar espacio y visualización en la pantalla para no scrollear mucho.
-
-
-
-11.- el historial de conversaciones redúcelo el tamaño al 50% y que tenga la opción de botón de desplegar la conversación o ocultar, como la opción de respuesta registrada , que se le da clic al botón y de abre y cierra los datos ingresado.
-
-
-
-12.- botón de cerrar "cerrar consulta y eliminar consulta prueba" redúcelo al 50%
-
-\-------------------------------------------------------------------------------------
-
-
-
-13.- MODIFICAR LAS PREGUNTAS:
-
-
-
-1.-¿Cómo te llamas?
-
-
-
-2\. ¿Qué edad tienes?
-
-
-
-3\. ¿Masculino(m) o femenino(f) ?
-
-
-
-4\. ¿Cuál es tu peso (nombre de la persona)?
-
-&#x20;
-
-5\. ¿Cuál es su altura (nombre de la persona?
-
-
-
-la preguna 6, realiza estos cambio y reduce a un 80% el tamaño de las letras:
-
-ANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO?
-
-
-
-a.- ¿Tienes dificultad para respirar?
-
-
-
-b.- ¿Tienes dolor intenso  o presión en el pecho?
-
-
-
-c.-¿Tiene sangrado o vómito con sangre?
-
-
-
-d.- ¿tuvo pérdida de conocimiento o esta mareado ahora?
-
-
-
-e.- ¿Tienes mareo, náuseas o desmayo?.
-
-
-
-f.- ¿Tienes dolor abdominal intenso (estomago, vientre)?
-
-
-
-g.- ¿Tienes dolor de cabeza intenso(migraña)?.
-
-
-
-h.-¿Tiene sudoración fría, transpiración repentina o pegajosa?
-
-
-
-7\. ¿Motivo de  tu consulta?
-
-
-
-8\. ¿Cuándo comenzó tu dolencia o sintomas?
-
-8.1. Comente si usted recuerda cuando o un aproximado.
-
-&#x20;¿Cuándo comenzó?
-
-9\. ¿En qué parte le afecta?
-
-
-
-9.1. ¿En qué zona o lado del cuerpo ? (cuando responda algo ,pasa a la pregunta 9.2)
-
-9.2 Descríbeme su dolor o afectación
-
-
-
-10\. Si tienes dolor, ¿Qué intensidad tienes del 1-10?
-
-
-
-11\. ¿Qué otros síntomas presentas?
-
-
-
-12\. ¿has tenido alguna enfermedad en el pasado?
-
-12.1(si responde si preguntar) ¿Cuál enfermedad o dolencia has tenido?
-
-
-
-13\. ¿Tomas algún medicamento?
-
-(si responde a que si consume, pasa a la pregunta 13.1)
-
-(si responde no,preguntar 13.1¿Tomas algun remedio casero,naturista o botanico?si responde si preguntar¿Cual es y que contiene?, si responde que si preguntar¿Desde cuando lo consumes y proque lo consumes?)
-
-13.1¿Porque lo consumes,cuanto consumes {dosis})y desde cuando lo consumes?.
-
-
-
-
-
-13.2 ¿Sabe  usted del principio activo ó EFG (Equivalente Farmacéutico Genérico)? si ó no
-
-( si responde que si pasa a la pregunta 13.2.1 ¿Menciona cual es?
-
-
-
-15.- ¿tienes algún tipo de alergia?
-
-(si responde que si o menciona una alergia seguir con la pregunta 15.1,si dice que no,se cierra este formulario)
-
-
-
-15.1 ¿Que medicamento/remedio consumes para la alergia?
-
-
-
-15.2¿Desde cuándo la tienes y cuando fue la ultima vez?
-
-
-
-16.-¿Sus respuestas en las preguntas son verdaderas?( si ó no)
-
-
-
-\--------------------------------------------------------------------------------------------
-
-14.- El botón mi cuenta colocalo en la ultima parte baja,que no aparezca en el inicio o parte principal de la pantalla .
-
-
-
-15.- La sesión "crear cuenta" reducle a an 60% también los botones (crear mi cuenta, olvide mi sontraseña  y volver a iniciar seción.
-
-
-
-16.- El intro elimina el botón "omitir"
-
-
-
-17.- colocale mas transparencia a los botones.-
-
-### **---------------------------------------------------------------**
-
-1.- MOFIFICAR PREGUNTA 6 ANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO AHORA SI/NO?  y eliminar Responde Sí, una letra de la a a la h, No o No sé.
-
-
-
-2.- Nueva pregunta ser la 17 ¿Tienes alguna enfermedad hereditaria y cual es? si responde que si pasar pregunta 17.1¿Quien de tus familiares la tuvo o tiene)
-
-
-
-3.- Modificar "Orientación de tu consulta" solo que mencione esto( Revisa tu resumen antes de generar una orientación para preparar tu consulta médica.)
-
-
-
-4.-  Modificar  esto :(Acepto enviar mis respuestas a OpenAI para su evaluación en la versión beta de CHECKIA y apoyar la orientación de mi consulta. El resultado no confirma un diagnóstico médico. Revisa que no incluyan nombres, teléfonos u otros datos que no quieras compartir.) (Aceptas enviar tus  información para una evaluación beta de un checkIA para una evaluación, el resultado no confirma un diagnóstico médico)
-
-
-
-5.- preguntas de peso, altura edad que lleven numero, que las respuesta sean libre a escribir  texto o numero y no estar condicionado a poner únicamente numero
-
-
-
-6.- botón de guardar respuesta se tiene que oprimir 2 veces, hay que solo darle clic una vez
-
-
-
-7.- Pregunta 15 eliminar "si no sabes, escribe no se."
-
-
-
-8.- botón de (cerrar sesión) reducir a un 60%
-
-
-
-9.- Botón (mis consultas, nueva consulta y consulta guardada) reducir a un 60% aproximadamente
-
-
-
-10.- mensaje de Orientación de tu consulta  redúcelo solo a (Revisa tu resumen antes de generar una orientación medica)
-
-
-
-11.- botón de comprobar señales actuales redúcelo al 60 %.
-
-
-
-12 los botones de  (resumen revisar y corregir, respuesta que necesita aclaracipon,respuesta registrada y correcciones y historial de conversación) redúcelo a un 70% de su tamaño aprox
-
-### **---------------------------------------------------------------**
-
-**1.-preguntas 16,17,18 reacomodar, que la pregunta ultima sea** ¿Sus respuestasson verdaderas(SI/NO)?
-
-
-
-
-
-**2.-eliminar  el cuadro blanco, donde esta la palabra "comienza una entrevista " y las palabras pulsa "nueva consulta". aquí aparcera la primera pregunta y el campo para responder.**
-
-
-
-**3.- pregunta 6, reducir el tamaño de las palabras a un 80 %y eliminar las palabras (ANTES DE CONTINUAR), solo que quede la pregunta ¿Tienes algo de esto ahora si/no)? y en ese momento el cuadro de respuesta reducirlo al 70%. porque solo se genera una respuesta de si o no y también**  **En el cuadro que aparece Necesita atención medica inmediata si esta situación en real aun 70% de su tamaño y elimina la frase  "la señal referida requiere valoración urgente.no esperes a completar el formulario.La hospitalización la decide el medico y también la que dice "fuera de mexico usa le numero local de emergencia.para ua simulación,no realices llamada. y la frase " la persona esta en cancun" cambiala por "Hospitales de emergencia"**
-
-
-
-**4.- eliminar la parte que dice las palabras orientación médica (orientación generada con IA, revísala con un experto y  donde dice 17/17 puntos registrados)**
-
-
-
-**5.- pregunta 9.1 eliminar.**
-
-
-
-**6.- reducir los botones a un 70% de su tamaño aproximadamente de (mis consultas ,panel de administrador, nueva consulta, consultas guardada)**
-
-
-
-**7.- botón de (recargar mensajes) ponlo en la parte baja o hasta lo ultimo.**
-
-
-
-**8.- elimina la frase "Revisa tu resumen antes de generar una orientación medica"**
-
-
-
-**9.- Cambia las palabras de posición hasta la parte ultima o baja de todo y redúcela a un 60% de su tamaño que aparece a lo ultimo del formulario que dice de "Orientación medica"  y también "orientación generada con IA, revísala con un profesional de salud.**
-
-
-
-**10.- elimina el botón "historial de conversaciones".**
-
-
-
-\--------------------------------------------------------------------
-
-*1.- el botón de "comprobar señales actúales" cámbialo por "comprobar primer* 
-
-*diagnóstico"*
-
-
-
-*2.- el cuadro donde aparece "acepto enviar información a OPENAI etc", colocalo arriba.*
-
-
-
-*3.- cuando aparezca el  cuadro donde aparece Diagnostico cerrado, arriba de los botones (mis consulta,nueva consulta,consulta guardada etc),porque es lo primero que debe de leer el usuario), elimina la frase  y el cuadro azul que la encierra (esta consulta esta cerrada, puede revisar el historial)*
-
-
-
-*4.- Los botones reducelo a a 70% de su tamaño (resumen revisar y corregir,respuesta registrada y correciones,cerrar consulta,eliminar consulta)*
-
-
-
-*5,. en la parte que dice "Fuentes utilizadas en esta orientación, solo que diga la frase que esta debajo siguiente (La incorporación de estas fuentes no valida un diagnostico real y esta pendiente a una revisión clinica.)*
-
-
-
-*6.- los botones del inicio (mis consulta y panel administrador),que queden debajo del modulo o cuadro "consultas",donde esta el botón "nueva consulta",) Porque debe de aparecer primero al usuario ese modulo de consulta, en esa misma parte donde dice "inicia una entrevista nueva o recupera un consulta guarada" cámbialo por, "Empieza el diagnóstico de chekIA"*
-
-
-
-*7.-.- cargar 2 animación* 
-
-*a.-Implementa en CHECKIA una animación de un circulo giratorio n aro azul pequeño que gira durante la espera. con CSS, sin librerías adicionales.*
-
-
-
-*Debe aparecer inmediatamente después de aceptar el consentimiento y presionar “Generar orientación”, y mantenerse mientras se procesa la solicitud al backend.*
-
-
-
-*Muestra el texto “Preparando tu orientación…”. No muestres porcentajes ni etapas que el backend no pueda confirmar.*
-
-
-
-*Desactiva el botón de generar durante la solicitud para evitar envíos duplicados. No bloquees toda la pantalla ni ocultes el resumen.*
-
-
-
-*Cuando llegue la respuesta, retira la animación y muestra la orientación. Si ocurre un error, retírala, muestra un mensaje claro y permite volver a intentarlo.*
-
-
-
-*Adapta el indicador a celular, tableta y computadora. Usa tonos azules, respeta la preferencia de movimiento reducido y anuncia el estado mediante role="status".*
-
-
-
-*Conserva las alertas rojas, el consentimiento y las consultas guardadas. Aplica los cambios sobre el paso 22.3 e indica qué archivos modificaste.*
-
-*b) Integra una animación de espera de tres puntos azules con pulso suave debajo del botón “Iniciar consulta” de CHECKIA. Si actualmente se llama “Nueva consulta”, aplica el cambio a ese botón.*
-
-
-
-*Usa únicamente CSS, sin instalar librerías. Muéstrala junto al texto “Preparando tu consulta…” inmediatamente después de pulsar el botón y mientras se crea la consulta.*
-
-
-
-*Desactiva el botón durante la solicitud para evitar consultas duplicadas. Cuando aparezca la primera pregunta, retira la animación. Si ocurre un error, retírala, muestra un mensaje claro y habilita el botón para reintentar.*
-
-
-
-*El indicador debe ser pequeño, centrado y adaptable a celular, tableta y computadora. Respeta la preferencia de movimiento reducido: en ese caso muestra solo el texto. Usa role="status" para anunciar la espera de forma accesible.*
-
-
-
-*Aplica los cambios sobre el paso 22.3. Conserva el funcionamiento de la autenticación, las preguntas, las alertas rojas y las consultas guardadas. Indica los archivos modificados y entrega el cambio listo para aplicar, con respaldo previo.*
-
-
-
-
-
-
-
-***Evaluar el RAG y comparar los modelos con los mismos casos.***
-
-***Ampliar y revisar clínicamente la biblioteca.***
-
-***Mejorar las preguntas adaptativas y la detección de contradicciones.***
-
-***Evaluar BERT, embeddings especializados o un modelo de reordenamiento.***
-
-***Incorporar voz, imágenes y archivos con controles específicos.***
-
-***Ampliar exportaciones y analítica del panel administrativo.***
-
-***Validar clínicamente cualquier función de clasificación de urgencia antes de presentarla como triaje validado.***
-
-..
-
-.
-
-.Para CHECKIA, lo adecuado sería desarrollar un protocolo de orientación de urgencia a distancia, revisado por profesionales de salud en México. No elegiría una escala hospitalaria para aplicarla directamente mediante el chat.
-
-Estas son las referencias que tomaría:
-
-
-
-**NHS Pathways / NHS 111**
-
-valuación remota mediante preguntas y rutas de atención.	
-
-Referencia para diseñar preguntas adaptativas y decidir qué servicio necesita la persona. Su integración requiere revisar licencias; no es un protocolo libre para copiar.
-
-**IITT de la OMS**	
-
-Clasificación de adultos y niños dentro de servicios de urgencias.	
-
-Referencia clínica para señales de riesgo, respetando que fue diseñado para establecimientos de salud.
-
-**Triaje de instituciones mexicanas**
-
-Priorizar pacientes que llegan a urgencias.	
-
-Alinear las recomendaciones de CHECKIA con los servicios disponibles y la práctica local.
-
-
-
-
-
-#### NHS Pathways es el más cercano al tipo de interacción remota que buscas. El IITT, en cambio, está destinado expresamente al triaje dentro de unidades de urgencias. NHS England Digital
-
-Mi recomendación para nuestro proyecto sería:
-
-1\. Empezar con adultos y motivos de consulta delimitados, como dolor de cabeza y dolor abdominal. Niños y embarazo necesitarían rutas específicas.
-
-2\. Comprobar señales de emergencia al inicio, antes de pedir peso, altura o completar datos personales. Repetir la comprobación si aparece información nueva.
-
-3\. Crear rutas de preguntas por síntoma: inicio, evolución, intensidad, síntomas acompañantes y factores de riesgo.
-
-4\. Utilizar reglas clínicas versionadas para recomendar el siguiente paso. El LLM ayudaría a entender y explicar las respuestas; no decidiría por sí solo la urgencia.
-
-5\. Mantener una salida de “información insuficiente: requiere valoración profesional”, sin convertir un “No” o “No sé” en una conclusión de bajo riesgo.
-
-6\. Evaluarlo con casos revisados por médicos, midiendo especialmente cuántos casos urgentes se clasifican con menor prioridad y cuántos se derivan innecesariamente.
-
-No asignaría todavía colores Manchester ni tiempos de espera hospitalarios en CHECKIA. En el IMSS, la clasificación incorpora valoración por personal médico y toma de signos vitales; nuestra entrevista desde casa no equivale a esa evaluación.
-
-
-
-\--------------------------------------------------------------
-
-1.- mensajes a aclarar generar otras preguntas ,que se adapten a la segunda ronda de pregunta
-
-
-
-2.- cambia en la parte superior el modulo "acepto enviar información a openAI",comprobar primer diagnóstico, en la aprte principal y los demás botones y funcione que queden debajo de este modulo.
-
-
-
-
-
-
-
-
-
+cambiar ordenANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO?a.- ¿Tienes dificultad para respirar?b.- ¿Tienes dolor intenso  o presión en el pecho?c.-¿Tiene sangrado o vómito con sangre?d.- ¿tuvo pérdida de conocimiento o esta mareado ahora?e.- ¿Tienes mareo, náuseas o desmayo?.f.- ¿Tienes dolor abdominal intenso (estomago, vientre)?g.- ¿Tienes dolor de cabeza intenso(migraña)?.h.-¿Tiene sudoración fría,trasnpiracion repentina o pegajosa?\------------------------------------------------------------------------------cambios de interfaz por realizar.Estos cambios se realizara para una apariencia visual mas agradable y adaptativa a la pantalla de donde usara(smartphones, tablets/desktop web),primero se eliminara la esfera ocupa mucho espacio,luego.##### ahora nos emfocaremos mas en dispositivo móvil (smartphones /tabletas)1.- pantalla de inicio nueva consulta, (reducir el tamaño de la palabra CHECKIA y cambiarlo por checkIA),eliminar las palabras (Tu información paso a paso), el botón cerrar seción reduirlo al 60% de su tamaño , las palabras del correo electrónico reduciro al 60% igualla pantalla se debe adaptar correctamente cuando se esta escribiendo,porque el teclado de cualquier teléfono cubre de un 30 a 50% de la pantalla y el otro espacio queda para la visualización de la app web,tendrias que reducir a un 80 % el tamaño de las letra y que al estar escribiendo el cuadro de las pregunta se adapte visualmente al momento de escribir y no se tenga la necesidad de escrollear y visualizare el botoon3.- reducir botón "guardar respuesta" y "cerrar sesión" al 50 %4.- las palabras que aparecen arriba del botón de Guardar respuesta "Puedes escribir No sé o prefiero no responder y Enter guarda; shift + enter agrega una linea " eliminala.4.- El tamaño de las palabras en la pregunta  redúcelo a un 70 % aproximadamente5.- la pregunta 13.1, se repite la pregunta  abajo de la pregunta original, elimina la repetición.6.- Pregunta 15 cámbiala a la (¿Tienes alguna alergia?) y la 15.1 (¿Cuál alergia tienes y si tomas algún medicamento/remedio para eliminar').7.- La palabra "Entrevista"  cámbiala por Diagnóstico y redúcela al 60%. y la palabra consulta redúcela  al 60% y colocalo alado de la nueva palabra diagnóstico.8.- El botón recargar mensaje redúcelo al 50% y colócalo del lado derecho en la misma linea/espacio aproximadamente del  la nueva palabra Entrevista.9.- Elimina la frase ( el usuario respondio no a la lista inicial,esa respuesta no descarta otra emergencia ni determina una urgencia baja y también Recopilación terminada .10.- en la sesión de datos básicos referido reduce el tamaño de las palabras a un 60% y el botón corregir a un 50%, elimina las palabras "referido sin confirmar", se reducira los espacios entre las palabras de tal manera que se resuma las respuesta del usuario en poco espacio, actualmente absorbe mucho espacio y se tiene que scrollear mucho.10.- en la parte de Respuesta registrada y correcciones redúcelo al 60% y los espacio en preguntas redúcelo también con la intensión de optimizar espacio y visualización en la pantalla para no scrollear mucho.11.- el historial de conversaciones redúcelo el tamaño al 50% y que tenga la opción de botón de desplegar la conversación o ocultar, como la opción de respuesta registrada , que se le da clic al botón y de abre y cierra los datos ingresado.12.- botón de cerrar "cerrar consulta y eliminar consulta prueba" redúcelo al 50%\-------------------------------------------------------------------------------------13.- MODIFICAR LAS PREGUNTAS:1.-¿Cómo te llamas?2\. ¿Qué edad tienes?3\. ¿Masculino(m) o femenino(f) ?4\. ¿Cuál es tu peso (nombre de la persona)?&#x20;5\. ¿Cuál es su altura (nombre de la persona?la preguna 6, realiza estos cambio y reduce a un 80% el tamaño de las letras:ANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO?a.- ¿Tienes dificultad para respirar?b.- ¿Tienes dolor intenso  o presión en el pecho?c.-¿Tiene sangrado o vómito con sangre?d.- ¿tuvo pérdida de conocimiento o esta mareado ahora?e.- ¿Tienes mareo, náuseas o desmayo?.f.- ¿Tienes dolor abdominal intenso (estomago, vientre)?g.- ¿Tienes dolor de cabeza intenso(migraña)?.h.-¿Tiene sudoración fría, transpiración repentina o pegajosa?7\. ¿Motivo de  tu consulta?8\. ¿Cuándo comenzó tu dolencia o sintomas?8.1. Comente si usted recuerda cuando o un aproximado.&#x20;¿Cuándo comenzó?9\. ¿En qué parte le afecta?9.1. ¿En qué zona o lado del cuerpo ? (cuando responda algo ,pasa a la pregunta 9.2)9.2 Descríbeme su dolor o afectación10\. Si tienes dolor, ¿Qué intensidad tienes del 1-10?11\. ¿Qué otros síntomas presentas?12\. ¿has tenido alguna enfermedad en el pasado?12.1(si responde si preguntar) ¿Cuál enfermedad o dolencia has tenido?13\. ¿Tomas algún medicamento?(si responde a que si consume, pasa a la pregunta 13.1)(si responde no,preguntar 13.1¿Tomas algun remedio casero,naturista o botanico?si responde si preguntar¿Cual es y que contiene?, si responde que si preguntar¿Desde cuando lo consumes y proque lo consumes?)13.1¿Porque lo consumes,cuanto consumes {dosis})y desde cuando lo consumes?.13.2 ¿Sabe  usted del principio activo ó EFG (Equivalente Farmacéutico Genérico)? si ó no( si responde que si pasa a la pregunta 13.2.1 ¿Menciona cual es?15.- ¿tienes algún tipo de alergia?(si responde que si o menciona una alergia seguir con la pregunta 15.1,si dice que no,se cierra este formulario)15.1 ¿Que medicamento/remedio consumes para la alergia?15.2¿Desde cuándo la tienes y cuando fue la ultima vez?16.-¿Sus respuestas en las preguntas son verdaderas?( si ó no)\--------------------------------------------------------------------------------------------14.- El botón mi cuenta colocalo en la ultima parte baja,que no aparezca en el inicio o parte principal de la pantalla .15.- La sesión "crear cuenta" reducle a an 60% también los botones (crear mi cuenta, olvide mi sontraseña  y volver a iniciar seción.16.- El intro elimina el botón "omitir"17.- colocale mas transparencia a los botones.-### **---------------------------------------------------------------**1.- MOFIFICAR PREGUNTA 6 ANTES DE CONTINUAR: ¿TIENES ALGO DE ESTO AHORA SI/NO?  y eliminar Responde Sí, una letra de la a a la h, No o No sé.2.- Nueva pregunta ser la 17 ¿Tienes alguna enfermedad hereditaria y cual es? si responde que si pasar pregunta 17.1¿Quien de tus familiares la tuvo o tiene)3.- Modificar "Orientación de tu consulta" solo que mencione esto( Revisa tu resumen antes de generar una orientación para preparar tu consulta médica.)4.-  Modificar  esto :(Acepto enviar mis respuestas a OpenAI para su evaluación en la versión beta de CHECKIA y apoyar la orientación de mi consulta. El resultado no confirma un diagnóstico médico. Revisa que no incluyan nombres, teléfonos u otros datos que no quieras compartir.) (Aceptas enviar tus  información para una evaluación beta de un checkIA para una evaluación, el resultado no confirma un diagnóstico médico)5.- preguntas de peso, altura edad que lleven numero, que las respuesta sean libre a escribir  texto o numero y no estar condicionado a poner únicamente numero6.- botón de guardar respuesta se tiene que oprimir 2 veces, hay que solo darle clic una vez7.- Pregunta 15 eliminar "si no sabes, escribe no se."8.- botón de (cerrar sesión) reducir a un 60%9.- Botón (mis consultas, nueva consulta y consulta guardada) reducir a un 60% aproximadamente10.- mensaje de Orientación de tu consulta  redúcelo solo a (Revisa tu resumen antes de generar una orientación medica)11.- botón de comprobar señales actuales redúcelo al 60 %.12 los botones de  (resumen revisar y corregir, respuesta que necesita aclaracipon,respuesta registrada y correcciones y historial de conversación) redúcelo a un 70% de su tamaño aprox### **---------------------------------------------------------------****1.-preguntas 16,17,18 reacomodar, que la pregunta ultima sea** ¿Sus respuestasson verdaderas(SI/NO)?**2.-eliminar  el cuadro blanco, donde esta la palabra "comienza una entrevista " y las palabras pulsa "nueva consulta". aquí aparcera la primera pregunta y el campo para responder.****3.- pregunta 6, reducir el tamaño de las palabras a un 80 %y eliminar las palabras (ANTES DE CONTINUAR), solo que quede la pregunta ¿Tienes algo de esto ahora si/no)? y en ese momento el cuadro de respuesta reducirlo al 70%. porque solo se genera una respuesta de si o no y también**  **En el cuadro que aparece Necesita atención medica inmediata si esta situación en real aun 70% de su tamaño y elimina la frase  "la señal referida requiere valoración urgente.no esperes a completar el formulario.La hospitalización la decide el medico y también la que dice "fuera de mexico usa le numero local de emergencia.para ua simulación,no realices llamada. y la frase " la persona esta en cancun" cambiala por "Hospitales de emergencia"****4.- eliminar la parte que dice las palabras orientación médica (orientación generada con IA, revísala con un experto y  donde dice 17/17 puntos registrados)****5.- pregunta 9.1 eliminar.****6.- reducir los botones a un 70% de su tamaño aproximadamente de (mis consultas ,panel de administrador, nueva consulta, consultas guardada)****7.- botón de (recargar mensajes) ponlo en la parte baja o hasta lo ultimo.****8.- elimina la frase "Revisa tu resumen antes de generar una orientación medica"****9.- Cambia las palabras de posición hasta la parte ultima o baja de todo y redúcela a un 60% de su tamaño que aparece a lo ultimo del formulario que dice de "Orientación medica"  y también "orientación generada con IA, revísala con un profesional de salud.****10.- elimina el botón "historial de conversaciones".**\--------------------------------------------------------------------*1.- el botón de "comprobar señales actúales" cámbialo por "comprobar primer**diagnóstico"**2.- el cuadro donde aparece "acepto enviar información a OPENAI etc", colocalo arriba.**3.- cuando aparezca el  cuadro donde aparece Diagnostico cerrado, arriba de los botones (mis consulta,nueva consulta,consulta guardada etc),porque es lo primero que debe de leer el usuario), elimina la frase  y el cuadro azul que la encierra (esta consulta esta cerrada, puede revisar el historial)**4.- Los botones reducelo a a 70% de su tamaño (resumen revisar y corregir,respuesta registrada y correciones,cerrar consulta,eliminar consulta)**5,. en la parte que dice "Fuentes utilizadas en esta orientación, solo que diga la frase que esta debajo siguiente (La incorporación de estas fuentes no valida un diagnostico real y esta pendiente a una revisión clinica.)**6.- los botones del inicio (mis consulta y panel administrador),que queden debajo del modulo o cuadro "consultas",donde esta el botón "nueva consulta",) Porque debe de aparecer primero al usuario ese modulo de consulta, en esa misma parte donde dice "inicia una entrevista nueva o recupera un consulta guarada" cámbialo por, "Empieza el diagnóstico de chekIA"**7.-.- cargar 2 animación**a.-Implementa en CHECKIA una animación de un circulo giratorio n aro azul pequeño que gira durante la espera. con CSS, sin librerías adicionales.**Debe aparecer inmediatamente después de aceptar el consentimiento y presionar “Generar orientación”, y mantenerse mientras se procesa la solicitud al backend.**Muestra el texto “Preparando tu orientación…”. No muestres porcentajes ni etapas que el backend no pueda confirmar.**Desactiva el botón de generar durante la solicitud para evitar envíos duplicados. No bloquees toda la pantalla ni ocultes el resumen.**Cuando llegue la respuesta, retira la animación y muestra la orientación. Si ocurre un error, retírala, muestra un mensaje claro y permite volver a intentarlo.**Adapta el indicador a celular, tableta y computadora. Usa tonos azules, respeta la preferencia de movimiento reducido y anuncia el estado mediante role="status".**Conserva las alertas rojas, el consentimiento y las consultas guardadas. Aplica los cambios sobre el paso 22.3 e indica qué archivos modificaste.**b) Integra una animación de espera de tres puntos azules con pulso suave debajo del botón “Iniciar consulta” de CHECKIA. Si actualmente se llama “Nueva consulta”, aplica el cambio a ese botón.**Usa únicamente CSS, sin instalar librerías. Muéstrala junto al texto “Preparando tu consulta…” inmediatamente después de pulsar el botón y mientras se crea la consulta.**Desactiva el botón durante la solicitud para evitar consultas duplicadas. Cuando aparezca la primera pregunta, retira la animación. Si ocurre un error, retírala, muestra un mensaje claro y habilita el botón para reintentar.**El indicador debe ser pequeño, centrado y adaptable a celular, tableta y computadora. Respeta la preferencia de movimiento reducido: en ese caso muestra solo el texto. Usa role="status" para anunciar la espera de forma accesible.**Aplica los cambios sobre el paso 22.3. Conserva el funcionamiento de la autenticación, las preguntas, las alertas rojas y las consultas guardadas. Indica los archivos modificados y entrega el cambio listo para aplicar, con respaldo previo.****Evaluar el RAG y comparar los modelos con los mismos casos.******Ampliar y revisar clínicamente la biblioteca.******Mejorar las preguntas adaptativas y la detección de contradicciones.******Evaluar BERT, embeddings especializados o un modelo de reordenamiento.******Incorporar voz, imágenes y archivos con controles específicos.******Ampliar exportaciones y analítica del panel administrativo.******Validar clínicamente cualquier función de clasificación de urgencia antes de presentarla como triaje validado.***....Para CHECKIA, lo adecuado sería desarrollar un protocolo de orientación de urgencia a distancia, revisado por profesionales de salud en México. No elegiría una escala hospitalaria para aplicarla directamente mediante el chat.Estas son las referencias que tomaría:**NHS Pathways / NHS 111**valuación remota mediante preguntas y rutas de atención.Referencia para diseñar preguntas adaptativas y decidir qué servicio necesita la persona. Su integración requiere revisar licencias; no es un protocolo libre para copiar.**IITT de la OMS**Clasificación de adultos y niños dentro de servicios de urgencias.Referencia clínica para señales de riesgo, respetando que fue diseñado para establecimientos de salud.**Triaje de instituciones mexicanas**Priorizar pacientes que llegan a urgencias.Alinear las recomendaciones de CHECKIA con los servicios disponibles y la práctica local.#### NHS Pathways es el más cercano al tipo de interacción remota que buscas. El IITT, en cambio, está destinado expresamente al triaje dentro de unidades de urgencias. NHS England DigitalMi recomendación para nuestro proyecto sería:1\. Empezar con adultos y motivos de consulta delimitados, como dolor de cabeza y dolor abdominal. Niños y embarazo necesitarían rutas específicas.2\. Comprobar señales de emergencia al inicio, antes de pedir peso, altura o completar datos personales. Repetir la comprobación si aparece información nueva.3\. Crear rutas de preguntas por síntoma: inicio, evolución, intensidad, síntomas acompañantes y factores de riesgo.4\. Utilizar reglas clínicas versionadas para recomendar el siguiente paso. El LLM ayudaría a entender y explicar las respuestas; no decidiría por sí solo la urgencia.5\. Mantener una salida de “información insuficiente: requiere valoración profesional”, sin convertir un “No” o “No sé” en una conclusión de bajo riesgo.6\. Evaluarlo con casos revisados por médicos, midiendo especialmente cuántos casos urgentes se clasifican con menor prioridad y cuántos se derivan innecesariamente.No asignaría todavía colores Manchester ni tiempos de espera hospitalarios en CHECKIA. En el IMSS, la clasificación incorpora valoración por personal médico y toma de signos vitales; nuestra entrevista desde casa no equivale a esa evaluación.\--------------------------------------------------------------**<i>~~1.- mensajes a aclarar generar otras preguntas ,que se adapten a la segunda ronda de pregunta~~</i>****<i>~~2.- cambia en la parte superior el modulo "acepto enviar información a openAI",comprobar primer diagnóstico, en la parte principal y los demás botones y funcione que queden debajo de este modulo.~~</i>****<i>~~3.- siguiente paso categoría de urgencia~~</i>**### *solicitud de registro (anexo1)*### *curriculum (anexo 4)*### *curriculum vitae (anexo 3)****constancia no deudora ,registro civil.firma******max 25 nov.aviso******procedimiento y convocatoria y guía de atribución..******ley general de elecciones.******En la parte ultima donde  menciona siguiente paso, colocar una frase que diga "LISTA DE INSTITUCIONES DE SALUD DE QUINTANA ROO" y el enlace web: https://docs.google.com/document/d/18OXmmfO2w8QtXOLRd38TrUhuiEJpRiuEiLxNpM32OjA/edit?usp=sharing***boton Google inicio autenticacionAñade al panel de administrador de CHECKIA un botón llamado “Descargar caso para comparar LLM (.txt)”, disponible dentro del detalle de cada consulta.El botón debe descargar un archivo de texto plano UTF-8 para evaluar el mismo caso con diferentes modelos desde mi computadora.El archivo debe incluir:1\. Preguntas y respuestas vigentes, con sus aclaraciones, datos desconocidos y contradicciones.2\. Las instrucciones exactas enviadas al modelo: instrucciones del sistema/desarrollador y contenido de entrada, identificados por separado.3\. Los mismos fragmentos del RAG enviados en esa generación, en el mismo orden y con el texto completo. Incluye identificador, institución, título, sección, URL, versión y fecha disponibles.4\. El esquema de salida solicitado al modelo.5\. La configuración relevante: modelo original, esfuerzo de razonamiento, límite de salida y versiones del prompt, corpus e índice que se hayan registrado.La exportación debe utilizar una captura guardada de la solicitud original. No vuelvas a buscar fragmentos ni reconstruyas las instrucciones con la versión actual del código, porque podrían haber cambiado.Si actualmente no se guarda esa captura, implementa su almacenamiento para las nuevas generaciones. Para consultas anteriores, muestra claramente que no existe una captura reproducible; no presentes una reconstrucción como si fuera la solicitud original.No incluyas la orientación generada anteriormente en el archivo de evaluación, para evitar influir en los otros modelos.Excluye nombres, correos, teléfonos, UID, tokens y claves. Revisa también posibles datos personales en texto libre. Si la versión exportada necesita modificaciones para proteger datos, identifícala como una versión preparada para evaluación y úsala sin cambios en todas las comparaciones. No prometas anonimización completa mediante eliminación de campos.Incluye una nota: “Para comparar los modelos, utiliza las mismas instrucciones, respuestas, fragmentos y esquema de salida. Desactiva navegación web y recuperación adicional. Registra cualquier configuración que el modelo no admita”.El botón solo debe funcionar para administradores autorizados. Verifica el permiso en el backend, usa la autenticación existente y registra la descarga en la auditoría sin guardar contenido clínico en los logs.La descarga no debe llamar a OpenAI, consumir tokens, modificar la consulta ni regenerar su orientación. Conserva las consultas y exportaciones existentes.Entrega el cambio listo para aplicar con respaldo previo. Indica los archivos modificados y verifica permisos, fidelidad de la captura, codificación UTF-8 y funcionamiento de la descarga.

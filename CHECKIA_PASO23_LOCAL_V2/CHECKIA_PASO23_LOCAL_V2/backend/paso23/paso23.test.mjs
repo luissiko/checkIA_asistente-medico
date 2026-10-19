@@ -1,0 +1,132 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {CONTENT,initialState,advance,pending,bmiFor,contextFor,canGenerate} from './engine.mjs';
+import {createLocalServer} from './server.mjs';
+
+const defaults = {respondent:'Para mí, Luis 34',reason:'Caso ficticio: malestar',emergency_level:'2',emergency_options:'no',age:'30',sex:'h',weight:'80 kg',height:'1.70 m',bmi_consent:'si',onset:'ayer',location:'brazo',location_description:'texto libre 123',severity:'no tengo dolor 0',city:'Cancún',origin:'Campeche',answers_confirmation:'si'};
+function until(target, overrides={}, state=initialState()) {
+  for(let i=0;i<100;i++){
+    if(state.questionId===target || !state.questionId)return state;
+    const q=pending(state);state=advance(state,q.id,overrides[q.id]??defaults[q.id]??(q.kind==='yesno'?'no':'Información libre'));
+  }
+  throw Error('Ruta cíclica');
+}
+test('fuente íntegra y preguntas literales con correcciones autorizadas',()=>{
+  const bytes=readFileSync(new URL('../../docs/paso23/ORIGINAL_USUARIO.md',import.meta.url));
+  assert.equal(CONTENT.sourceSha256,createHash('sha256').update(bytes).digest('hex'));
+  const text=bytes.toString().replaceAll('\r','\n').replaceAll('~~','').replaceAll('**','');
+  for(const q of CONTENT.questions)if(!CONTENT.decisions.questionTextOverrides[q.id])assert.ok(text.includes(q.text),q.id+' debe coincidir con la fuente');
+  for(const o of CONTENT.emergencyOptions.filter(o=>o.question))assert.ok(text.includes(o.question));
+  assert.equal(CONTENT.questions.find(q=>q.id==='respondent').text,'¿Cuál es tu nombre o de la persona para el diagnóstico?');
+});
+test('recorrido adulto completo, saltos negativos y confirmación',()=>{
+  const s=until(null);assert.equal(s.phase,'complete');assert.ok(canGenerate(s));
+  const ids=s.answers.map(a=>a.key);assert.ok(!ids.includes('pregnant'));assert.ok(!ids.includes('children_count'));assert.ok(!ids.includes('medications_details'));assert.ok(ids.includes('remedies'));assert.ok(!ids.includes('activity_detail'));assert.ok(ids.includes('unhealthy_food'));assert.equal(s.bmi.display,27.68);
+});
+test('mujer: hijos, cantidad, embarazo y meses; rama afirmativa completa',()=>{
+  const s=until(null,{sex:'m',has_children:'si',children_count:'2',pregnant:'si',pregnancy_months:'3 meses',history:'si',medications:'si',medications_knows_active:'si',remedies:'si',allergies:'si',cancer_diabetes:'si',hereditary:'si',degenerative:'si',sti:'si',physical_activity:'si',healthy_diet:'si',avoids_processed:'si'});
+  const ids=s.answers.map(a=>a.key);
+  assert.ok(ids.indexOf('has_children')<ids.indexOf('children_count'));assert.ok(ids.indexOf('children_count')<ids.indexOf('pregnant'));
+  for(const key of ['pregnancy_months','history_detail','medications_identity','remedies_detail','allergy_timing','allergy_reaction','hereditary_relatives','activity_detail'])assert.ok(ids.includes(key),key);
+  assert.ok(ids.includes('unhealthy_food'));assert.equal(s.bmi.classification,'requiere_interpretacion_por_embarazo');
+});
+test('texto y números sin bloqueo; si/no estricto; texto original intacto',()=>{
+  let s=until('age');s=advance(s,'age','No lo sé, quizá 20 o 21');assert.equal(s.answers.at(-1).text,'No lo sé, quizá 20 o 21');
+  s=until('medications',{},s);assert.throws(()=>advance(s,'medications','tal vez'),e=>e.status===400);
+  s=advance(s,'medications','Sí');assert.equal(s.questionId,'medications_details');
+});
+test('nivel registrado sin activar reglas tachadas',()=>{
+  for(const [level,alarm] of [['0',false],['8',false],['9',false],['10',false],['nueve aprox',false]]){
+    let s=until('emergency_level');s=advance(s,'emergency_level',level);assert.equal(s.questionId,'emergency_options');assert.equal(Boolean(s.alert),alarm);
+  }
+});
+test('cada opción b–g muestra su texto propio y termina esa ruta',()=>{
+  for(const letter of 'bcdefg'){
+    let s=until('emergency_options');s=advance(s,'emergency_options',letter);assert.equal(s.phase,'emergency');assert.equal(s.alert.kind,letter);assert.ok(s.alert.content.paragraphs.length>3);assert.match(s.alert.content.paragraphs.join(' '),/911/);assert.equal(canGenerate(s),false);
+  }
+});
+test('las cuatro ramas especiales conservan la descripción para RAG/LLM',()=>{
+  for(const [group,key] of [['1','infant_emergency'],['2','pregnancy_emergency'],['3','older_emergency'],['4','disability_emergency']]){
+    let s=until('emergency_options');s=advance(s,s.questionId,'a');s=advance(s,s.questionId,group);assert.equal(s.questionId,key);
+    s=advance(s,key,'3 meses; ejemplo ficticio');assert.equal(s.phase,'emergency');assert.ok(canGenerate(s));assert.ok(contextFor(s).fields.some(f=>f.key==='reason'&&f.answer==='3 meses; ejemplo ficticio'));
+  }
+});
+test('grupo 5 continúa a pregunta 3; pregunta 7 es consentimiento de IMC',()=>{
+ let s=until('emergency_options');s=advance(s,s.questionId,'a');s=advance(s,s.questionId,'5');assert.equal(s.questionId,'age');
+ s=until('bmi_consent',{},s);assert.equal(s.bmi,null);s=advance(s,s.questionId,'no');assert.equal(s.questionId,'onset');assert.equal(s.bmi,null);
+ s=until('bmi_consent');s=advance(s,s.questionId,'si');assert.equal(s.bmi.display,27.68);
+});
+test('IMC adultos: unidades, decimales y grados autorizados',()=>{
+ const state=(age,weight,height)=>({answers:[{key:'age',text:age},{key:'weight',text:weight},{key:'height',text:height}]});
+ assert.equal(bmiFor(state('30','80','170')).display,27.68);assert.equal(bmiFor(state('30','80000 g','1.70 m')).display,27.68);
+ for(const [bmi,expected] of [[18.49,'bajo_peso'],[18.5,'rango_normal'],[24.99,'rango_normal'],[25,'sobrepeso'],[29.9,'sobrepeso'],[30,'obesidad_grado_I'],[35,'obesidad_grado_II'],[39.9,'obesidad_grado_II'],[40,'obesidad_grado_III']])assert.equal(bmiFor(state('30',String(bmi*4),'200 cm')).classification,expected);
+ assert.equal(bmiFor(state('30','texto','170')).bmi,null);assert.equal(bmiFor(state('30','80','0')).bmi,null);
+ assert.equal(bmiFor(state('81','80','170')).classification,'requiere_referencia_especifica');
+});
+test('IMC pediátrico: edad y sexo exactos, separación de referencias y límites',()=>{
+ const calc=(age,sex,weight='45',height='120')=>bmiFor({answers:Object.entries({age,sex,weight,height}).map(([key,text])=>({key,text}))});
+ assert.equal(calc('10','h').classification,'requiere_edad_exacta_y_sexo');
+ for(const sex of ['h','m'])assert.equal(calc('10 años 0 meses',sex).classification,'obesidad');
+ assert.equal(calc('48 meses','h','16','100').reference,'OMS_2006');
+ assert.equal(calc('60 meses','m','18','110').reference,'OMS_2006');
+ assert.equal(calc('61 meses','m','18','110').reference,'OMS_2007');
+ assert.equal(calc('228 meses','h','65','175').reference,'OMS_2007');
+ assert.equal(calc('229 meses','h').classification,'requiere_referencia_especifica');
+ assert.equal(calc('6 meses','h','7.5','67').classification,'requiere_confirmar_longitud_acostado');
+ assert.notEqual(calc('120 meses','h').cutoffs['2'],calc('120 meses','m').cutoffs['2']);
+});
+test('listas de nueve enfermedades, respuesta libre y contexto interpretado',()=>{
+ for(const key of ['hereditary_choice','degenerative_choice','sti_choice']){
+  const q=CONTENT.questions.find(q=>q.id===key);assert.equal(q.choices.length,9);
+  let s=until(key,{hereditary:'si',degenerative:'si',sti:'si'});s=advance(s,key,'3');
+  assert.equal(contextFor(s).fields.find(f=>f.key===key).selectedOptions[0],q.choices[2].label);
+ }
+});
+test('todas las ramas nuevas, actuales y pasadas, sin ciclos ni preguntas cruzadas',()=>{
+ for(const current of ['si','no']){
+  const overrides=Object.fromEntries(CONTENT.questions.filter(q=>q.kind==='yesno').map(q=>[q.id,'si']));
+  Object.assign(overrides,{sex:'m',alcohol_current:current,smoking_current:current,drugs_current:current});
+  const s=until(null,overrides);assert.equal(s.phase,'complete');const ids=s.answers.map(a=>a.key);
+  for(const prefix of ['alcohol','smoking','drugs']){
+   assert.ok(ids.includes(prefix+(current==='si'?'_detail':'_past')));
+   assert.ok(!ids.includes(prefix+(current==='si'?'_past':'_detail')));
+  }
+  for(const key of ['pets_detail','cancer_diabetes_detail','hereditary_since','degenerative_since','sti_since','city_since','origin_visits','travel_where','travel_duration','travel_frequent','medical_last','medical_reason','medical_treatment','lab_results','sleep_medications','work_hours','partners','donated_when'])assert.ok(ids.includes(key),key);
+  assert.equal(new Set(ids).size,ids.length);
+ }
+ for(const diet of ['si','no']){const s=until('unhealthy_food',{healthy_diet:'si',avoids_processed:diet});assert.equal(s.questionId,'unhealthy_food');}
+});
+async function local(t,dependencies={}){
+  const server=createLocalServer(dependencies);await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  t.after(()=>new Promise(resolve=>server.close(resolve)));
+  const base='http://127.0.0.1:'+server.address().port;const first=await fetch(base);const cookie=first.headers.get('set-cookie').split(';')[0];
+  return {base,cookie,async api(path,body,options={}){return fetch(base+path,{method:body?'POST':'GET',headers:{cookie,...(body?{'content-type':'application/json'}:{}),...options.headers},...(body?{body:JSON.stringify(body)}:{}),...options});}};
+}
+test('HTTP local: sin credenciales funciona formulario, control revisión y exportación',async t=>{
+  const c=await local(t);assert.equal((await fetch(c.base+'/api/config')).status,403);
+  let r=await c.api('/api/config');assert.equal((await r.json()).llm.configured,false);
+  r=await c.api('/api/sessions',{});let s=await r.json();
+  r=await c.api('/api/sessions/'+s.id+'/answer',{questionId:s.questionId,answer:'texto 123',expectedRevision:99});assert.equal(r.status,409);
+  r=await c.api('/api/sessions/'+s.id+'/answer',{questionId:s.questionId,answer:'texto 123',expectedRevision:0});s=await r.json();assert.equal(s.pending.id,'reason');
+  r=await c.api('/api/sessions/'+s.id+'/export');assert.equal((await r.json()).session.answers[0].text,'texto 123');
+  r=await c.api('/api/sessions/'+s.id+'/edit',{questionId:'respondent',expectedRevision:s.revision});s=await r.json();assert.equal(s.pending.id,'respondent');assert.equal(s.correctionHistory[0].previousAnswers.length,1);
+});
+const output={fuentes_usadas:['doc-test'],aclaraciones_sugeridas:[],resumen:'Caso ficticio',datos_por_aclarar:['Edad'],orientacion_general:'Información del fragmento',siguiente_paso:'Solicitar evaluación profesional',preguntas_para_profesional:[]};
+test('HTTP: RAG y LLM llamados con la rama infantil, sin fuentes inventadas',async t=>{
+  let received;
+  const chunk={id:'doc-test',title:'Fuente sintética de prueba',section:'Contexto',text:'Contenido de prueba',checkedAt:'2026-10-17',url:'https://www.who.int/'};
+  const c=await local(t,{client:{configured:true,generate:async context=>{received=context;return{result:output,model:'mock',usage:{inputTokens:0,outputTokens:0}};}},retriever:{status:{ready:true},retrieve:async()=>({status:'matched',retrieved:[chunk]})}});
+  let s=await (await c.api('/api/sessions',{consent:true})).json();
+  for(const answer of ['Para mi bebé','Caso ficticio','3','a','1','3 meses, caso ficticio'])s=await(await c.api('/api/sessions/'+s.id+'/answer',{questionId:s.questionId,answer,expectedRevision:s.revision})).json();
+  const r=await c.api('/api/sessions/'+s.id+'/orientation',{expectedRevision:s.revision});assert.equal(r.status,200);const result=await r.json();assert.equal(result.orientation.model,'mock');assert.equal(received.evidence.retrieved[0].id,'doc-test');assert.ok(received.fields.some(f=>f.key==='reason'&&f.answer.includes('3 meses')));
+  assert.equal(result.orientation.rag.sources[0].id,'doc-test');
+});
+test('HTTP: sin consentimiento no se llama al proveedor y CORS bloquea origen externo',async t=>{
+  const c=await local(t,{client:{configured:true,generate:()=>assert.fail('No se debe llamar sin consentimiento')}});
+  let s=await(await c.api('/api/sessions',{})).json();
+  for(const answer of ['Yo','Caso ficticio','2','a','1','Caso ficticio'])s=await(await c.api('/api/sessions/'+s.id+'/answer',{questionId:s.questionId,answer,expectedRevision:s.revision})).json();
+  assert.equal((await c.api('/api/sessions/'+s.id+'/orientation',{expectedRevision:s.revision})).status,400);
+  assert.equal((await fetch(c.base+'/api/config',{headers:{cookie:c.cookie,origin:'https://otro-sitio.example'}})).status,403);
+});

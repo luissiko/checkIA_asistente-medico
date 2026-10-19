@@ -7,3 +7,18 @@
 !knowledge/
 !knowledge/corpus.json
 !knowledge/index.json
+
+
+# Runtime de preguntas Paso 23
+!paso23/
+!paso23/engine.mjs
+!paso23/content.json
+!paso23/bmi.mjs
+!paso23/who-bmi-reference.json
+!paso23/local-client.mjs
+!paso23/local-retrieval.mjs
+!paso23/integrated-protocol.mjs
+!paso23/integrated-store.mjs
+!paso23/integrated-orientation.mjs
+!paso23/integrated-app.mjs
+!paso23/cloud-server.mjs
